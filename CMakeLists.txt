@@ -20,6 +20,8 @@ if (APPLE)
             segment/warp.h
             segment/Projection.cpp
             segment/Projection.h
+            segment/cutPiece.cpp
+            segment/cutPiece.h
             )
 endif (APPLE)
 
@@ -37,6 +39,8 @@ if(UNIX AND NOT APPLE)
             segment/warp.cpp
             segment/Projection.cpp
             segment/Projection.h
+            segment/cutPiece.cpp
+            segment/cutPiece.h
             )
     set (CMAKE_CXX_FLAGS "-lX11 -pthread")
     message(STATUS "Looking for X11...")
@@ -47,7 +51,7 @@ endif(UNIX AND NOT APPLE)
 
 if (WIN32)
     set (CMAKE_CXX_FLAGS "-lgdi32 -static-libstdc++ -static-libgcc")
-    set (CMAKE_SHARED_LINKER_FLAGS "-lgdi32 -static-libstdc++ -static-libgcc")
+    set (CMAKE_SHARED_LINKER_FLAGS "-lgdi32")
 
     include_directories(segment)
     add_executable(segment
@@ -62,6 +66,9 @@ if (WIN32)
             segment/warp.cpp
             segment/Projection.cpp
             segment/Projection.h
-            segment/public.h)
+            segment/public.h
+            segment/cutPiece.cpp
+            segment/cutPiece.h
+            segment/cutPiece.h)
 endif(WIN32)
 include_directories(.)

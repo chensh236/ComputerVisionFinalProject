@@ -1,11 +1,14 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/segment.dir/segment/main.cpp.o"
-  "CMakeFiles/segment.dir/segment/segment.cpp.o"
-  "CMakeFiles/segment.dir/segment/Hough.cpp.o"
-  "CMakeFiles/segment.dir/segment/warp.cpp.o"
-  "CMakeFiles/segment.dir/segment/Projection.cpp.o"
+  "CMakeFiles/segment.dir/segment/main.cpp.obj"
+  "CMakeFiles/segment.dir/segment/segment.cpp.obj"
+  "CMakeFiles/segment.dir/segment/Hough.cpp.obj"
+  "CMakeFiles/segment.dir/segment/warp.cpp.obj"
+  "CMakeFiles/segment.dir/segment/Projection.cpp.obj"
+  "CMakeFiles/segment.dir/segment/cutPiece.cpp.obj"
   "segment.pdb"
-  "segment"
+  "segment.exe"
+  "segment.exe.manifest"
+  "libsegment.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

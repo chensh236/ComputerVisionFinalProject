@@ -65,48 +65,23 @@ Homography warp::getHomography(vector<Hough_pos> &vec)
 	topPair = posPairs[0];
 	bottomPair = posPairs[1];
 
-	//判断方向
-	// 纸张方向为横向
-	if (abs(topPair.pos1[1] - topPair.pos2[1]) > abs(topPair.pos1[0] - topPair.pos2[0]))
-	{
-		// 比较横向的x，如果bottom小于top，位置颠倒
-		if (topPair.pos1[0] + topPair.pos2[0] > bottomPair.pos1[0] + bottomPair.pos2[0])
-		{
-			pointPair tmp = topPair;
-			topPair = bottomPair;
-			bottomPair = tmp;
-		}
-		// 如果y不符合上下位置，上面两点位置颠倒
-		if (topPair.pos2[1] > topPair.pos1[1])
-		{
-			topPair.swap();
-		}
-		// 同样下面两点位置颠倒
-		if (bottomPair.pos2[1] < bottomPair.pos1[1])
-		{
-			bottomPair.swap();
-		}
-	}
-	else
-	{
-		// 比较纵向的y，如果bottom小于top，位置颠倒
-		if (topPair.pos1[1] + topPair.pos2[1] > bottomPair.pos1[1] + bottomPair.pos2[1])
-		{
-			pointPair tmp = topPair;
-			topPair = bottomPair;
-			bottomPair = tmp;
-		}
-		// 如果x不符合上下位置，上面两点位置颠倒
-		if (topPair.pos1[0] > topPair.pos2[0])
-		{
-			topPair.swap();
-		}
-		// 下面两点位置颠倒
-		if (bottomPair.pos1[0] < bottomPair.pos2[0])
-		{
-			bottomPair.swap();
-		}
-	}
+    // 比较横向的x，如果bottom小于top，位置颠倒
+    if (topPair.pos1[1] + topPair.pos2[1] > bottomPair.pos1[1] + bottomPair.pos2[1])
+    {
+        pointPair tmp = topPair;
+        topPair = bottomPair;
+        bottomPair = tmp;
+    }
+    // 如果y不符合上下位置，上面两点位置颠倒
+    if (topPair.pos2[0] < topPair.pos1[0])
+    {
+        topPair.swap();
+    }
+    // 同样下面两点位置颠倒
+    if (bottomPair.pos2[0] > bottomPair.pos1[0])
+    {
+        bottomPair.swap();
+    }
 
 	// 整理
 	srcPos[0][0] = topPair.pos1[0];

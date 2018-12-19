@@ -1,4 +1,4 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/chensihang/Desktop/102812145/segment
+"C:\Program Files\JetBrains\CLion 2018.2.5\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=C:/nuwen/MinGW/bin/gcc.exe -DCMAKE_CXX_COMPILER=C:/nuwen/MinGW/bin/g++.exe -G "CodeBlocks - MinGW Makefiles" "C:\Users\Chen Sihang\Desktop\finalProject\A4Warping"
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Users/chensihang/Desktop/102812145/segment/cmake-build-debug
+-- Build files have been written to: C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug

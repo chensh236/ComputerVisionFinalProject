@@ -4,13 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/chensihang/Desktop/102812145/segment/segment/Hough.cpp" "/Users/chensihang/Desktop/102812145/segment/cmake-build-debug/CMakeFiles/segment.dir/segment/Hough.cpp.o"
-  "/Users/chensihang/Desktop/102812145/segment/segment/Projection.cpp" "/Users/chensihang/Desktop/102812145/segment/cmake-build-debug/CMakeFiles/segment.dir/segment/Projection.cpp.o"
-  "/Users/chensihang/Desktop/102812145/segment/segment/main.cpp" "/Users/chensihang/Desktop/102812145/segment/cmake-build-debug/CMakeFiles/segment.dir/segment/main.cpp.o"
-  "/Users/chensihang/Desktop/102812145/segment/segment/segment.cpp" "/Users/chensihang/Desktop/102812145/segment/cmake-build-debug/CMakeFiles/segment.dir/segment/segment.cpp.o"
-  "/Users/chensihang/Desktop/102812145/segment/segment/warp.cpp" "/Users/chensihang/Desktop/102812145/segment/cmake-build-debug/CMakeFiles/segment.dir/segment/warp.cpp.o"
+  "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Hough.cpp" "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/CMakeFiles/segment.dir/segment/Hough.cpp.obj"
+  "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Projection.cpp" "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/CMakeFiles/segment.dir/segment/Projection.cpp.obj"
+  "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/cutPiece.cpp" "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/CMakeFiles/segment.dir/segment/cutPiece.cpp.obj"
+  "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/main.cpp" "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/CMakeFiles/segment.dir/segment/main.cpp.obj"
+  "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/segment.cpp" "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/CMakeFiles/segment.dir/segment/segment.cpp.obj"
+  "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/warp.cpp" "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/CMakeFiles/segment.dir/segment/warp.cpp.obj"
   )
-set(CMAKE_CXX_COMPILER_ID "AppleClang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

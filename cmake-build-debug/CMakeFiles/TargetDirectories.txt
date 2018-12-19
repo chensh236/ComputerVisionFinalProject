@@ -1,3 +1,3 @@
-/Users/chensihang/Desktop/102812145/segment/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/chensihang/Desktop/102812145/segment/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/chensihang/Desktop/102812145/segment/cmake-build-debug/CMakeFiles/segment.dir
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/CMakeFiles/segment.dir
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/CMakeFiles/rebuild_cache.dir

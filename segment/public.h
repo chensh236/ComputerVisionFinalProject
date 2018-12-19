@@ -18,6 +18,7 @@ typedef struct Hough_pos{
     int y;
     int val;
     Hough_pos(int _x, int _y, int _val):x(_x),y(_y),val(_val){}
+    Hough_pos(int _x, int _y):x(_x),y(_y){}
     Hough_pos(){}
 } Hough_pos;
 

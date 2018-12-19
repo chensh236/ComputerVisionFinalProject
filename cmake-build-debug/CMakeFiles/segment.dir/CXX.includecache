@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/Users/chensihang/Desktop/102812145/segment/segment/CImg.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/CImg.h
 cstdio
 -
 cstdlib
@@ -74,69 +74,63 @@ omp.h
 cstddef
 -
 cv.h
-/Users/chensihang/Desktop/102812145/segment/segment/cv.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/cv.h
 highgui.h
-/Users/chensihang/Desktop/102812145/segment/segment/highgui.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/highgui.h
 png.h
-/Users/chensihang/Desktop/102812145/segment/segment/png.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/png.h
 jpeglib.h
-/Users/chensihang/Desktop/102812145/segment/segment/jpeglib.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/jpeglib.h
 setjmp.h
-/Users/chensihang/Desktop/102812145/segment/segment/setjmp.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/setjmp.h
 tiffio.h
-/Users/chensihang/Desktop/102812145/segment/segment/tiffio.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/tiffio.h
 minc_io_simple_volume.h
-/Users/chensihang/Desktop/102812145/segment/segment/minc_io_simple_volume.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/minc_io_simple_volume.h
 minc_1_simple.h
-/Users/chensihang/Desktop/102812145/segment/segment/minc_1_simple.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/minc_1_simple.h
 minc_1_simple_rw.h
-/Users/chensihang/Desktop/102812145/segment/segment/minc_1_simple_rw.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/minc_1_simple_rw.h
 zlib.h
-/Users/chensihang/Desktop/102812145/segment/segment/zlib.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/zlib.h
 curl/curl.h
-/Users/chensihang/Desktop/102812145/segment/segment/curl/curl.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/curl/curl.h
 Magick++.h
-/Users/chensihang/Desktop/102812145/segment/segment/Magick++.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Magick++.h
 fftw3.h
-/Users/chensihang/Desktop/102812145/segment/segment/fftw3.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/fftw3.h
 Board.h
-/Users/chensihang/Desktop/102812145/segment/segment/Board.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Board.h
 ImfRgbaFile.h
-/Users/chensihang/Desktop/102812145/segment/segment/ImfRgbaFile.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/ImfRgbaFile.h
 ImfInputFile.h
-/Users/chensihang/Desktop/102812145/segment/segment/ImfInputFile.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/ImfInputFile.h
 ImfChannelList.h
-/Users/chensihang/Desktop/102812145/segment/segment/ImfChannelList.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/ImfChannelList.h
 ImfMatrixAttribute.h
-/Users/chensihang/Desktop/102812145/segment/segment/ImfMatrixAttribute.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/ImfMatrixAttribute.h
 ImfArray.h
-/Users/chensihang/Desktop/102812145/segment/segment/ImfArray.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/ImfArray.h
 tinyexr.h
-/Users/chensihang/Desktop/102812145/segment/segment/tinyexr.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/tinyexr.h
 CImg.h
-/Users/chensihang/Desktop/102812145/segment/segment/CImg.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/CImg.h
 stdint.h
 -
 
-/Users/chensihang/Desktop/102812145/segment/segment/Hough.h
-public.h
-/Users/chensihang/Desktop/102812145/segment/segment/public.h
-
-/Users/chensihang/Desktop/102812145/segment/segment/Projection.h
-public.h
-/Users/chensihang/Desktop/102812145/segment/segment/public.h
-
-/Users/chensihang/Desktop/102812145/segment/segment/main.cpp
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/cutPiece.cpp
+cutPiece.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/cutPiece.h
 segment.h
-/Users/chensihang/Desktop/102812145/segment/segment/segment.h
-Hough.h
-/Users/chensihang/Desktop/102812145/segment/segment/Hough.h
-warp.h
-/Users/chensihang/Desktop/102812145/segment/segment/warp.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/segment.h
 
-/Users/chensihang/Desktop/102812145/segment/segment/public.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/cutPiece.h
+public.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/public.h
+
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/public.h
 CImg.h
-/Users/chensihang/Desktop/102812145/segment/segment/CImg.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/CImg.h
 cmath
 -
 cstdio
@@ -154,13 +148,7 @@ stack
 queue
 -
 
-/Users/chensihang/Desktop/102812145/segment/segment/segment.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/segment.h
 public.h
-/Users/chensihang/Desktop/102812145/segment/segment/public.h
-
-/Users/chensihang/Desktop/102812145/segment/segment/warp.h
-public.h
-/Users/chensihang/Desktop/102812145/segment/segment/public.h
-Projection.h
-/Users/chensihang/Desktop/102812145/segment/segment/Projection.h
+C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/public.h
 
