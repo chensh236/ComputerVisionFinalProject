@@ -6,8 +6,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Hough.cpp" "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/CMakeFiles/segment.dir/segment/Hough.cpp.obj"
   "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Projection.cpp" "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/CMakeFiles/segment.dir/segment/Projection.cpp.obj"
+  "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/canny.cpp" "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/CMakeFiles/segment.dir/segment/canny.cpp.obj"
   "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/cutPiece.cpp" "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/CMakeFiles/segment.dir/segment/cutPiece.cpp.obj"
+  "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/equalization.cpp" "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/CMakeFiles/segment.dir/segment/equalization.cpp.obj"
   "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/main.cpp" "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/CMakeFiles/segment.dir/segment/main.cpp.obj"
+  "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/prepareLearning.cpp" "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/CMakeFiles/segment.dir/segment/prepareLearning.cpp.obj"
+  "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/reshape.cpp" "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/CMakeFiles/segment.dir/segment/reshape.cpp.obj"
   "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/segment.cpp" "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/CMakeFiles/segment.dir/segment/segment.cpp.obj"
   "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/warp.cpp" "C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/CMakeFiles/segment.dir/segment/warp.cpp.obj"
   )

@@ -5,7 +5,11 @@ unsigned char Projection::bilinearInterpolation(const CImg<unsigned char> &src, 
     int x_floor = floor(x), y_floor = floor(y);
     int x_ceil = ceil(x) >= (src.width() - 1) ? (src.width() - 1) : ceil(x);
     int y_ceil = ceil(y) >= (src.height() - 1) ? (src.height() - 1) : ceil(y);
-
+    x_floor = x_floor < 0? 0 : x_floor;
+    y_floor = y_floor < 0? 0 : y_floor;
+    x_ceil >= src.width()? (src.width() - 1) : x_ceil;
+    y_ceil >= src.height()? (src.height() - 1) : y_ceil;
+    
     double a = x - x_floor, b = y - y_floor;
 
     //choice为false，左边图像作为来源，否则右边图像作为来源
@@ -15,6 +19,28 @@ unsigned char Projection::bilinearInterpolation(const CImg<unsigned char> &src, 
     Pixel righttop = Pixel(src(x_ceil, y_ceil, 0), src(x_ceil, y_ceil, 1), src(x_ceil, y_ceil, 2));
     return (unsigned char)((1.0 - a) * (1.0 - b) * (double)leftdown.val[channel] + a * (1.0 - b) * (double)rightdown.val[channel] +
             a * b * (double)righttop.val[channel] + (1.0 - a) * b * (double)lefttop.val[channel]);
+}
+
+
+unsigned char Projection::singleBilinearInterpolation(const CImg<unsigned char> &src, double x, double y, int channel)
+{
+    int x_floor = floor(x), y_floor = floor(y);
+    int x_ceil = ceil(x) >= (src.width() - 1) ? (src.width() - 1) : ceil(x);
+    int y_ceil = ceil(y) >= (src.height() - 1) ? (src.height() - 1) : ceil(y);
+    x_floor = x_floor < 0? 0 : x_floor;
+    y_floor = y_floor < 0? 0 : y_floor;
+    x_ceil >= src.width()? (src.width() - 1) : x_ceil;
+    y_ceil >= src.height()? (src.height() - 1) : y_ceil;
+
+    double a = x - x_floor, b = y - y_floor;
+
+    //choice为false，左边图像作为来源，否则右边图像作为来源
+    Pixel leftdown = Pixel(src(x_floor, y_floor, 0));
+    Pixel lefttop = Pixel(src(x_floor, y_ceil, 0));
+    Pixel rightdown = Pixel(src(x_ceil, y_floor, 0));
+    Pixel righttop = Pixel(src(x_ceil, y_ceil, 0));
+    return (unsigned char)((1.0 - a) * (1.0 - b) * (double)leftdown.val[channel] + a * (1.0 - b) * (double)rightdown.val[channel] +
+                           a * b * (double)righttop.val[channel] + (1.0 - a) * b * (double)lefttop.val[channel]);
 }
 
 CImg<unsigned char> Projection::imageProjection(const CImg<unsigned char> &src)

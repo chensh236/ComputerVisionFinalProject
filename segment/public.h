@@ -2,12 +2,14 @@
 #include "CImg.h"
 #include <cmath>
 #include <cstdio>
+#include <set>
 #include <vector>
 #include <iostream>
 #include <cstring>
 #include <stdlib.h>
 #include <stack>
 #include <queue>
+#include <fstream>
 using namespace std;
 using namespace cimg_library;
 
@@ -40,6 +42,9 @@ typedef struct Pixel{
         val[0] = _r;
         val[1] = _g;
         val[2] = _b;
+    }
+    Pixel(unsigned char _g){
+        val[0] = _g;
     }
 } Pixel;
 
@@ -104,3 +109,18 @@ static bool sorting(pointPair &a, pointPair &b)
 {
     return (a.distance < b.distance);
 }
+
+//---------------------------cutPiece.h----------
+#define BOUNDER 8
+typedef struct square{
+    Hough_pos lt;
+    Hough_pos lb;
+    Hough_pos rt;
+    Hough_pos rb;
+    square(Hough_pos lt, Hough_pos lb, Hough_pos rt, Hough_pos rb){
+        this->lt = lt;
+        this->lb = lb;
+        this->rt = rt;
+        this->rb = rb;
+    }
+} square;

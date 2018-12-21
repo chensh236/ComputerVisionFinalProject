@@ -2,7 +2,7 @@
 #include "public.h"
 
 class Hough {
-private:
+public:
 
     // Hough空间图像
     CImg<int> houghSpace;
@@ -19,10 +19,10 @@ private:
 
     // 存储直线集合的信息
     vector<line> lines;
+    int randonTheta;
 
-public:
     // 构造函数
-    Hough(string filepath, string filename, double votingThreshold, double peakDistance, CImg<unsigned char>, double);
+    Hough(double votingThreshold, double peakDistance, CImg<unsigned char>, double, bool);
     // 由canny算法得到的图像进行Hough变换
     CImg<int> initialHoughFromCanny();
 

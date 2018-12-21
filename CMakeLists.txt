@@ -22,7 +22,10 @@ if (APPLE)
             segment/Projection.h
             segment/cutPiece.cpp
             segment/cutPiece.h
-            )
+            segment/equalization.cpp
+            segment/equalization.h
+            segment/reshape.cpp segment/reshape.h
+            segment/canny.cpp segment/canny.h)
 endif (APPLE)
 
 if(UNIX AND NOT APPLE)
@@ -41,7 +44,10 @@ if(UNIX AND NOT APPLE)
             segment/Projection.h
             segment/cutPiece.cpp
             segment/cutPiece.h
-            )
+            segment/equalization.cpp
+            segment/equalization.h
+            segment/reshape.cpp segment/reshape.h
+            segment/canny.cpp segment/canny.h)
     set (CMAKE_CXX_FLAGS "-lX11 -pthread")
     message(STATUS "Looking for X11...")
     find_package(X11 REQUIRED)
@@ -50,8 +56,9 @@ if(UNIX AND NOT APPLE)
 endif(UNIX AND NOT APPLE)
 
 if (WIN32)
-    set (CMAKE_CXX_FLAGS "-lgdi32 -static-libstdc++ -static-libgcc")
+    set (CMAKE_CXX_FLAGS)
     set (CMAKE_SHARED_LINKER_FLAGS "-lgdi32")
+
 
     include_directories(segment)
     add_executable(segment
@@ -69,6 +76,10 @@ if (WIN32)
             segment/public.h
             segment/cutPiece.cpp
             segment/cutPiece.h
-            segment/cutPiece.h)
+            segment/cutPiece.h segment/prepareLearning.cpp segment/prepareLearning.h
+            segment/equalization.cpp
+            segment/equalization.h
+            segment/reshape.cpp segment/reshape.h
+            segment/canny.cpp segment/canny.h)
 endif(WIN32)
 include_directories(.)

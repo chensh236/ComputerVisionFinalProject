@@ -176,6 +176,33 @@ segment/Projection.cpp.s:
 	$(MAKE) -f CMakeFiles\segment.dir\build.make CMakeFiles/segment.dir/segment/Projection.cpp.s
 .PHONY : segment/Projection.cpp.s
 
+segment/canny.obj: segment/canny.cpp.obj
+
+.PHONY : segment/canny.obj
+
+# target to build an object file
+segment/canny.cpp.obj:
+	$(MAKE) -f CMakeFiles\segment.dir\build.make CMakeFiles/segment.dir/segment/canny.cpp.obj
+.PHONY : segment/canny.cpp.obj
+
+segment/canny.i: segment/canny.cpp.i
+
+.PHONY : segment/canny.i
+
+# target to preprocess a source file
+segment/canny.cpp.i:
+	$(MAKE) -f CMakeFiles\segment.dir\build.make CMakeFiles/segment.dir/segment/canny.cpp.i
+.PHONY : segment/canny.cpp.i
+
+segment/canny.s: segment/canny.cpp.s
+
+.PHONY : segment/canny.s
+
+# target to generate assembly for a file
+segment/canny.cpp.s:
+	$(MAKE) -f CMakeFiles\segment.dir\build.make CMakeFiles/segment.dir/segment/canny.cpp.s
+.PHONY : segment/canny.cpp.s
+
 segment/cutPiece.obj: segment/cutPiece.cpp.obj
 
 .PHONY : segment/cutPiece.obj
@@ -203,6 +230,33 @@ segment/cutPiece.cpp.s:
 	$(MAKE) -f CMakeFiles\segment.dir\build.make CMakeFiles/segment.dir/segment/cutPiece.cpp.s
 .PHONY : segment/cutPiece.cpp.s
 
+segment/equalization.obj: segment/equalization.cpp.obj
+
+.PHONY : segment/equalization.obj
+
+# target to build an object file
+segment/equalization.cpp.obj:
+	$(MAKE) -f CMakeFiles\segment.dir\build.make CMakeFiles/segment.dir/segment/equalization.cpp.obj
+.PHONY : segment/equalization.cpp.obj
+
+segment/equalization.i: segment/equalization.cpp.i
+
+.PHONY : segment/equalization.i
+
+# target to preprocess a source file
+segment/equalization.cpp.i:
+	$(MAKE) -f CMakeFiles\segment.dir\build.make CMakeFiles/segment.dir/segment/equalization.cpp.i
+.PHONY : segment/equalization.cpp.i
+
+segment/equalization.s: segment/equalization.cpp.s
+
+.PHONY : segment/equalization.s
+
+# target to generate assembly for a file
+segment/equalization.cpp.s:
+	$(MAKE) -f CMakeFiles\segment.dir\build.make CMakeFiles/segment.dir/segment/equalization.cpp.s
+.PHONY : segment/equalization.cpp.s
+
 segment/main.obj: segment/main.cpp.obj
 
 .PHONY : segment/main.obj
@@ -229,6 +283,60 @@ segment/main.s: segment/main.cpp.s
 segment/main.cpp.s:
 	$(MAKE) -f CMakeFiles\segment.dir\build.make CMakeFiles/segment.dir/segment/main.cpp.s
 .PHONY : segment/main.cpp.s
+
+segment/prepareLearning.obj: segment/prepareLearning.cpp.obj
+
+.PHONY : segment/prepareLearning.obj
+
+# target to build an object file
+segment/prepareLearning.cpp.obj:
+	$(MAKE) -f CMakeFiles\segment.dir\build.make CMakeFiles/segment.dir/segment/prepareLearning.cpp.obj
+.PHONY : segment/prepareLearning.cpp.obj
+
+segment/prepareLearning.i: segment/prepareLearning.cpp.i
+
+.PHONY : segment/prepareLearning.i
+
+# target to preprocess a source file
+segment/prepareLearning.cpp.i:
+	$(MAKE) -f CMakeFiles\segment.dir\build.make CMakeFiles/segment.dir/segment/prepareLearning.cpp.i
+.PHONY : segment/prepareLearning.cpp.i
+
+segment/prepareLearning.s: segment/prepareLearning.cpp.s
+
+.PHONY : segment/prepareLearning.s
+
+# target to generate assembly for a file
+segment/prepareLearning.cpp.s:
+	$(MAKE) -f CMakeFiles\segment.dir\build.make CMakeFiles/segment.dir/segment/prepareLearning.cpp.s
+.PHONY : segment/prepareLearning.cpp.s
+
+segment/reshape.obj: segment/reshape.cpp.obj
+
+.PHONY : segment/reshape.obj
+
+# target to build an object file
+segment/reshape.cpp.obj:
+	$(MAKE) -f CMakeFiles\segment.dir\build.make CMakeFiles/segment.dir/segment/reshape.cpp.obj
+.PHONY : segment/reshape.cpp.obj
+
+segment/reshape.i: segment/reshape.cpp.i
+
+.PHONY : segment/reshape.i
+
+# target to preprocess a source file
+segment/reshape.cpp.i:
+	$(MAKE) -f CMakeFiles\segment.dir\build.make CMakeFiles/segment.dir/segment/reshape.cpp.i
+.PHONY : segment/reshape.cpp.i
+
+segment/reshape.s: segment/reshape.cpp.s
+
+.PHONY : segment/reshape.s
+
+# target to generate assembly for a file
+segment/reshape.cpp.s:
+	$(MAKE) -f CMakeFiles\segment.dir\build.make CMakeFiles/segment.dir/segment/reshape.cpp.s
+.PHONY : segment/reshape.cpp.s
 
 segment/segment.obj: segment/segment.cpp.obj
 
@@ -299,12 +407,24 @@ help:
 	@echo ... segment/Projection.obj
 	@echo ... segment/Projection.i
 	@echo ... segment/Projection.s
+	@echo ... segment/canny.obj
+	@echo ... segment/canny.i
+	@echo ... segment/canny.s
 	@echo ... segment/cutPiece.obj
 	@echo ... segment/cutPiece.i
 	@echo ... segment/cutPiece.s
+	@echo ... segment/equalization.obj
+	@echo ... segment/equalization.i
+	@echo ... segment/equalization.s
 	@echo ... segment/main.obj
 	@echo ... segment/main.i
 	@echo ... segment/main.s
+	@echo ... segment/prepareLearning.obj
+	@echo ... segment/prepareLearning.i
+	@echo ... segment/prepareLearning.s
+	@echo ... segment/reshape.obj
+	@echo ... segment/reshape.i
+	@echo ... segment/reshape.s
 	@echo ... segment/segment.obj
 	@echo ... segment/segment.i
 	@echo ... segment/segment.s

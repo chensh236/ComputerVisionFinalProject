@@ -99,16 +99,40 @@
 		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Projection.h">
 			<Option target="segment"/>
 		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/canny.cpp">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/canny.h">
+			<Option target="segment"/>
+		</Unit>
 		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/cutPiece.cpp">
 			<Option target="segment"/>
 		</Unit>
 		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/cutPiece.h">
 			<Option target="segment"/>
 		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/equalization.cpp">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/equalization.h">
+			<Option target="segment"/>
+		</Unit>
 		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/main.cpp">
 			<Option target="segment"/>
 		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/prepareLearning.cpp">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/prepareLearning.h">
+			<Option target="segment"/>
+		</Unit>
 		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/public.h">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/reshape.cpp">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/reshape.h">
 			<Option target="segment"/>
 		</Unit>
 		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/segment.cpp">

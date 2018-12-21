@@ -3,19 +3,147 @@
 //
 #include "cutPiece.h"
 #include "segment.h"
+#include "prepareLearning.h"
+#include "Hough.h"
+#include "canny.h"
+
+
+// 检查像素位置，防止超过图片宽度
+int valueWidth(double srcX, int width) {
+    if (srcX < 0) srcX = 0;
+    if (srcX >= width) srcX--;
+    return srcX;
+}
+
+// 检查像素位置，防止超过图片高度
+int valueHeight(double srcY, int height) {
+    if (srcY < 0) srcY = 0;
+    if (srcY >= height) srcY--;
+    return srcY;
+}
+
+// 获得旋转后图片的像素对应于原图的像素位置，用于双线性插值
+bool get_origin_pos(int x, int y, int srcWidth, int srcHeight, double theta,
+                    double& srcX, double& srcY) {
+    // 找到(x, y)在原图中对应的位置(srcX, srcY)
+    srcX = (double)x * cos(theta) - (double)y * sin(theta);
+    srcY = (double)x * sin(theta) + (double)y * cos(theta);
+    if (srcX >= (0-srcWidth/2-1) && srcX <= srcWidth/2+1 && srcY >= (0-srcHeight/2-1) && srcY <= srcHeight/2+1) {
+        srcX += srcWidth/2;
+        srcY += srcHeight/2;
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+/**
+* 采用双线性插值填充新图
+*/
+void bilinear_interpolation(CImg<unsigned char>& outImg,
+                            const CImg<unsigned char>& srcImg, double theta) {
+
+    int halfW = outImg.width() / 2;
+    int halfH = outImg.height() / 2;
+    cimg_forXY(outImg, x, y)
+    {
+        double src_x, src_y;
+        if(get_origin_pos( x - halfW, y - halfH, srcImg.width(), srcImg.height(), theta, src_x, src_y)){
+            src_x = (src_x >= (double)srcImg.width()) ? ((double)srcImg.width() - 1.0) : (src_x < 0.0) ? 0.0 : src_x;
+            src_y = (src_y >= (double)srcImg.height()) ? ((double)srcImg.height() - 1.0) : (src_y < 0.0) ? 0.0 : src_y;
+            outImg(x, y) = Projection::singleBilinearInterpolation(srcImg, src_x, src_y, 0);
+        }
+    }
+}
+
+/*
+* 旋转图片，旋转角为theta，并采用双线性插值减少锯齿
+*/
+CImg<unsigned char> reotate_biliinar(const CImg<unsigned char>& srcImg, double theta, bool isBinary) {
+    int width = srcImg.width();
+    int height = srcImg.height();
+    // 原图的四个顶点坐标，这里以图片中心为坐标原点
+    Hough_pos lt(0-width/2, 0+height/2), lb(0-width/2, 0-height/2),
+            rt(0+width/2, 0+height/2), rb(0+width/2, 0-height/2);
+    // 获得旋转后的图片的四个顶点坐标
+    Hough_pos new_lt((int)(lt.x*cos(theta)+lt.y*sin(theta)), (int)(lt.y*cos(theta)-lt.x*sin(theta))),
+            new_lb((int)(lb.x*cos(theta)+lb.y*sin(theta)), (int)(lb.y*cos(theta)-lb.x*sin(theta))),
+            new_rt((int)(rt.x*cos(theta)+rt.y*sin(theta)), (int)(rt.y*cos(theta)-rt.x*sin(theta))),
+            new_rb((int)(rb.x*cos(theta)+rb.y*sin(theta)), (int)(rb.y*cos(theta)-rb.x*sin(theta)));
+    int newWidth = max(abs(new_rt.x-new_lb.x), abs(new_lt.x-new_rb.x));
+    int newHeight = max(abs(new_lt.y-new_rb.y), abs(new_lb.y-new_rt.y));
+
+    CImg<unsigned char> newImg(newWidth, newHeight, 1, 1, 255);
+    // 开始填充新图片的灰度值
+    bilinear_interpolation(newImg, srcImg, theta);
+
+
+    //newImg.display();
+    if(isBinary){
+        cimg_forXY(newImg, x, y){
+            if(newImg(x, y) < 180) newImg(x, y) = 0;
+            else newImg(x, y) = 255;
+        }
+        newImg = canny::newFunc(newImg, 20);
+    }
+
+    return newImg;
+}
+
+
 cutPiece::cutPiece(CImg<unsigned char> input){
     gray = segment::toGrayScale(input);
+    resultGray = gray;
+    CImg<unsigned char> grayScale = gray;
+    gray.display();
     //单阈值检测
-    gray = threshold(gray, 200, 23, 28, 0.76);
+    gray = threshold(grayScale, 200, 23, 28, 0.76);
+    CImg<unsigned char> dilationed = gray;
+    cimg_forXY(dilationed, x, y){
+        if(dilationed(x, y) == 0) dilationed(x, y) = 255;
+        else dilationed(x, y) = 0;
+    }
+    gray = dilationed;
+   // gray = canny::newFunc(gray, 5);
+    dilationed = canny::newFunc(dilationed, 50);
+    dilationed = canny::newFunc(dilationed, 40);
+    cimg_forXY(dilationed, x, y){
+        if(dilationed(x, y) == 0) dilationed(x, y) = 255;
+        else dilationed(x, y) = 0;
+        if(gray(x, y) == 0) gray(x, y) = 255;
+        else gray(x, y) = 0;
+    }
+    gray.display();
+    cout<<"begin!"<<endl;
+
+    //canny cny(dilationed, 120, 160);
+    //cny.getResult().display();
+    //dilationed = cny.getResult();
+
+    //dilationed = dilationed.resize(dilationed.width() / 2, dilationed.height() / 2, true);
+    //dilationed.display();
+   // prepareLearning::doDilationForEachBarItemImg(dilationed);
+    Hough hough(0, 0, dilationed, 0, false);
+    int theta = hough.randonTheta;
+    cout<<theta<<endl;
+    if(theta > 9 && theta < 13){
+        theta-= 3;
+        double ror = (double)theta / 180.0 * cimg::PI;
+        gray = reotate_biliinar(gray, ror, true);
+        resultGray = reotate_biliinar(resultGray, ror, false);
+        //resultGray.display();
+    }
+    //gray.display();
+
+
     findDividingLine(5, 4);
     divideIntoBarItemImg(3);
-//    HistogramImage.display();
-//    dividingImg.display();
+
 
 }
 void cutPiece::findDividingLine(int singleThreshold, int threshold) {
     HistogramImage = CImg<int>(gray.width(), gray.height(), 1, 1, 255);
-    vector<int> blackPixelSet;
     dividingImg = gray;
 
     // 扫描
@@ -39,6 +167,7 @@ void cutPiece::findDividingLine(int singleThreshold, int threshold) {
         blackPixelSet.push_back(blackPixel);
     }
 
+    //去除不够长的边
     cimg_forY(gray, y){
         if(blackPixelSet[y] != 0){
             int pointer = y + 1;
@@ -80,137 +209,7 @@ void cutPiece::findDividingLine(int singleThreshold, int threshold) {
             inflectionPoints.push_back(y - 1);
     }
     unsigned char lineColor[1] = {0};
-//    for(int i = 0; i < inflectionPoints.size(); i++){
-//
-//        dividingImg.draw_line(0, inflectionPoints[i],
-//                              gray.width() - 1, inflectionPoints[i], lineColor);
-//    }
-//    dividingImg.display();
-//    gray.display();
-    //HistogramImage.display();
-    // 舍去距离太近的两条线
-//    for(auto iter = inflectionPoints.begin(); iter != inflectionPoints.end(); iter++){
-//        if(iter + 1 == inflectionPoints.end()) break;
-//        if(*(iter + 1) - *iter <= 8){
-//            inflectionPoints.erase(iter + 1);
-//            inflectionPoints.erase(iter);
-//            iter--;
-//        }
-//    }
-    // 宽度过大切分
 
-//     while(true){
-//         bool flag = false;
-//         for(auto iter = inflectionPoints.begin(); iter != inflectionPoints.end(); iter++){
-//             if(iter != inflectionPoints.begin()){
-//                 if((*iter) - *(iter - 1) > 79) {
-//                     cout<<(*(iter - 1))<<" "<<(*iter)<<endl;
-//                     int counter = 0;
-//                     for(int i = *(iter - 1); i < *iter; i++){
-//                         if(blackPixelSet[i] != 0) counter++;
-//                     }
-//                     //空白推出
-//                     cout<<"length!"<<endl;
-//                     if((double)counter / (double)(*iter - *(iter - 1)) < 0.1) break;
-//                     flag = true;
-//                     double min = 10000.0;
-//                     int line = -1;
-//                     // ostu解决
-//                     int threshold;
-// //                    long sum0 = 0, sum1 = 0; //存储前景的灰度总和及背景灰度总和
-// //                    long cnt0 = 0, cnt1 = 0; //前景的总个数及背景的总个数
-// //                    double w0 = 0, w1 = 0; //前景及背景所占整幅图像的比例
-// //                    double u0 = 0, u1 = 0;  //前景及背景的平均灰度
-// //                    double variance = 0; //最大类间方差
-
-//                     int sampleThrshold = 30;
-//                     //double maxVariance = 0;
-//                     int begin = *(iter - 1) + sampleThrshold;
-//                     int end = (*iter) - sampleThrshold;
-// //                    for (int i = ; i < ; i++) //一次遍历每个像素
-// //                    {
-// //
-// ////                        sum0 = 0;
-// ////                        sum1 = 0;
-// ////                        cnt0 = 0;
-// ////                        cnt1 = 0;
-// ////                        w0 = 0;
-// ////                        w1 = 0;
-// ////                        for (int j = *(iter - 1) + sampleThrshold; j < i; j++) {
-// ////                            cnt0 += blackPixelSet[j];
-// ////                            sum0 += j * blackPixelSet[j];
-// ////                        }
-// ////                        if(cnt0 == 0) continue;
-// ////                        u0 = (double) sum0 / (double)cnt0;
-// ////                        if(cnt0 == 0) continue;
-// ////                        w0 = (double) cnt0 / (double) (*iter - *(iter - 1));
-// ////                        int val = (*iter);
-// ////                        for (int j = i; j < val - sampleThrshold; j++) {
-// ////                            cnt1 += blackPixelSet[j];
-// ////                            sum1 += j * blackPixelSet[j];
-// ////                        }
-// ////
-// ////                        u1 = (double) sum1 / cnt1;
-// ////                        w1 = 1 - w0; // (double)cnt1 / size;
-// ////
-// ////                        variance = abs(w0 * w1 * (u0 - u1) * (u0 - u1));
-// ////                        cout<<"vari:"<<variance<<endl;
-// ////                        if (variance > maxVariance) {
-// ////                            maxVariance = variance;
-// ////                            threshold = i;
-// ////                        }
-// //                        threshold = (*iter - *(iter - 1)) / 2;
-// //                        for()
-// //                    }
-//                     threshold = (end + begin) / 2;
-//                     while(true){
-//                         if(threshold == begin) threshold = begin + 1;
-//                         if(threshold == end) threshold = end - 1;
-//                         double sumFront = 0.0, sumBack = 0.0;
-//                         for(int i = begin; i <= end; i++){
-//                             if(i < threshold) sumFront += blackPixelSet[i];
-//                             else sumBack += blackPixelSet[i];
-//                         }
-//                         sumFront /= (double)(threshold - begin);
-//                         sumBack /= (double)(end - threshold);
-//                         double median = (sumBack + sumFront) / 2.0;
-//                         int distance = 10000;
-//                         int pos = -1;
-//                         for(int i = begin; i < end; i++){
-//                             if(abs(blackPixelSet[i] - (int)median) < distance){
-//                                 pos = i;
-//                                 distance = abs(blackPixelSet[i] - (int)median);
-//                             }
-//                         }
-//                         if(pos == threshold) break;
-//                         else threshold = pos;
-//                     }
-
-//                     cout<<min<<" "<<(*(iter - 1))<<" "<<threshold<<" "<<(*iter)<<endl;
-//                     iter = inflectionPoints.insert(iter, threshold - 1);
-//                     inflectionPoints.insert(iter, threshold + 1);
-//                     break;
-//                 }
-//             }
-//         }
-//         if(!flag)break;
-//     }
-//    while(true){
-//        bool flag = false;
-//        // 去重
-//        for(auto iter = inflectionPoints.begin(); iter != inflectionPoints.end(); iter++){
-//            if(iter != inflectionPoints.begin()){
-//                if((*iter) - *(iter - 1) < 9){
-//                    flag = true;
-//                    int medium = (*iter + *(iter - 1)) / 2;
-//                    *(iter - 1) = medium;
-//                    inflectionPoints.erase(iter);
-//                    iter--;
-//                }
-//            }
-//        }
-//        if(!flag)break;
-//    }
     vector<int> tmpVec = inflectionPoints;
     inflectionPoints.clear();
 
@@ -269,23 +268,47 @@ void cutPiece::divideIntoBarItemImg(int threshold) {
         unsigned char lineColor[3] = {0, 0, 0};
         double blackPercent = (double)blackPixel / (double)(gray.width() * barHeight);
 
-        // 只有当黑色像素个数超过图像大小一定比例0.001时，该航才可视作有数字
+        // 只有当黑色像素个数超过图像大小一定比例时，该航才可视作有数字
         if (blackPercent > (5.0/594.0)) {
+            vector<square> squareTmp;
             vector<int> dividePosXset = getDivideLineXofSubImage(barItemImg, threshold);
             if(dividePosXset.empty())continue;
-//            vector<CImg<float>> rowItemImgSet = getRowItemImgSet(barItemImg, dividePosXset);
-//
-//            for (int j = 0; j < rowItemImgSet.size(); j++) {
-//                subImageSet.push_back(rowItemImgSet[j]);
-//                tempDivideLinePointSet.push_back(Hough_pos(dividePosXset[j], inflectionPoints[i - 1]));
-//            }
 
-//            if (i > 1) {
-//                HistogramImage.draw_line(0, inflectionPoints[i - 1],
-//                                         HistogramImage._width - 1, inflectionPoints[i - 1], lineColor);
-//                dividingImg.draw_line(0, inflectionPoints[i - 1],
-//                                      HistogramImage._width - 1, inflectionPoints[i - 1], lineColor);
-//            }
+            for(int j = 1; j < dividePosXset.size(); j++){
+
+                //去除污点！
+                square squ(Hough_pos(dividePosXset[j - 1], inflectionPoints[i - 1]), Hough_pos(dividePosXset[j - 1], inflectionPoints[i]),
+                        Hough_pos(dividePosXset[j], inflectionPoints[i - 1]), Hough_pos(dividePosXset[j], inflectionPoints[i]));
+                int currentHeight = squ.lb.y - squ.lt.y + 1;
+                vector<int> histogram;
+                for(int i = squ.lt.y; i <= squ.lb.y; i++){
+                    int counter = 0;
+                    for(int j = squ.lt.x; j <= squ.rt.x; j++){
+                        if(gray(j, i) != 255) counter++;
+                    }
+                    histogram.push_back(counter);
+                }
+                // 遍历
+                int blackFirst, blackLast;
+                for(int i = squ.lt.y; i <= squ.lb.y; i++){
+                   if(histogram[i - squ.lt.y] != 0){
+                       blackFirst = i;
+                       break;
+                   }
+                }
+                for(int i = squ.lb.y; i >= squ.lt.y; i--){
+                    if(histogram[i - squ.lt.y] != 0){
+                        blackLast = i;
+                        break;
+                    }
+                }
+                int distance = blackLast - blackFirst + 1;
+                if((double)distance / (double)currentHeight < 0.2){
+                    continue;
+                }
+                squareTmp.push_back(squ);
+            }
+            squareVec.push_back(squareTmp);
             // 绘制竖线
             for (int j = 0; j < dividePosXset.size(); j++) {
                 dividingImg.draw_line(dividePosXset[j], inflectionPoints[i - 1],
@@ -293,11 +316,7 @@ void cutPiece::divideIntoBarItemImg(int threshold) {
             }
         }
     }
-    //dividingImg.display();
 
-//    dividePoints.clear();
-//    for (int i = 0; i < tempDivideLinePointSet.size(); i++)
-//        dividePoints.push_back(tempDivideLinePointSet[i]);
 }
 
 // 获取一行行的子图的水平分割线
@@ -390,12 +409,16 @@ vector<int> cutPiece::getInflectionPosXs(vector<int> counterVec) {
     // 合成！
     vector<int> tmpVec = tempInflectionPosXs;
     tempInflectionPosXs.clear();
+    //第一条往左挪动
+    if(tmpVec[0] > 5) tmpVec[0] -= 5;
     tempInflectionPosXs.push_back(tmpVec[0]);
+
     for(int index = 1; index < tmpVec.size() - 1; index++){
         int counter = 0;
         for(int i = tmpVec[index]; i <= tmpVec[index + 1]; i++){
             if(counterVec[i] != 0) counter++;
         }
+        //中间为空，合在一起
         if((double)counter / (double)(tmpVec[index + 1] - tmpVec[index]) < 0.05) {
             int median = (tmpVec[index + 1] + tmpVec[index]) / 2;
             tempInflectionPosXs.push_back(median);
@@ -405,27 +428,27 @@ vector<int> cutPiece::getInflectionPosXs(vector<int> counterVec) {
         }
     }
     tempInflectionPosXs.push_back(tmpVec[tmpVec.size() - 1 ]);
-    //距离分割
-    int max = 0;
-    for(int i = 1; i < tempInflectionPosXs.size(); i++){
-        if(tempInflectionPosXs[i] - tempInflectionPosXs[i - 1] > max) max = tempInflectionPosXs[i] - tempInflectionPosXs[i - 1];
-    }
-    int distance = 0;
-    for(int i = 1; i < tempInflectionPosXs.size(); i++){
-        distance += tempInflectionPosXs[i] - tempInflectionPosXs[i - 1];
-    }
-    distance -= max;
-
-    distance /= (tempInflectionPosXs.size() - 1);
-    for(auto iter = tempInflectionPosXs.begin(); iter != tempInflectionPosXs.end(); iter++){
-        if(iter != tempInflectionPosXs.begin() && *iter - *(iter - 1) >= 2 * distance){
-            int median = *iter - *(iter - 1);
-            median /= 2;
-            median += *(iter - 1);
-            tempInflectionPosXs.insert(iter, median);
-            iter = tempInflectionPosXs.begin();
-        }
-    }
+//    //距离分割(you bug!)
+//    int max = 0;
+//    for(int i = 1; i < tempInflectionPosXs.size(); i++){
+//        if(tempInflectionPosXs[i] - tempInflectionPosXs[i - 1] > max) max = tempInflectionPosXs[i] - tempInflectionPosXs[i - 1];
+//    }
+//    int distance = 0;
+//    for(int i = 1; i < tempInflectionPosXs.size(); i++){
+//        distance += tempInflectionPosXs[i] - tempInflectionPosXs[i - 1];
+//    }
+//    distance -= max;
+//
+//    distance /= (tempInflectionPosXs.size() - 1);
+//    for(auto iter = tempInflectionPosXs.begin(); iter != tempInflectionPosXs.end(); iter++){
+//        if(iter != tempInflectionPosXs.begin() && *iter - *(iter - 1) >= 2 * distance){
+//            int median = *iter - *(iter - 1);
+//            median /= 2;
+//            median += *(iter - 1);
+//            tempInflectionPosXs.insert(iter, median);
+//            iter = tempInflectionPosXs.begin();
+//        }
+//    }
     return tempInflectionPosXs;
 }
 

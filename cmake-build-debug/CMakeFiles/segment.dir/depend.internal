@@ -11,21 +11,52 @@ CMakeFiles/segment.dir/segment/Projection.cpp.obj
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Projection.cpp
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Projection.h
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/public.h
+CMakeFiles/segment.dir/segment/canny.cpp.obj
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/CImg.h
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/canny.cpp
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/canny.h
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/public.h
 CMakeFiles/segment.dir/segment/cutPiece.cpp.obj
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/CImg.h
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Hough.h
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Projection.h
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/canny.h
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/cutPiece.cpp
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/cutPiece.h
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/equalization.h
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/prepareLearning.h
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/public.h
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/segment.h
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/warp.h
+CMakeFiles/segment.dir/segment/equalization.cpp.obj
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/CImg.h
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/equalization.cpp
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/equalization.h
 CMakeFiles/segment.dir/segment/main.cpp.obj
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/CImg.h
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Hough.h
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Projection.h
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/cutPiece.h
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/equalization.h
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/main.cpp
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/prepareLearning.h
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/public.h
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/segment.h
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/warp.h
+CMakeFiles/segment.dir/segment/prepareLearning.cpp.obj
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/CImg.h
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Projection.h
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/equalization.h
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/prepareLearning.cpp
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/prepareLearning.h
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/public.h
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/segment.h
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/warp.h
+CMakeFiles/segment.dir/segment/reshape.cpp.obj
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/CImg.h
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/public.h
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/reshape.cpp
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/reshape.h
 CMakeFiles/segment.dir/segment/segment.cpp.obj
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/CImg.h
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/public.h

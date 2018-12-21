@@ -30,7 +30,6 @@ void warp::warpingImageByHomography(const CImg<unsigned char> &src, CImg<unsigne
 Homography warp::getHomography(vector<Hough_pos> &vec)
 {
 	double destPos[4][2] = {0};
-	double srcPos[4][2] = {0};
 	// 初始化标准A4纸坐标
 	for (int i = 0; i < 4; i++)
 	{
@@ -38,6 +37,8 @@ Homography warp::getHomography(vector<Hough_pos> &vec)
 			destPos[i][0] = 594.0;
 		if (i == 2 || i == 3)
 			destPos[i][1] = 841.0;
+		srcPos[i][0] = 0;
+		srcPos[i][1] = 0;
 	}
 
 	// 线段对
@@ -125,10 +126,67 @@ Homography warp::getHomography(vector<Hough_pos> &vec)
 	return Homography(x1(0, 0), x1(0, 1), x1(0, 2), x1(0, 3), x2(0, 0), x2(0, 1), x2(0, 2), x2(0, 3));
 }
 
-warp::warp(vector<Hough_pos> &vec, string filename)
+// choice->0 A4   choice->1 part
+warp::warp(vector<Hough_pos> &vec, CImg<unsigned char>&src, int choice)
 {
-	CImg<unsigned char> src(filename.c_str());
-	Homography H = getHomography(vec);
-	result = CImg<unsigned char>(595, 842, 1, 3);
-	warpingImageByHomography(src, result, H);
+    if(choice == 0){
+        Homography H = getHomography(vec);
+        result = CImg<unsigned char>(595, 842, 1, 3);
+        warpingImageByHomography(src, result, H);
+    }else if(choice == 1){
+        Homography H = getHomography2(vec);
+        result = CImg<unsigned char>(28, 28, 1, 1, 0);
+        warpingImageByHomography(src, result, H);
+    }
+
+}
+
+Homography warp::getHomography2(vector<Hough_pos> &vec)
+{
+	double destPos[4][2] = {0};
+	double srcPos[4][2] = {0};
+	// 初始化标准A4纸坐标
+	for (int i = 0; i < 4; i++)
+	{
+		if (i == 1 || i == 2)
+			destPos[i][0] = 28.0;
+		if (i == 2 || i == 3)
+			destPos[i][1] = 28.0;
+	}
+
+	for(int i = 0; i < vec.size(); i++){
+		srcPos[i][0] = vec[i].x;
+		srcPos[i][1] = vec[i].y;
+	}
+
+	// 求解AH = b
+	CImg<double> A(4, 4, 1, 1, 0);
+	CImg<double> b(1, 4, 1, 1, 0);
+
+	for (int i = 0; i < 4; i++)
+	{
+		A(0, i) = destPos[i][0];
+		A(1, i) = destPos[i][1];
+		A(2, i) = destPos[i][0] * destPos[i][1];
+		A(3, i) = 1.0;
+		b(0, i) = srcPos[i][0];
+	}
+
+	CImg<double> x1 = b.get_solve(A);
+
+	for (int i = 0; i < 4; i++)
+	{
+		b(0, i) = srcPos[i][1];
+	}
+
+	CImg<double> x2 = b.get_solve(A);
+	CImg<double> coff(1, 8, 1, 1, 0);
+	for (int i = 0; i < 8; i++)
+	{
+		if (i < 4)
+			coff(0, i) = x1(0, i);
+		else
+			coff(0, i) = x2(0, i - 4);
+	}
+	return Homography(x1(0, 0), x1(0, 1), x1(0, 2), x1(0, 3), x2(0, 0), x2(0, 1), x2(0, 2), x2(0, 3));
 }

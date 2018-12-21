@@ -140,6 +140,62 @@ CMakeFiles/segment.dir/segment/cutPiece.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/segment.dir/segment/cutPiece.cpp.s"
 	C:\nuwen\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Chen Sihang\Desktop\finalProject\A4Warping\segment\cutPiece.cpp" -o CMakeFiles\segment.dir\segment\cutPiece.cpp.s
 
+CMakeFiles/segment.dir/segment/prepareLearning.cpp.obj: CMakeFiles/segment.dir/flags.make
+CMakeFiles/segment.dir/segment/prepareLearning.cpp.obj: CMakeFiles/segment.dir/includes_CXX.rsp
+CMakeFiles/segment.dir/segment/prepareLearning.cpp.obj: ../segment/prepareLearning.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Chen Sihang\Desktop\finalProject\A4Warping\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/segment.dir/segment/prepareLearning.cpp.obj"
+	C:\nuwen\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\segment.dir\segment\prepareLearning.cpp.obj -c "C:\Users\Chen Sihang\Desktop\finalProject\A4Warping\segment\prepareLearning.cpp"
+
+CMakeFiles/segment.dir/segment/prepareLearning.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/segment.dir/segment/prepareLearning.cpp.i"
+	C:\nuwen\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Chen Sihang\Desktop\finalProject\A4Warping\segment\prepareLearning.cpp" > CMakeFiles\segment.dir\segment\prepareLearning.cpp.i
+
+CMakeFiles/segment.dir/segment/prepareLearning.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/segment.dir/segment/prepareLearning.cpp.s"
+	C:\nuwen\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Chen Sihang\Desktop\finalProject\A4Warping\segment\prepareLearning.cpp" -o CMakeFiles\segment.dir\segment\prepareLearning.cpp.s
+
+CMakeFiles/segment.dir/segment/equalization.cpp.obj: CMakeFiles/segment.dir/flags.make
+CMakeFiles/segment.dir/segment/equalization.cpp.obj: CMakeFiles/segment.dir/includes_CXX.rsp
+CMakeFiles/segment.dir/segment/equalization.cpp.obj: ../segment/equalization.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Chen Sihang\Desktop\finalProject\A4Warping\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/segment.dir/segment/equalization.cpp.obj"
+	C:\nuwen\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\segment.dir\segment\equalization.cpp.obj -c "C:\Users\Chen Sihang\Desktop\finalProject\A4Warping\segment\equalization.cpp"
+
+CMakeFiles/segment.dir/segment/equalization.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/segment.dir/segment/equalization.cpp.i"
+	C:\nuwen\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Chen Sihang\Desktop\finalProject\A4Warping\segment\equalization.cpp" > CMakeFiles\segment.dir\segment\equalization.cpp.i
+
+CMakeFiles/segment.dir/segment/equalization.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/segment.dir/segment/equalization.cpp.s"
+	C:\nuwen\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Chen Sihang\Desktop\finalProject\A4Warping\segment\equalization.cpp" -o CMakeFiles\segment.dir\segment\equalization.cpp.s
+
+CMakeFiles/segment.dir/segment/reshape.cpp.obj: CMakeFiles/segment.dir/flags.make
+CMakeFiles/segment.dir/segment/reshape.cpp.obj: CMakeFiles/segment.dir/includes_CXX.rsp
+CMakeFiles/segment.dir/segment/reshape.cpp.obj: ../segment/reshape.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Chen Sihang\Desktop\finalProject\A4Warping\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/segment.dir/segment/reshape.cpp.obj"
+	C:\nuwen\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\segment.dir\segment\reshape.cpp.obj -c "C:\Users\Chen Sihang\Desktop\finalProject\A4Warping\segment\reshape.cpp"
+
+CMakeFiles/segment.dir/segment/reshape.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/segment.dir/segment/reshape.cpp.i"
+	C:\nuwen\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Chen Sihang\Desktop\finalProject\A4Warping\segment\reshape.cpp" > CMakeFiles\segment.dir\segment\reshape.cpp.i
+
+CMakeFiles/segment.dir/segment/reshape.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/segment.dir/segment/reshape.cpp.s"
+	C:\nuwen\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Chen Sihang\Desktop\finalProject\A4Warping\segment\reshape.cpp" -o CMakeFiles\segment.dir\segment\reshape.cpp.s
+
+CMakeFiles/segment.dir/segment/canny.cpp.obj: CMakeFiles/segment.dir/flags.make
+CMakeFiles/segment.dir/segment/canny.cpp.obj: CMakeFiles/segment.dir/includes_CXX.rsp
+CMakeFiles/segment.dir/segment/canny.cpp.obj: ../segment/canny.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Chen Sihang\Desktop\finalProject\A4Warping\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/segment.dir/segment/canny.cpp.obj"
+	C:\nuwen\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\segment.dir\segment\canny.cpp.obj -c "C:\Users\Chen Sihang\Desktop\finalProject\A4Warping\segment\canny.cpp"
+
+CMakeFiles/segment.dir/segment/canny.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/segment.dir/segment/canny.cpp.i"
+	C:\nuwen\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Chen Sihang\Desktop\finalProject\A4Warping\segment\canny.cpp" > CMakeFiles\segment.dir\segment\canny.cpp.i
+
+CMakeFiles/segment.dir/segment/canny.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/segment.dir/segment/canny.cpp.s"
+	C:\nuwen\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Chen Sihang\Desktop\finalProject\A4Warping\segment\canny.cpp" -o CMakeFiles\segment.dir\segment\canny.cpp.s
+
 # Object files for target segment
 segment_OBJECTS = \
 "CMakeFiles/segment.dir/segment/main.cpp.obj" \
@@ -147,7 +203,11 @@ segment_OBJECTS = \
 "CMakeFiles/segment.dir/segment/Hough.cpp.obj" \
 "CMakeFiles/segment.dir/segment/warp.cpp.obj" \
 "CMakeFiles/segment.dir/segment/Projection.cpp.obj" \
-"CMakeFiles/segment.dir/segment/cutPiece.cpp.obj"
+"CMakeFiles/segment.dir/segment/cutPiece.cpp.obj" \
+"CMakeFiles/segment.dir/segment/prepareLearning.cpp.obj" \
+"CMakeFiles/segment.dir/segment/equalization.cpp.obj" \
+"CMakeFiles/segment.dir/segment/reshape.cpp.obj" \
+"CMakeFiles/segment.dir/segment/canny.cpp.obj"
 
 # External object files for target segment
 segment_EXTERNAL_OBJECTS =
@@ -158,11 +218,15 @@ segment.exe: CMakeFiles/segment.dir/segment/Hough.cpp.obj
 segment.exe: CMakeFiles/segment.dir/segment/warp.cpp.obj
 segment.exe: CMakeFiles/segment.dir/segment/Projection.cpp.obj
 segment.exe: CMakeFiles/segment.dir/segment/cutPiece.cpp.obj
+segment.exe: CMakeFiles/segment.dir/segment/prepareLearning.cpp.obj
+segment.exe: CMakeFiles/segment.dir/segment/equalization.cpp.obj
+segment.exe: CMakeFiles/segment.dir/segment/reshape.cpp.obj
+segment.exe: CMakeFiles/segment.dir/segment/canny.cpp.obj
 segment.exe: CMakeFiles/segment.dir/build.make
 segment.exe: CMakeFiles/segment.dir/linklibs.rsp
 segment.exe: CMakeFiles/segment.dir/objects1.rsp
 segment.exe: CMakeFiles/segment.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Chen Sihang\Desktop\finalProject\A4Warping\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable segment.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Chen Sihang\Desktop\finalProject\A4Warping\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable segment.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\segment.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

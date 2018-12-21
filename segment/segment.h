@@ -16,6 +16,9 @@ private:
     position getMeans(vector<position>& set, CImg<unsigned char>& src);
 public:
     segment(string filepath, float sigma);
+    segment(CImg<unsigned char>& input){
+        kmeans(input);
+    }
     void kmeans(CImg<unsigned char>&);
     CImg<unsigned char> getResult(){return this->result;}
     CImg<unsigned char> getSegment(){return this->block;}

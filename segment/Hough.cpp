@@ -9,24 +9,71 @@
 #define MAX 0x7FFFFFFF
 using namespace std;
 
-Hough::Hough(string filepath, string filename, double votingThreshold, double peakDistance, CImg<unsigned char> input, double fitPointDistance)
+Hough::Hough(double votingThreshold, double peakDistance, CImg<unsigned char> input, double fitPointDistance, bool flag)
 {
+    if(flag){
+        cannyResult = input;
+        // 由canny算法得到的结果转换为彩色图像
+        CImg<unsigned char> tmp(input.width(), input.height(), 1, 3, 0);
+        cimg_forXY(tmp, x, y){
+            if(input(x, y) == 255){tmp(x, y, 0) = tmp(x, y, 1) = tmp(x, y, 2) = 255;}
+        }
+        blueLineImage = tmp;
+        houghSpace = initialHoughFromCanny();
+        PointPeak(votingThreshold, peakDistance);
+        getLine();
+        fitPointImage = blueLineImage;
+        getFitPoint(fitPointDistance);
+        intersactionImage = fitPointImage;
+        getInterLine();
+    } else{
+        // randon
+        cannyResult = input;
+        cannyResult = cannyResult.get_blur(1);
 
-    cannyResult = input;
-    // 由canny算法得到的结果转换为彩色图像
-    CImg<unsigned char> tmp(input.width(), input.height(), 1, 3, 0);
-    cimg_forXY(tmp, x, y){
-        if(input(x, y) == 255){tmp(x, y, 0) = tmp(x, y, 1) = tmp(x, y, 2) = 255;}
+        // 对角线长度
+        int diagonal = sqrt(cannyResult.width() * cannyResult.width() + cannyResult.height() * cannyResult.height());
+        CImg<long int> hough(45, diagonal, 1, 1, 0);
+        //  对canny算法的结果进行遍历
+        cimg_forXY(cannyResult, x, y)
+        {
+            if (cannyResult(x, y) < 100)
+            {
+                cimg_forX(hough, alpha)
+                {
+                    //转换为弧度制
+                    double theta = ((double)alpha * cimg::PI) / LOCAL_PI;
+                    int r = round((double)x * cos(theta) + (double)y * sin(theta));
+                    // 符合条件则进行投票
+                    if (r >= 0 && r < diagonal)
+                    {
+                        hough(alpha, r) += cannyResult(x, y);
+                    }
+                }
+            }
+        }
+        houghSpace = hough;
+        int max = 0;
+        randonTheta = 0;
+        cimg_forXY(houghSpace, x, y){
+            if(x > 45) continue;
+            if(houghSpace(x, y) > max){
+                max = houghSpace(x, y);
+                randonTheta = x;
+            }
+        }
+//        cimg_forX(houghSpace, x){
+//            int counter = 0;
+//            cimg_forY(houghSpace, y){
+//                counter += houghSpace(x, y);
+//            }
+//            if(counter > max){
+//                max = counter;
+//                randonTheta = x;
+//            }
+//        }
     }
-    string edge = filename + "_edge.bmp";
-    blueLineImage = tmp;
-    houghSpace = initialHoughFromCanny();
-    PointPeak(votingThreshold, peakDistance);
-    getLine();
-    fitPointImage = blueLineImage;
-    getFitPoint(fitPointDistance);
-    intersactionImage = fitPointImage;
-    getInterLine();
+
 }
 
 CImg<int> Hough::initialHoughFromCanny()
