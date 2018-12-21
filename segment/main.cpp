@@ -36,36 +36,37 @@ static void threadProcess(int i){
 
     vector< vector<square> > square = cut.getSquare();
     prepareLearning pl(cut.resultGray, square, i);
-//    string dst = pl.subDir + "/points.txt";
-//    ofstream ofs(dst.c_str());
-//    for(int i = 0; i < 4; i++){
-//        int x = (int)warping.srcPos[i][0];
-//        int y = (int)warping.srcPos[i][1];
-//        ofs<<x<<" "<<y<<endl;
-//    }
-//    ofs.close();
-
+    string dst = pl.subDir + "/points.txt";
+    ofstream ofs(dst.c_str());
+    for(int i = 0; i < 4; i++){
+        int x = (int)warping.srcPos[i][0];
+        int y = (int)warping.srcPos[i][1];
+        ofs<<x<<" "<<y<<endl;
+    }
+    ofs.close();
 }
 
 int main() {
-//    int sum = 10;
-////        thread t1(threadProcess, 0);
-////        thread t2(threadProcess, 1);
-////        thread t3(threadProcess, 2);
-////        thread t4(threadProcess, 3);
-////        thread t5(threadProcess, 4);
-////        thread t6(threadProcess, 5);
-////        thread t7(threadProcess, 6);
-////        thread t8(threadProcess, 7);
-////
-////        t1.join();
-////        t2.join();
-////        t3.join();
-////        t4.join();
-////        t5.join();
-////        t6.join();
-////        t7.join();
-////        t8.join();
+    int sum = 10;
+//        thread t1(threadProcess, 0);
+//        thread t2(threadProcess, 1);
+//        thread t3(threadProcess, 2);
+//        thread t4(threadProcess, 3);
+//        thread t5(threadProcess, 4);
+//        thread t6(threadProcess, 5);
+//        thread t7(threadProcess, 6);
+//        thread t8(threadProcess, 7);
+//
+//        t1.join();
+//        t2.join();
+//        t3.join();
+//        t4.join();
+//        t5.join();
+//        t6.join();
+//        t7.join();
+//        t8.join();
+
+
 //        thread t10(threadProcess, 9);
 //        t10.join();
 //    thread t9(threadProcess, 8);
@@ -81,8 +82,11 @@ int main() {
 //        t3.join();
 //        t4.join();
 //    }
+//
+
 //threadProcess(8);
-for(int i = 8; i < 10; i++){
-    threadProcess(i);
-}
+//for(int i = 0; i < 10; i++){
+//    threadProcess(i);
+//}
+threadProcess(5);
 }

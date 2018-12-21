@@ -96,9 +96,9 @@ cutPiece::cutPiece(CImg<unsigned char> input){
     gray = segment::toGrayScale(input);
     resultGray = gray;
     CImg<unsigned char> grayScale = gray;
-    gray.display();
+    //gray.display();
     //单阈值检测
-    gray = threshold(grayScale, 200, 23, 28, 0.76);
+    gray = threshold(grayScale, 0.76, 23, 28, 0.76);
     CImg<unsigned char> dilationed = gray;
     cimg_forXY(dilationed, x, y){
         if(dilationed(x, y) == 0) dilationed(x, y) = 255;
@@ -106,7 +106,7 @@ cutPiece::cutPiece(CImg<unsigned char> input){
     }
     gray = dilationed;
    // gray = canny::newFunc(gray, 5);
-    dilationed = canny::newFunc(dilationed, 50);
+    dilationed = canny::newFunc(dilationed, 60);
     dilationed = canny::newFunc(dilationed, 40);
     cimg_forXY(dilationed, x, y){
         if(dilationed(x, y) == 0) dilationed(x, y) = 255;
@@ -114,7 +114,7 @@ cutPiece::cutPiece(CImg<unsigned char> input){
         if(gray(x, y) == 0) gray(x, y) = 255;
         else gray(x, y) = 0;
     }
-    gray.display();
+    //gray.display();
     cout<<"begin!"<<endl;
 
     //canny cny(dilationed, 120, 160);
@@ -196,7 +196,7 @@ void cutPiece::findDividingLine(int singleThreshold, int threshold) {
             HistogramImage(x, y) = 0;
         }
     }
-    //HistogramImage.display();
+    HistogramImage.display();
     cimg_forY(HistogramImage, y) {
         if(y == 0) continue;
         // 求Y方向直方图，谷的最少黑色像素个数为0
@@ -452,7 +452,7 @@ vector<int> cutPiece::getInflectionPosXs(vector<int> counterVec) {
     return tempInflectionPosXs;
 }
 
-CImg<unsigned char> cutPiece::threshold(CImg<unsigned char>& imgIn, int low, int columnNumber, int rowNumber, float abandonThreshold)
+CImg<unsigned char> cutPiece::threshold(CImg<unsigned char>& imgIn, float binaryThreshold, int columnNumber, int rowNumber, float abandonThreshold)
 {
     // 分块
     CImg<unsigned char> afterThreshold(imgIn.width(), imgIn.height(), 1, 1, 0);
@@ -471,7 +471,7 @@ CImg<unsigned char> cutPiece::threshold(CImg<unsigned char>& imgIn, int low, int
                     else if(imgIn(i * columnSize + k, j * rowSize + l) < min) min = imgIn(i * columnSize + k, j * rowSize + l);
                 }
             }
-            int threshold = min + (int)((float)(max - min) * ((float)low / 255.0));
+            int threshold = min + (max - min) * binaryThreshold;
             int count = 0;
             for(int k = 0; k < columnSize; k++){
                 for(int l = 0; l < rowSize; l++){
@@ -503,7 +503,7 @@ CImg<unsigned char> cutPiece::threshold(CImg<unsigned char>& imgIn, int low, int
                 else if(imgIn(i, j * rowSize + l) < min) min = imgIn(i, j * rowSize + l);
             }
         }
-        int threshold = min + (int)((float)(max - min) * ((float)low / 255.0));
+        int threshold = min + (max - min) * binaryThreshold;
         int count = 0;
         for(int i = imgIn.width() - resizeCol - 1; i < imgIn.width(); i++){
             for(int l = 0; l < rowSize; l++){
@@ -533,7 +533,7 @@ CImg<unsigned char> cutPiece::threshold(CImg<unsigned char>& imgIn, int low, int
                 else if(imgIn(i * columnSize + k, j) < min) min = imgIn(i * columnSize + k, j);
             }
         }
-        int threshold = min + (int)((float)(max - min) * ((float)low / 255.0));
+        int threshold = min + (max - min) * binaryThreshold;
         int count = 0;
         for(int j = imgIn.height() - resizeRow - 1; j < imgIn.height(); j++){
             for(int k = 0; k < columnSize; k++){

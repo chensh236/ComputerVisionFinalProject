@@ -33,7 +33,8 @@ Hough::Hough(double votingThreshold, double peakDistance, CImg<unsigned char> in
 
         // 对角线长度
         int diagonal = sqrt(cannyResult.width() * cannyResult.width() + cannyResult.height() * cannyResult.height());
-        CImg<long int> hough(45, diagonal, 1, 1, 0);
+        CImg<long int> hough(360, diagonal, 1, 1, 0);
+        cannyResult.display();
         //  对canny算法的结果进行遍历
         cimg_forXY(cannyResult, x, y)
         {
@@ -52,11 +53,12 @@ Hough::Hough(double votingThreshold, double peakDistance, CImg<unsigned char> in
                 }
             }
         }
+        hough.display();
         houghSpace = hough;
         int max = 0;
         randonTheta = 0;
         cimg_forXY(houghSpace, x, y){
-            if(x > 45) continue;
+            if(x > 45 && x < 350) continue;
             if(houghSpace(x, y) > max){
                 max = houghSpace(x, y);
                 randonTheta = x;

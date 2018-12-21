@@ -5,7 +5,7 @@
 prepareLearning::prepareLearning(CImg<unsigned char> input, vector<vector<square> > square, int imgSeq) {
     equalization eql(input);
     //input = eql.getGrayResult();
-    input.display("prepare");
+    //input.display("prepare");
     for(int i = 0; i < square.size(); i++){
         vector< CImg<unsigned char> > imgTmp;
         for(int j = 0; j < square[i].size(); j++){
@@ -16,7 +16,7 @@ prepareLearning::prepareLearning(CImg<unsigned char> input, vector<vector<square
                 }
             }
             CImg<unsigned char> gray = part;
-            gray.display();
+            //gray.display();
             if(thresholdDetect(gray)){
                 //doDilationForEachBarItemImg(gray);
                 gray = resizeNum(gray);
@@ -28,7 +28,7 @@ prepareLearning::prepareLearning(CImg<unsigned char> input, vector<vector<square
                 }
 //                gray.display();
                   gray = gray.resize(28, 28, true);
-                gray.display();
+                //gray.display();
 //                  gray.display();
                 imgTmp.push_back(gray);
             }
@@ -144,14 +144,14 @@ CImg<unsigned char> prepareLearning::resizeNum(CImg<unsigned char>& input){
     }
 
     // 得到中心
-    cout<<firstBlack_x<<" "<<lastBlack_x<<" "<<firstBlack_y<<" "<<lastBlack_y<<endl;
+    //cout<<firstBlack_x<<" "<<lastBlack_x<<" "<<firstBlack_y<<" "<<lastBlack_y<<endl;
     int x_length = lastBlack_x - firstBlack_x + 1;
     int y_length = lastBlack_y - firstBlack_y + 1;
     CImg<unsigned char> tmp(x_length + 8, y_length + 8, 1, 1, 255);
     for(int i = 4, src_x = firstBlack_x; src_x <= lastBlack_x; i++, src_x++){
         for(int j = 4, src_y = firstBlack_y; src_y <= lastBlack_y; j++, src_y++){
             tmp(i, j) = input(src_x, src_y);
-            cout<<src_x<<" "<<src_y<<endl;
+            //cout<<src_x<<" "<<src_y<<endl;
         }
     }
     return tmp;

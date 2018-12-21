@@ -9,7 +9,7 @@ public:
     CImg<unsigned char> dividingImg;
     vector< vector<square> > getSquare(){return squareVec;}
 private:
-    CImg<unsigned char> threshold(CImg<unsigned char>&, int, int, int, float);
+    CImg<unsigned char> threshold(CImg<unsigned char>&, float, int, int, float);
     void divideIntoBarItemImg(int);
     vector< CImg<float> > getRowItemImgSet(const CImg<float>& , vector<int>);
     void findDividingLine(int, int);
