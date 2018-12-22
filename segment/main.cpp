@@ -28,22 +28,22 @@ static void threadProcess(int i){
 //        hough.getResult().save(pointFilename.c_str());
     cutPiece cut(warping.getResult());
     cut.dividingImg.save(cutFileName.c_str());
-////seg.getSegment().display();
-////            seg.getResult().display();
-////            hough.getResult().display();
-////            warping.getResult().display();
-//
-//
-//    vector< vector<square> > square = cut.getSquare();
-//    prepareLearning pl(cut.resultGray, square, i);
-//    string dst = pl.subDir + "/points.txt";
-//    ofstream ofs(dst.c_str());
-//    for(int i = 0; i < 4; i++){
-//        int x = (int)warping.srcPos[i][0];
-//        int y = (int)warping.srcPos[i][1];
-//        ofs<<x<<" "<<y<<endl;
-//    }
-//    ofs.close();
+//seg.getSegment().display();
+//            seg.getResult().display();
+//            hough.getResult().display();
+//            warping.getResult().display();
+
+
+    vector< vector<square> > square = cut.getSquare();
+    prepareLearning pl(cut.resultGray, square, i);
+    string dst = pl.subDir + "/points.txt";
+    ofstream ofs(dst.c_str());
+    for(int i = 0; i < 4; i++){
+        int x = (int)warping.srcPos[i][0];
+        int y = (int)warping.srcPos[i][1];
+        ofs<<x<<" "<<y<<endl;
+    }
+    ofs.close();
 }
 
 int main() {
@@ -84,7 +84,7 @@ int main() {
     }
 
 //
-//threadProcess(5);
+//threadProcess(6);
 //for(int i = 0; i < 10; i++){
 //    threadProcess(i);
 //}

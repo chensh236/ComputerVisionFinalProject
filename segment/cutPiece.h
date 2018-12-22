@@ -11,7 +11,6 @@ public:
 private:
     CImg<unsigned char> threshold(CImg<unsigned char>&, float, int, int, float);
     void divideIntoBarItemImg(int);
-    vector< CImg<float> > getRowItemImgSet(const CImg<float>& , vector<int>);
     void findDividingLine(int, int);
     vector<int> getDivideLineXofSubImage(CImg<unsigned char>&,int);
     vector<int> getInflectionPosXs(vector<int>);

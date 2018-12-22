@@ -179,15 +179,17 @@ void prepareLearning::failAccess(string str){
 bool prepareLearning::thresholdDetect(CImg<unsigned char>& input){
     // 计算方差
     //input.display();
+    CImg<unsigned char> blur = input.get_blur(1);
     double varSum = 0.0;
     cimg_forXY(input, x ,y){
-        varSum += (double)input(x, y);
+        varSum += (double)blur(x, y);
     }
     varSum /= (double)(input.width() * input.height());
     double var = 0.0;
     cimg_forXY(input, x, y){
-        var += (input(x, y) - varSum) * (input(x, y) - varSum);
+        var += (blur(x, y) - varSum) * (blur(x, y) - varSum);
     }
+    cout<<"var:"<<var<<endl;
     if(var <= 913.0) return false;
 
 
@@ -208,76 +210,3 @@ bool prepareLearning::thresholdDetect(CImg<unsigned char>& input){
 
     return true;
 }
-//
-//void prepareLearning::doDilationForEachBarItemImg(CImg<unsigned char>& input) {
-//    //扩张Dilation -X-X-X-XYY方向
-//    CImg<unsigned char> answerXXY = CImg<unsigned char>(input.width(), input.height(), 1, 1, 0);
-//    cimg_forXY(input, x, y) {
-//        int intensity = getDilationIntensityXXY(input, x, y);
-//        answerXXY(x, y, 0) = intensity;
-//    }
-//
-//    //扩张Dilation -X-X-X-XYY方向
-//    CImg<unsigned char> answerXXY2 = CImg<unsigned char>(answerXXY.width(), answerXXY.height(), 1, 1, 0);
-//    cimg_forXY(answerXXY, x, y) {
-//        int intensity = getDilationIntensityXXY(answerXXY, x, y);
-//        answerXXY2(x, y, 0) = intensity;
-//    }
-//
-//    //扩张Dilation XY方向
-//    CImg<unsigned char> answerXY = CImg<unsigned char>(answerXXY2.width(), answerXXY2.height(), 1, 1, 0);
-//    cimg_forXY(answerXXY2, x, y) {
-//        int intensity = getDilationIntensityXY(answerXXY2, x, y);
-//        answerXY(x, y, 0) = intensity;
-//    }
-//
-//    cimg_forXY(input, x, y) {
-//        input(x, y, 0) = answerXY(x, y, 0);
-//    }
-//}
-//
-//// XY方向的正扩张
-//int prepareLearning::getDilationIntensityXY(const CImg<float>& Img, int x, int y) {
-//    int intensity = Img(x, y, 0);
-//    if (intensity == 255) {
-//        for (int i = -1; i <= 1; i++) {
-//            for (int j = -1; j <= 1; j++) {
-//                if (0 <= x + i && x + i < Img._width && 0 <= y + j && y + j < Img._height) {
-//                    if (i != -1 && j != -1 || i != 1 && j != 1 || i != 1 && j != -1 || i != -1 && j != 1)
-//                        if (Img(x + i, y + j, 0) == 0) {
-//                            intensity = 0;
-//                            break;
-//                        }
-//                }
-//            }
-//            if (intensity != 255)
-//                break;
-//        }
-//    }
-//    return intensity;
-//}
-//
-//
-//int prepareLearning::getDilationIntensityXXY(CImg<unsigned char>& Img, int x, int y){
-//    int intensity = Img(x, y, 0);
-//    if (intensity == 255) {    //若中间点为白色
-//        int blackAccu = 0;
-//
-//        for (int i = -1; i <= 1; i++) {
-//            if (0 <= y + i && y + i < Img._height) {    //垂直方向累加
-//                if (Img(x, y + i, 0) == 0)
-//                    blackAccu++;
-//            }
-//        }
-//        for (int i = -2; i <= 2; i++) {
-//            if (0 <= x + i && x + i < Img._width) {     //水平方向累减
-//                if (Img(x + i, y, 0) == 0)
-//                    blackAccu--;
-//            }
-//        }
-//
-//        if (blackAccu > 0)
-//            intensity = 0;
-//    }
-//    return intensity;
-//}

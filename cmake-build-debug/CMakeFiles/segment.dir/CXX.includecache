@@ -118,20 +118,6 @@ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/CImg.h
 stdint.h
 -
 
-C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Hough.cpp
-iostream
--
-cmath
--
-vector
--
-cstring
--
-Hough.h
-C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Hough.h
-prepareLearning.h
-C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/prepareLearning.h
-
 C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Hough.h
 public.h
 C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/public.h
@@ -139,22 +125,6 @@ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/public.h
 C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Projection.h
 public.h
 C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/public.h
-
-C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/canny.h
-public.h
-C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/public.h
-
-C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/cutPiece.cpp
-cutPiece.h
-C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/cutPiece.h
-segment.h
-C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/segment.h
-prepareLearning.h
-C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/prepareLearning.h
-Hough.h
-C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Hough.h
-canny.h
-C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/canny.h
 
 C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/cutPiece.h
 public.h
