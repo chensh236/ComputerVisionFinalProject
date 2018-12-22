@@ -4,7 +4,12 @@
 CMakeFiles/segment.dir/segment/Hough.cpp.obj: ../segment/CImg.h
 CMakeFiles/segment.dir/segment/Hough.cpp.obj: ../segment/Hough.cpp
 CMakeFiles/segment.dir/segment/Hough.cpp.obj: ../segment/Hough.h
+CMakeFiles/segment.dir/segment/Hough.cpp.obj: ../segment/Projection.h
+CMakeFiles/segment.dir/segment/Hough.cpp.obj: ../segment/equalization.h
+CMakeFiles/segment.dir/segment/Hough.cpp.obj: ../segment/prepareLearning.h
 CMakeFiles/segment.dir/segment/Hough.cpp.obj: ../segment/public.h
+CMakeFiles/segment.dir/segment/Hough.cpp.obj: ../segment/segment.h
+CMakeFiles/segment.dir/segment/Hough.cpp.obj: ../segment/warp.h
 
 CMakeFiles/segment.dir/segment/Projection.cpp.obj: ../segment/CImg.h
 CMakeFiles/segment.dir/segment/Projection.cpp.obj: ../segment/Projection.cpp

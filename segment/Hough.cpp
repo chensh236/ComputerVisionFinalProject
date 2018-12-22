@@ -7,6 +7,8 @@
 #define X_MIN 0
 #define Y_MIN 0
 #define MAX 0x7FFFFFFF
+
+#include "prepareLearning.h"
 using namespace std;
 
 Hough::Hough(double votingThreshold, double peakDistance, CImg<unsigned char> input, double fitPointDistance, bool flag)
@@ -29,41 +31,101 @@ Hough::Hough(double votingThreshold, double peakDistance, CImg<unsigned char> in
     } else{
         // randon
         cannyResult = input;
-        cannyResult = cannyResult.get_blur(1);
+//        //cannyResult = cannyResult.get_blur(1);
+//        cimg_forXY(cannyResult, x,  y ){
+//            cannyResult(x, y) = 255 - cannyResult(x, y);
+//        }
 
+        int bor = 10;
+        cimg_forXY(cannyResult, x, y){
+            if(x <= bor || y <= bor || x >= cannyResult.width() - bor || y >= cannyResult.height() - bor){
+                cannyResult(x, y) = 0;
+            }
+        }
+
+        int count = 2;
+        while(count--){
+            CImg<unsigned char>  tmp(cannyResult.width(), cannyResult.height(), 1, 1, 0);
+            cimg_forXY(cannyResult, x, y){
+                bool flag = true;
+                for(int i = y - 1; i < y + 2; i++){
+                    if(i < 0 || i >= cannyResult.height()) continue;
+                    if(cannyResult(x, i) == 0){
+                        flag = false;
+                    }
+                }
+               // cout<<x<<" "<<y<<endl;
+                if(flag) tmp(x, y) = 255;
+            }
+            cannyResult = tmp;
+        }
+
+        count = 60;
+        while(count--){
+            CImg<unsigned char>  tmp(cannyResult.width(), cannyResult.height(), 1, 1, 0);
+            cimg_forXY(cannyResult, x, y){
+                bool flag = false;
+                for(int i = x - 1; i < x + 2; i++){
+                    if(i < 0 || i >= cannyResult.width()) continue;
+                    if(cannyResult(i, y) != 0){
+                        flag = true;
+                        break;
+                    }
+                }
+                if(flag) tmp(x, y) = 255;
+            }
+            cannyResult = tmp;
+        }
+        count = 1;
+        while(count--){
+            CImg<unsigned char>  tmp(cannyResult.width(), cannyResult.height(), 1, 1, 0);
+            cimg_forXY(cannyResult, x, y){
+                bool flag = true;
+                for(int i = y - 1; i < y + 2; i++){
+                    if(i < 0 || i >= cannyResult.height()) continue;
+                    if(cannyResult(x, i) == 0){
+                        flag = false;
+                    }
+                }
+                // cout<<x<<" "<<y<<endl;
+                if(flag) tmp(x, y) = 255;
+            }
+            cannyResult = tmp;
+        }
+
+        //cannyResult.display();
         // 对角线长度
         int diagonal = sqrt(cannyResult.width() * cannyResult.width() + cannyResult.height() * cannyResult.height());
-        CImg<long int> hough(360, diagonal, 1, 1, 0);
-        cannyResult.display();
+        CImg<int> hough(LOCAL_PI * 4, diagonal, 1, 1, 0);
         //  对canny算法的结果进行遍历
         cimg_forXY(cannyResult, x, y)
         {
-            if (cannyResult(x, y) < 100)
+            if (cannyResult(x, y) == 255)
             {
                 cimg_forX(hough, alpha)
                 {
                     //转换为弧度制
-                    double theta = ((double)alpha * cimg::PI) / LOCAL_PI;
+                    double theta = ((double)(alpha)* 0.5 * cimg::PI) / LOCAL_PI;
                     int r = round((double)x * cos(theta) + (double)y * sin(theta));
                     // 符合条件则进行投票
                     if (r >= 0 && r < diagonal)
                     {
-                        hough(alpha, r) += cannyResult(x, y);
+                        hough(alpha, r)++;
                     }
                 }
             }
         }
-        hough.display();
+        //hough.display();
         houghSpace = hough;
         int max = 0;
-        randonTheta = 0;
+        int pos = 0;
         cimg_forXY(houghSpace, x, y){
-            if(x > 45 && x < 350) continue;
             if(houghSpace(x, y) > max){
                 max = houghSpace(x, y);
-                randonTheta = x;
+                pos = x;
             }
         }
+        randonTheta = (double)pos / 2.0;
 //        cimg_forX(houghSpace, x){
 //            int counter = 0;
 //            cimg_forY(houghSpace, y){

@@ -19,7 +19,7 @@ public:
 
     // 存储直线集合的信息
     vector<line> lines;
-    int randonTheta;
+    double randonTheta;
 
     // 构造函数
     Hough(double votingThreshold, double peakDistance, CImg<unsigned char>, double, bool);

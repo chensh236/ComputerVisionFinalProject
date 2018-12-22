@@ -57,9 +57,64 @@ void bilinear_interpolation(CImg<unsigned char>& outImg,
     }
 }
 
-/*
-* 旋转图片，旋转角为theta，并采用双线性插值减少锯齿
-*/
+///*
+//* 旋转图片，旋转角为theta，并采用双线性插值减少锯齿
+//*/
+//
+//void OTSU(CImg<unsigned char>& gray)
+//{
+//    // 灰度直方图
+//    float histogram[255] = {0};
+//    cimg_forXY(gray, x, y)
+//    {
+//        histogram[(int)gray(x, y)]++;
+//    }
+//    float var = 0;
+//    int threshold = 0;
+//    for (int i = 0; i < 256; i++)
+//    {
+//        float frontVal = 0;
+//        float frontTotal = 0;
+//        float backVal = 0;
+//        float backTotal = 0;
+//        for (int j = 0; j < 256; j++)
+//        {
+//            if (j < i)
+//            {
+//                frontVal += histogram[j];
+//                frontTotal += histogram[j] * j;
+//            }
+//            else
+//            {
+//                backVal += histogram[j];
+//                backTotal += histogram[j] * j;
+//            }
+//        }
+//        if (frontVal == 0 || backVal == 0)
+//            continue;
+//        frontTotal /= frontVal;
+//        frontVal /= (gray.width() * gray.height());
+//        backTotal /= backVal;
+//        backVal /= (gray.width() * gray.height());
+//        float currVar = frontVal * backVal * (frontTotal - backTotal) * (frontTotal - backTotal);
+//        if (currVar > var)
+//        {
+//            var = currVar;
+//            threshold = i;
+//        }
+//    }
+//    CImg<unsigned char>result = gray;
+//    cimg_forXY(result, x, y)
+//    {
+//        if ((int)result(x, y) > threshold)
+//            result(x, y) = 255;
+//        else
+//            result(x, y) = 0;
+//    }
+//    gray = result;
+//}
+
+
 CImg<unsigned char> reotate_biliinar(const CImg<unsigned char>& srcImg, double theta, bool isBinary) {
     int width = srcImg.width();
     int height = srcImg.height();
@@ -78,14 +133,32 @@ CImg<unsigned char> reotate_biliinar(const CImg<unsigned char>& srcImg, double t
     // 开始填充新图片的灰度值
     bilinear_interpolation(newImg, srcImg, theta);
 
-
-    //newImg.display();
     if(isBinary){
+        //newImg.display();
         cimg_forXY(newImg, x, y){
-            if(newImg(x, y) < 180) newImg(x, y) = 0;
-            else newImg(x, y) = 255;
+            if(newImg(x, y) > 200) newImg(x, y) = 255;
+            else newImg(x, y) = 0;
         }
-        newImg = canny::newFunc(newImg, 20);
+//        newImg.display();
+//        OTSU(newImg);
+//        CImg<unsigned char> tmp(newImg.width(), newImg.height(), 1, 1, 255);
+//        cimg_forXY(newImg, x, y){
+//            bool flag = false;
+//            for(int i = x - 1; i < x + 2; i++){
+//                for(int j = y - 1; j < y + 2; j++){
+//                    if(i < 0 || i >= newImg.width() || j < 0 || j >= newImg.height()) continue;
+//                    if(newImg(i, y) != 255){
+//                        flag = true;
+//                        break;
+//                    }
+//                }
+//                if(flag) break;
+//            }
+//            if(flag) tmp(x, y) = 0;
+//        }
+//        newImg = tmp;
+//        newImg.display();
+       // newImg = canny::newFunc(newImg, 20);
     }
 
     return newImg;
@@ -98,46 +171,36 @@ cutPiece::cutPiece(CImg<unsigned char> input){
     CImg<unsigned char> grayScale = gray;
     //gray.display();
     //单阈值检测
+    //第一个低 多 第二个高 多
     gray = threshold(grayScale, 0.76, 23, 28, 0.76);
+
+    //gray.display();
     CImg<unsigned char> dilationed = gray;
     cimg_forXY(dilationed, x, y){
         if(dilationed(x, y) == 0) dilationed(x, y) = 255;
         else dilationed(x, y) = 0;
     }
     gray = dilationed;
-   // gray = canny::newFunc(gray, 5);
-    dilationed = canny::newFunc(dilationed, 60);
-    dilationed = canny::newFunc(dilationed, 40);
+    dilationed = canny::newFunc(dilationed, 30);
+    gray = canny::newFunc(dilationed, 11);
+    Hough hough(0, 0, dilationed, 0, false);
     cimg_forXY(dilationed, x, y){
         if(dilationed(x, y) == 0) dilationed(x, y) = 255;
         else dilationed(x, y) = 0;
         if(gray(x, y) == 0) gray(x, y) = 255;
         else gray(x, y) = 0;
     }
-    //gray.display();
-    cout<<"begin!"<<endl;
 
-    //canny cny(dilationed, 120, 160);
-    //cny.getResult().display();
-    //dilationed = cny.getResult();
+    double theta = hough.randonTheta;
 
-    //dilationed = dilationed.resize(dilationed.width() / 2, dilationed.height() / 2, true);
-    //dilationed.display();
-   // prepareLearning::doDilationForEachBarItemImg(dilationed);
-    Hough hough(0, 0, dilationed, 0, false);
-    int theta = hough.randonTheta;
+    theta = (theta - 90.0);
     cout<<theta<<endl;
-    if(theta > 9 && theta < 13){
-        theta-= 3;
-        double ror = (double)theta / 180.0 * cimg::PI;
-        gray = reotate_biliinar(gray, ror, true);
-        resultGray = reotate_biliinar(resultGray, ror, false);
-        //resultGray.display();
-    }
-    //gray.display();
+    double ror = theta / 180.0 * cimg::PI;
+    gray = reotate_biliinar(gray, ror, true);
+    resultGray = reotate_biliinar(resultGray, ror, false);
 
 
-    findDividingLine(5, 4);
+    findDividingLine(3, 4);
     divideIntoBarItemImg(3);
 
 
@@ -154,13 +217,13 @@ void cutPiece::findDividingLine(int singleThreshold, int threshold) {
                 blackPixel++;
         }
         bool flag = blackPixel > singleThreshold ? true : false;
-        //邻域判断
-        if(!flag && y - 1 >= 0 && blackPixelSet[y - 1] != 0){
-            flag = true;
-        }
-        if(!flag && y - 2 >= 0 && blackPixelSet[y - 2] != 0){
-            flag = true;
-        }
+//        //邻域判断
+//        if(!flag && y - 1 >= 0 && blackPixelSet[y - 1] != 0){
+//            flag = true;
+//        }
+//        if(!flag && y - 2 >= 0 && blackPixelSet[y - 2] != 0){
+//            flag = true;
+//        }
         if(!flag) blackPixel = 0;
         if(blackPixel <= 2) blackPixel = 0;
 
@@ -196,7 +259,7 @@ void cutPiece::findDividingLine(int singleThreshold, int threshold) {
             HistogramImage(x, y) = 0;
         }
     }
-    HistogramImage.display();
+   // HistogramImage.display();
     cimg_forY(HistogramImage, y) {
         if(y == 0) continue;
         // 求Y方向直方图，谷的最少黑色像素个数为0

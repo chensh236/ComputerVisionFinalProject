@@ -15,9 +15,9 @@ public:
     prepareLearning(CImg<unsigned char> input, vector< vector<square> > square, int);
     vector< vector< CImg<unsigned char> > > getResult(){return this->imgVec;}
     string subDir;
-    static void doDilationForEachBarItemImg(CImg<unsigned char>& input);
-    static int getDilationIntensityXXY(CImg<unsigned char>& Img, int x, int y);
-    static int getDilationIntensityXY(const CImg<float>& Img, int x, int y);
+//    static void doDilationForEachBarItemImg(CImg<unsigned char>& input);
+//    static int getDilationIntensityXXY(CImg<unsigned char>& Img, int x, int y);
+//    static int getDilationIntensityXY(const CImg<float>& Img, int x, int y);
 private:
     bool thresholdDetect(CImg<unsigned char>&);
     vector< vector< CImg<unsigned char> > > imgVec;

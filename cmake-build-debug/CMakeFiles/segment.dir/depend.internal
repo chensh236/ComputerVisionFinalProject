@@ -5,7 +5,12 @@ CMakeFiles/segment.dir/segment/Hough.cpp.obj
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/CImg.h
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Hough.cpp
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Hough.h
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Projection.h
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/equalization.h
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/prepareLearning.h
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/public.h
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/segment.h
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/warp.h
 CMakeFiles/segment.dir/segment/Projection.cpp.obj
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/CImg.h
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Projection.cpp

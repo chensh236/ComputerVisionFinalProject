@@ -28,22 +28,22 @@ static void threadProcess(int i){
 //        hough.getResult().save(pointFilename.c_str());
     cutPiece cut(warping.getResult());
     cut.dividingImg.save(cutFileName.c_str());
-//seg.getSegment().display();
-//            seg.getResult().display();
-//            hough.getResult().display();
-//            warping.getResult().display();
-
-
-    vector< vector<square> > square = cut.getSquare();
-    prepareLearning pl(cut.resultGray, square, i);
-    string dst = pl.subDir + "/points.txt";
-    ofstream ofs(dst.c_str());
-    for(int i = 0; i < 4; i++){
-        int x = (int)warping.srcPos[i][0];
-        int y = (int)warping.srcPos[i][1];
-        ofs<<x<<" "<<y<<endl;
-    }
-    ofs.close();
+////seg.getSegment().display();
+////            seg.getResult().display();
+////            hough.getResult().display();
+////            warping.getResult().display();
+//
+//
+//    vector< vector<square> > square = cut.getSquare();
+//    prepareLearning pl(cut.resultGray, square, i);
+//    string dst = pl.subDir + "/points.txt";
+//    ofstream ofs(dst.c_str());
+//    for(int i = 0; i < 4; i++){
+//        int x = (int)warping.srcPos[i][0];
+//        int y = (int)warping.srcPos[i][1];
+//        ofs<<x<<" "<<y<<endl;
+//    }
+//    ofs.close();
 }
 
 int main() {
@@ -67,26 +67,26 @@ int main() {
 //        t8.join();
 
 
-//        thread t10(threadProcess, 9);
-//        t10.join();
-//    thread t9(threadProcess, 8);
-//    t9.join();
-//    for(int i = 0; i < 8; i += 4){
-//        thread t1(threadProcess, i);
-//        thread t2(threadProcess, i + 1);
-//        thread t3(threadProcess, i + 2);
-//        thread t4(threadProcess, i + 3);
-//
-//        t1.join();
-//        t2.join();
-//        t3.join();
-//        t4.join();
-//    }
-//
+        thread t10(threadProcess, 9);
+        t10.join();
+    thread t9(threadProcess, 8);
+    t9.join();
+    for(int i = 0; i < 8; i += 4){
+        thread t1(threadProcess, i);
+        thread t2(threadProcess, i + 1);
+        thread t3(threadProcess, i + 2);
+        thread t4(threadProcess, i + 3);
 
-//threadProcess(8);
+        t1.join();
+        t2.join();
+        t3.join();
+        t4.join();
+    }
+
+//
+//threadProcess(5);
 //for(int i = 0; i < 10; i++){
 //    threadProcess(i);
 //}
-threadProcess(5);
+
 }
