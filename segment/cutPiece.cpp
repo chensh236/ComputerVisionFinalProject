@@ -80,7 +80,8 @@ cutPiece::cutPiece(CImg<unsigned char> input){
     //gray.display();
     //单阈值检测
     //第一个低 多 第二个高 多
-    gray = threshold(grayScale, 0.74, 23, 28, 0.77);
+    gray = threshold(grayScale, 0.76, 23, 28, 0.77);
+
     //gray.display();
     //gray.display();
     CImg<unsigned char> dilationed = gray;
@@ -373,47 +374,6 @@ vector<int> cutPiece::getInflectionPosXs(vector<int> counterVec) {
     }
     return tempInflectionPosXs;
 }
-// ostu算法求阈值
-int OSTU(const CImg<unsigned char>& image) {
-    double variance = 0.0; // 类间方差初始化为0
-    // 灰度直方图初始化为0
-    int histogram[255];
-    for (int i = 0; i < 256; i++) {
-        histogram[i] = 0;
-    }
-    int pixelsNum = image.width() * image.height(); // 像素点总数
-    // 计算灰度直方图分布，Histogram数组下标是灰度值，保存内容是灰度值对应像素点数
-    cimg_forXY(image, i, j) {
-        ++histogram[image(i, j)];
-    }
-    int threshold;
-    for (int i = 0; i < 256; i++) {
-        double P1 = 0.0, P2 = 0.0, m1 = 0.0, m2 = 0.0;
-        for (int j = 0; j <= i; j++) {
-            P1 += (double)histogram[j]; // 前景像素点总数
-            m1 += (double)j * histogram[j]; // 前景部分像素总灰度和
-        }
-        if (P1 == 0.0) continue;
-        m1 /= P1; // 前景像素平均灰度
-        P1 /= pixelsNum; // 前景像素点数所占比例
-
-        for (int j = i + 1; j < 256; j++) {
-            P2 += (double)histogram[j]; // 背景像素点总数
-            m2 += (double)j * histogram[j]; // 背景部分像素总灰度和
-        }
-        if (P2 == 0.0) continue;
-        m2 /= P2; // 背景像素平均灰度
-        P2 /= pixelsNum; // 背景像素点数所占比例
-        double temp_variance = P1 * P2 * (m1 - m2) * (m1 - m2); // 当前类间方差
-        // 更新类间方差和阈值
-        if (variance < temp_variance) {
-            variance = temp_variance;
-            threshold = i;
-        }
-    }
-    return threshold;
-}
-
 CImg<unsigned char> cutPiece::threshold(CImg<unsigned char>& imgIn, float binaryThreshold, int columnNumber, int rowNumber, float abandonThreshold)
 {
     // 分块
@@ -423,16 +383,17 @@ CImg<unsigned char> cutPiece::threshold(CImg<unsigned char>& imgIn, float binary
     int resizeCol = imgIn.width() % columnNumber;
     int resizeRow = imgIn.height() % rowNumber;
     // 主体
-
     for(int i = 0; i < columnNumber; i++){
         for(int j = 0; j < rowNumber; j++){
-            CImg<unsigned char> ostu(columnSize, rowSize, 1, 1, 255);
+            int min = 256;
+            int max = -1;
             for(int k = 0; k < columnSize; k++){
                 for(int l = 0; l < rowSize; l++){
-                    ostu(k, l) = imgIn(i * columnSize + k, j * rowSize + l);
+                    if(imgIn(i * columnSize + k, j * rowSize + l) > max) max = imgIn(i * columnSize + k, j * rowSize + l);
+                    else if(imgIn(i * columnSize + k, j * rowSize + l) < min) min = imgIn(i * columnSize + k, j * rowSize + l);
                 }
             }
-            int threshold = OSTU(ostu);
+            int threshold = min + (max - min) * binaryThreshold;
             int count = 0;
             for(int k = 0; k < columnSize; k++){
                 for(int l = 0; l < rowSize; l++){
@@ -452,38 +413,19 @@ CImg<unsigned char> cutPiece::threshold(CImg<unsigned char>& imgIn, float binary
                     }
                 }
             }
-
-
-//            int min = 256;
-//            int max = -1;
-//            for(int k = 0; k < columnSize; k++){
-//                for(int l = 0; l < rowSize; l++){
-//                    if(imgIn(i * columnSize + k, j * rowSize + l) > max) max = imgIn(i * columnSize + k, j * rowSize + l);
-//                    else if(imgIn(i * columnSize + k, j * rowSize + l) < min) min = imgIn(i * columnSize + k, j * rowSize + l);
-//                }
-//            }
-//            int threshold = min + (max - min) * binaryThreshold;
-//
         }
     }
     // 剩余 x
     for(int j = 0; j < rowNumber; j++){
-//        int min = 256;
-//        int max = -1;
-//        for(int i = imgIn.width() - resizeCol - 1; i < imgIn.width(); i++){
-//            for(int l = 0; l < rowSize; l++){
-//                if(imgIn(i, j * rowSize + l) > max) max = imgIn(i, j * rowSize + l);
-//                else if(imgIn(i, j * rowSize + l) < min) min = imgIn(i, j * rowSize + l);
-//            }
-//        }
-//        int threshold = min + (max - min) * binaryThreshold;
-        CImg<unsigned char> ostu(resizeCol, rowSize, 1, 1, 255);
-        for(int i = imgIn.width() - resizeCol; i < imgIn.width(); i++){
+        int min = 256;
+        int max = -1;
+        for(int i = imgIn.width() - resizeCol - 1; i < imgIn.width(); i++){
             for(int l = 0; l < rowSize; l++){
-                ostu(i - imgIn.width() + resizeCol, l) = imgIn(i, j * rowSize + l);
+                if(imgIn(i, j * rowSize + l) > max) max = imgIn(i, j * rowSize + l);
+                else if(imgIn(i, j * rowSize + l) < min) min = imgIn(i, j * rowSize + l);
             }
         }
-        int threshold = OSTU(ostu);
+        int threshold = min + (max - min) * binaryThreshold;
         int count = 0;
         for(int i = imgIn.width() - resizeCol - 1; i < imgIn.width(); i++){
             for(int l = 0; l < rowSize; l++){
@@ -505,23 +447,15 @@ CImg<unsigned char> cutPiece::threshold(CImg<unsigned char>& imgIn, float binary
     }
     // 剩余 y
     for(int i = 0; i < columnNumber; i++){
-//        int min = 256;
-//        int max = -1;
-//        for(int j = imgIn.height() - resizeRow - 1; j < imgIn.height(); j++){
-//            for(int k = 0; k < columnSize; k++){
-//                if(imgIn(i * columnSize + k, j) > max) max = imgIn(i * columnSize + k, j);
-//                else if(imgIn(i * columnSize + k, j) < min) min = imgIn(i * columnSize + k, j);
-//            }
-//        }
-//        int threshold = min + (max - min) * binaryThreshold;
-        CImg<unsigned char> ostu(columnSize, rowSize, 1, 1, 255);
-        for(int j = imgIn.height() - resizeRow; j < imgIn.height(); j++){
+        int min = 256;
+        int max = -1;
+        for(int j = imgIn.height() - resizeRow - 1; j < imgIn.height(); j++){
             for(int k = 0; k < columnSize; k++){
-                ostu(k, j - imgIn.height() + resizeRow) = imgIn(i * columnSize + k, j);
+                if(imgIn(i * columnSize + k, j) > max) max = imgIn(i * columnSize + k, j);
+                else if(imgIn(i * columnSize + k, j) < min) min = imgIn(i * columnSize + k, j);
             }
         }
-
-        int threshold = OSTU(ostu);
+        int threshold = min + (max - min) * binaryThreshold;
         int count = 0;
         for(int j = imgIn.height() - resizeRow - 1; j < imgIn.height(); j++){
             for(int k = 0; k < columnSize; k++){
@@ -546,6 +480,5 @@ CImg<unsigned char> cutPiece::threshold(CImg<unsigned char>& imgIn, float binary
             afterThreshold(x, y) = 255;
         }
     }
-    afterThreshold.display();
     return afterThreshold;
 }

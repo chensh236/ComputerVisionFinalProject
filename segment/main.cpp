@@ -48,24 +48,6 @@ static void threadProcess(int i){
 
 int main() {
     int sum = 10;
-//        thread t1(threadProcess, 0);
-//        thread t2(threadProcess, 1);
-//        thread t3(threadProcess, 2);
-//        thread t4(threadProcess, 3);
-//        thread t5(threadProcess, 4);
-//        thread t6(threadProcess, 5);
-//        thread t7(threadProcess, 6);
-//        thread t8(threadProcess, 7);
-//
-//        t1.join();
-//        t2.join();
-//        t3.join();
-//        t4.join();
-//        t5.join();
-//        t6.join();
-//        t7.join();
-//        t8.join();
-
 
         thread t10(threadProcess, 9);
         t10.join();
