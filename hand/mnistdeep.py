@@ -64,6 +64,7 @@ with tf.Session() as sess:
             train_accuracy = accuracy.eval(feed_dict={
                 x: batch[0], y_: batch[1], keep_prob: 1.0})
             print('step %d, training accuracy %g' % (i, train_accuracy))
+        print(batch[1])
         train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
     saver.save(sess, './SAVE/model.ckpt')
 

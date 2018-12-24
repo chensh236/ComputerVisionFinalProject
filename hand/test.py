@@ -3,30 +3,6 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 import numpy as np
 
-def imageprepare(filePath):
-    """
-    This function returns the pixel values.
-    The imput is a png file location.
-    """
-    #in terminal 'mogrify -format png *.jpg' convert jpg to png
-    im = Image.open(filePath)
-    # plt.imshow(im)
-#    plt.show()
-    im = im.convert('L')
-    
-    tv = list(im.getdata()) #get pixel values
-
-    #normalize pixels to 0 and 1. 0 is pure white, 1 is pure black.
-    tva = [ (255-x)*1.0/255.0 for x in tv] 
-#    print(tva)
-    return tva
-
-
-
-    """
-    This function returns the predicted integer.
-    The imput is the pixel values from the imageprepare() function.
-    """
 
     # Define the model (same as when creating the model file)
 def weight_variable(shape, name):
@@ -43,8 +19,7 @@ def conv2d(x,W):
 def max_pool_2x2(x):
     return tf.nn.max_pool(x, ksize=[1,2,2,1], strides=[1,2,2,1], padding='SAME')
 
-def detection(imgList):
-
+def detection():
     x = tf.placeholder(tf.float32, [None, 784])
 
     W_conv1 = weight_variable([5, 5, 1, 32], name = 'W1')
@@ -78,52 +53,73 @@ def detection(imgList):
     variables_dict = {'W1': W_conv1, 'B1': b_conv1, 'W2': W_conv2, 'B2': b_conv2, 'W3': W_fc1, 'B3': b_fc1, 'W4': W_fc2, 'B4': b_fc2}
     saver = tf.train.Saver(variables_dict)
     
-    resultArr = []
-    for i in range(len(imgList)):
-        img = imageprepare(imgList[i])
-        with tf.Session() as sess:
-            saver.restore(sess, "./SAVE/model.ckpt")#这里使用了之前保存的模型参数
-            sess.run(tf.global_variables_initializer())
-        #print ("Model restored.")
-#        print('begin to predict')
-            prediction=tf.argmax(y_conv,1)
-            predint=prediction.eval(feed_dict={x: [img],keep_prob: 1.0}, session=sess)
-#        print(h_conv2)
-            resultArr.append(predint[0])
-            print(predint[0])
-    return resultArr
+    
+    
+    tfrecords_filename = "numbersGenerate.tfrecords"
+    filename_queue = tf.train.string_input_producer([tfrecords_filename],) #读入流中
+    reader = tf.TFRecordReader()
+    _, serialized_example = reader.read(filename_queue)   #返回文件名和文件
+    features = tf.parse_single_example(serialized_example,
+                                       features={
+                                           'label': tf.FixedLenFeature([], tf.int64),
+                                           'img_raw' : tf.FixedLenFeature([], tf.string),
+                                       })  #取出包含image和label的feature对象
+    image = tf.decode_raw(features['img_raw'], tf.uint8)
+    image = tf.reshape(image, [28, 28, 3])  #reshape为128*128的3通道图片
+#    img = tf.cast(img, tf.float32) * (1. / 255) - 0.5 #在流中抛出img张量
+    label = tf.cast(features['label'], tf.int32) #在流中抛出label张量
+    with tf.Session() as sess: #开始一个会话
+        sess.run(tf.global_variables_initializer())
+        coord=tf.train.Coordinator()
+        threads= tf.train.start_queue_runners(coord=coord)
+        saver.restore(sess, "./SAVE/model.ckpt") #使用模型，参数和之前的代码保持一致
+        for i in range(10):
+            writePath = "../temp/img" + str(i) + "/result.txt"
+            with open(writePath, 'w') as f:
+                dictionary= "../temp/img" + str(i) + "/guide.txt"
+                reader = np.loadtxt(dictionary, dtype = int)
+                for j in range(len(reader)):
+                    col = reader[j]
+                    for k in range(col):
+                        example, l = sess.run([image,label])#在会话中取出image和label
+                        img = Image.fromarray(example, 'RGB')#这里Image是之前提到的
+                        img = img.convert('L')
+#                        plt.imshow(img)  #显示需要识别的图片
+#                        plt.show()
+                        tv = list(img.getdata())
+                        # normalization
+                        tva = [(255-x)*1.0/255.0 for x in tv] 
+                        prediction = tf.argmax(y_conv,1)
+                        predint=prediction.eval(feed_dict={x: [tva],keep_prob: 1.0}, session=sess)
+                        f.write(str(predint[0]))
+                    f.write("\n")
+                print("finish" + str(i))
+        coord.request_stop()
+        coord.join(threads)
+ 
 
 if __name__ == '__main__':
-   for i in range(10):
-       writePath = "../temp/img" + str(i) + "/result.txt"
-       with open(writePath, 'w') as f:
-           var = "../temp/img" + str(i) + "/guide.txt"
-           reader = np.loadtxt(var, dtype = int)
-           imgList = []
-           for j in range(len(reader)):
-               col = reader[j]
-               for k in range(col):
-                   fileStr = "../temp/img" + str(i) + "/" + str(j) + "_" + str(k) + ".bmp"
-                   img = imageprepare(fileStr)
-                   imgList.append(img)
-           resultArr = detection(imgList)
-           index = 0
-           for j in range(len(reader)):
-               col = reader[j]
-               for k in range(col):          
-                   fileStr = "../temp/img" + str(i) + "/" + str(j) + "_" + str(k) + ".bmp"
-                   print(fileStr)
-                   f.write(str(resultArr[index]))
-                   f.write(" ")
-                   index = index + 1
-               f.write("\n")
-           print("finish" + str(i))
-    # imgList = []
-    # for i in range(10):
-    #     for j in range(10):
-    #         fileStr = "./test/" + str(i) + "_" + str(1+ j) + ".png"
-    #         imgList.append(fileStr)
-    # resultArr = detection(imgList)
+    detection()
+#   for i in range(10):
+#       writePath = "../temp/img" + str(i) + "/result.txt"
+#       with open(writePath, 'w') as f:
+#           var = "../temp/img" + str(i) + "/guide.txt"
+#           reader = np.loadtxt(var, dtype = int)
+#           for j in range(len(reader)):
+#               col = reader[j]
+#               for k in range(col):
+#                   fileStr = "../temp/img" + str(i) + "/" + str(j) + "_" + str(k) + ".bmp"
+#                   result = detection(fileStr)
+#                   print(result)
+#                   f.write(str(result))
+#                   f.write(" ")
+#               f.write("\n")
+#           print("finish" + str(i))
+#     for i in range(10):
+#         for j in range(10):
+#             fileStr = "./test/" + str(i) + "_" + str(1+ j) + ".png"
+#             result = detection(fileStr)
+#             print(result)
                 
                 
                 

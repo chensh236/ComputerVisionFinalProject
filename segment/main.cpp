@@ -35,7 +35,7 @@ static void threadProcess(int i){
 
 
     vector< vector<square> > square = cut.getSquare();
-    prepareLearning pl(cut.resultGray, square, i);
+    prepareLearning pl(cut.resultGray, square, i, i);
     string dst = pl.subDir + "/points.txt";
     ofstream ofs(dst.c_str());
     for(int i = 0; i < 4; i++){

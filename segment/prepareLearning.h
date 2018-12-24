@@ -12,7 +12,7 @@
 
 class prepareLearning {
 public:
-    prepareLearning(CImg<unsigned char> input, vector< vector<square> > square, int);
+    prepareLearning(CImg<unsigned char> input, vector< vector<square> > square, int, int);
     vector< vector< CImg<unsigned char> > > getResult(){return this->imgVec;}
     string subDir;
 
@@ -20,7 +20,7 @@ private:
     bool thresholdDetect(CImg<unsigned char>&);
     vector< vector< CImg<unsigned char> > > imgVec;
     void failAccess(string);
-    void storeImg();
+    void storeImg(int);
     CImg<unsigned char> resizeNum(CImg<unsigned char>& input);
 };
 

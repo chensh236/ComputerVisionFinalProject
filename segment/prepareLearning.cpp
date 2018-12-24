@@ -2,7 +2,7 @@
 // Created by Chen Sihang on 2018/12/19.
 //
 #include "prepareLearning.h"
-prepareLearning::prepareLearning(CImg<unsigned char> input, vector<vector<square> > square, int imgSeq) {
+prepareLearning::prepareLearning(CImg<unsigned char> input, vector<vector<square> > square, int imgSeq, int seqNum) {
     equalization eql(input);
     //input = eql.getGrayResult();
     //input.display("prepare");
@@ -22,14 +22,11 @@ prepareLearning::prepareLearning(CImg<unsigned char> input, vector<vector<square
                 gray = resizeNum(gray);
 
                 // strong
-                cimg_forXY(gray, x, y){
-                    if(gray(x, y) == 0) gray(x, y) = 255;
-                    else if(gray(x, y) == 255) gray(x, y) = 0;
-                }
 //                gray.display();
                   gray = gray.resize(28, 28, true);
                 //gray.display();
 //                  gray.display();
+
                 imgTmp.push_back(gray);
             }
 
@@ -77,7 +74,7 @@ prepareLearning::prepareLearning(CImg<unsigned char> input, vector<vector<square
             }
         }
         if(access(subDir.c_str(), 0) == 0){
-            storeImg();
+            storeImg(seqNum);
         } else{
             failAccess(subDir);
         }
@@ -157,7 +154,7 @@ CImg<unsigned char> prepareLearning::resizeNum(CImg<unsigned char>& input){
     return tmp;
 }
 
-void prepareLearning::storeImg(){
+void prepareLearning::storeImg(int seqNum){
     //====guide.txt========
     string path = subDir + "/guide.txt";
     ofstream ofs(path.c_str());
@@ -177,21 +174,21 @@ void prepareLearning::failAccess(string str){
 }
 
 bool prepareLearning::thresholdDetect(CImg<unsigned char>& input){
-    // 计算方差
+//    // 计算方差
+//    //input.display();
+//    CImg<unsigned char> blur = input.get_blur(1);
+//    double varSum = 0.0;
+//    cimg_forXY(input, x ,y){
+//        varSum += (double)blur(x, y);
+//    }
+//    varSum /= (double)(input.width() * input.height());
+//    double var = 0.0;
+//    cimg_forXY(input, x, y){
+//        var += (blur(x, y) - varSum) * (blur(x, y) - varSum);
+//    }
+//    cout<<"var:"<<var<<endl;
+//    if(var <= 913.0) return false;
     //input.display();
-    CImg<unsigned char> blur = input.get_blur(1);
-    double varSum = 0.0;
-    cimg_forXY(input, x ,y){
-        varSum += (double)blur(x, y);
-    }
-    varSum /= (double)(input.width() * input.height());
-    double var = 0.0;
-    cimg_forXY(input, x, y){
-        var += (blur(x, y) - varSum) * (blur(x, y) - varSum);
-    }
-    cout<<"var:"<<var<<endl;
-    if(var <= 913.0) return false;
-
 
     //阈值
     set<int> numStore;
@@ -204,9 +201,62 @@ bool prepareLearning::thresholdDetect(CImg<unsigned char>& input){
     }
     sum /= numStore.size();
     cimg_forXY(input, x, y){
-        if(input(x, y) > sum ) input(x, y) = 255;
+        if(input(x, y) >= sum ) input(x, y) = 255;
         else input(x, y) = 0;
     }
 
+    CImg<unsigned char> tmp(input.width(), input.height(), 1, 1, 255);
+    //去除噪点
+    cimg_forXY(input,x ,y){
+        bool flag = false;
+        if(input(x, y) == 0){
+            for(int i = x - 2; i < x + 3; i++){
+                for(int j = y - 2; j < y + 3; j++){
+                    if(i >= input.width() || j >= input.height() || i < 0 || j < 0) continue;
+                    if(i == x && j == y) continue;
+                    if(input(i, j) == 0){
+                        flag = true;
+                        break;
+                    }
+                }
+                if(flag) break;
+            }
+        }
+        if(flag) tmp(x, y) = 0;
+    }
+    input = tmp;
+
+
+    //膨胀
+    CImg<unsigned char>  tmp2(input.width(), input.height(), 1, 1, 255);
+    cimg_forXY(input, x, y){
+        bool flag = false;
+        for(int i = x - 1; i < x + 2; i++){
+            for(int j = y - 1; j < y + 2; j++){
+                if(i >= input.width() || j >= input.height() || i < 0 || j < 0) continue;
+                if(input(i, j) != 255){
+                    flag = true;
+                    break;
+                }
+            }
+        }
+        if(flag) tmp2(x, y) = 0;
+    }
+    input = tmp2;
+
+    CImg<unsigned char>  tmp3(input.width(), input.height(), 1, 1, 255);
+    cimg_forXY(input, x, y){
+        bool flag = true;
+        for(int i = x - 1; i < x + 2; i++){
+            for(int j = y - 1; j < y + 2; j++){
+                if(i >= input.width() || j >= input.height() || i < 0 || j < 0) continue;
+                if(input(i, j) == 255){
+                    flag = false;
+                }
+            }
+        }
+        if(flag) tmp3(x, y) = 0;
+    }
+    input = tmp3;
     return true;
 }
