@@ -8,6 +8,7 @@ public:
     CImg<unsigned char> resultGray;
     CImg<unsigned char> dividingImg;
     vector< vector<square> > getSquare(){return squareVec;}
+    static int OSTU(const CImg<unsigned char>&);
 private:
     CImg<unsigned char> threshold(CImg<unsigned char>&, float, int, int, float);
     void divideIntoBarItemImg(int);

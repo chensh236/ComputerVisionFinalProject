@@ -80,18 +80,20 @@ cutPiece::cutPiece(CImg<unsigned char> input){
     //gray.display();
     //单阈值检测
     //第一个低 多 第二个高 多
-    gray = threshold(grayScale, 0.76, 23, 28, 0.77);
+    gray = threshold(grayScale, 0.76, 24, 24, 0.80);
 
-    //gray.display();
-    //gray.display();
+//    //gray.display();
+//    //gray.display();
     CImg<unsigned char> dilationed = gray;
     cimg_forXY(dilationed, x, y){
         if(dilationed(x, y) == 0) dilationed(x, y) = 255;
         else dilationed(x, y) = 0;
     }
     gray = dilationed;
-    dilationed = canny::newFunc(dilationed, 30);
-    gray = canny::newFunc(gray, 24);
+    dilationed = canny::newFunc(dilationed, 140);
+    gray = canny::newFunc(gray, 11);
+   // gray.display();
+    //dilationed.display();
     Hough hough(0, 0, dilationed, 0, false);
     cimg_forXY(dilationed, x, y){
         if(dilationed(x, y) == 0) dilationed(x, y) = 255;
@@ -103,14 +105,14 @@ cutPiece::cutPiece(CImg<unsigned char> input){
     double theta = hough.randonTheta;
 
     theta = (theta - 90.0);
-    //cout<<theta<<endl;
+    cout<<theta<<endl;
     double ror = theta / 180.0 * cimg::PI;
     gray = reotate_biliinar(gray, ror, true);
     resultGray = reotate_biliinar(resultGray, ror, false);
-
-
-    findDividingLine(3, 4);
-    divideIntoBarItemImg(3);
+  // gray.display();
+//
+    findDividingLine(5, 4);
+    divideIntoBarItemImg(5);
 
 
 }
@@ -129,6 +131,10 @@ void cutPiece::findDividingLine(int singleThreshold, int threshold) {
         blackPixelSet.push_back(blackPixel);
     }
 
+//    cimg_forXY(HistogramImage, x, y){
+//        if(x < blackPixelSet[y]) HistogramImage(x, y) = 0;
+//    }
+    //HistogramImage.display();
     //去除不够长的边
     cimg_forY(gray, y){
         if(blackPixelSet[y] != 0){
@@ -155,12 +161,10 @@ void cutPiece::findDividingLine(int singleThreshold, int threshold) {
 
     for(int y = 0; y < blackPixelSet.size(); y++) {
         if(y == 0) continue;
-        // 求Y方向直方图，谷的最少黑色像素个数为0
-        // 判断是否为拐点
-        // 下白上黑：取下
+
         if (blackPixelSet[y] == 0 && blackPixelSet[y - 1] != 0)
             inflectionPoints.push_back(y);
-            // 下黑上白：取上
+
         else if (blackPixelSet[y] != 0 && blackPixelSet[y - 1] == 0)
             inflectionPoints.push_back(y - 1);
     }
@@ -204,9 +208,25 @@ void cutPiece::findDividingLine(int singleThreshold, int threshold) {
     if(inflectionPoints[0] > 2){
         inflectionPoints[0] -= 2;
     }
+
     if(inflectionPoints[inflectionPoints.size() - 1] + 2 < gray.height()){
         inflectionPoints[inflectionPoints.size() - 1] += 2;
     }
+
+//    for(int i = 0; i < inflectionPoints.size(); i++){
+//        bool flag = true;
+//        for(int y = inflectionPoints[i]; y < inflectionPoints[i] + 3; y++){
+//            cimg_forX(gray, x){
+//                if(gray(x, y) == 0){
+//                    flag = false;
+//                    break;
+//                }
+//            }
+//            if(!flag) break;
+//        }
+//        if(flag) inflectionPoints[i] += 3;
+//    }
+
     for(int i = 0; i < inflectionPoints.size(); i++){
 
         dividingImg.draw_line(0, inflectionPoints[i], gray.width() - 1, inflectionPoints[i], lineColor);
@@ -240,17 +260,22 @@ void cutPiece::divideIntoBarItemImg(int threshold) {
                 //去除污点！
                 square squ(Hough_pos(dividePosXset[j - 1], inflectionPoints[i - 1]), Hough_pos(dividePosXset[j - 1], inflectionPoints[i]),
                            Hough_pos(dividePosXset[j], inflectionPoints[i - 1]), Hough_pos(dividePosXset[j], inflectionPoints[i]));
-                float count = 0.0;
-                for(int x = squ.lt.x; x <= squ.rt.x; x++){
-                    for(int y = squ.lt.y; y<= squ.lb.y; y++){
-                        if(gray(x, y) == 0) count++;
+                int count = 0.0;
+                for(int y = squ.lt.y; y<= squ.lb.y; y++){
+                    bool flag = false;
+                    for(int x = squ.lt.x; x <= squ.rt.x; x++){
+                        if(gray(x, y) == 0){
+                            flag = true;
+                            break;
+                        }
                     }
+                    if(flag) count++;
                 }
-                float rate = count / (float)((squ.rt.x - squ.lt.x)*(squ.lb.y - squ.lt.y));
-                cout<<"rate:"<<rate<<endl;
-                if(rate > 0.016){
+
+                if(count > 6){
                     squareTmp.push_back(squ);
                 }
+
             }
             squareVec.push_back(squareTmp);
             // 绘制竖线
@@ -292,13 +317,13 @@ vector<int> cutPiece::getDivideLineXofSubImage(CImg<unsigned char>& subImg, int 
         if(countVec[i] != 0) counter++;
     }
 
-//    CImg<int> Hou(subImg.width(), subImg.height(), 1, 1, 255);
-//    cimg_forXY(Hou, x, y){
-//        if(y < countVec[x]){
-//            Hou(x, y) = 0;
-//        }
-//    }
-//    Hou.display();
+    CImg<int> Hou(subImg.width(), subImg.height(), 1, 1, 255);
+    cimg_forXY(Hou, x, y){
+        if(y < countVec[x]){
+            Hou(x, y) = 0;
+        }
+    }
+    //Hou.display();
     //空的行
     if(counter == 0){
         vector<int> InflectionPosXs;
@@ -310,7 +335,7 @@ vector<int> cutPiece::getDivideLineXofSubImage(CImg<unsigned char>& subImg, int 
     for(int i = 0; i < InflectionPosXs.size(); i++){
         subImg.draw_line(InflectionPosXs[i], 0, InflectionPosXs[i], subImg.width() - 1, lineColor);
     }
-    //subImg.display();
+   // subImg.display();
     return InflectionPosXs;
 }
 
@@ -362,7 +387,7 @@ vector<int> cutPiece::getInflectionPosXs(vector<int> counterVec) {
     distance -= (float)max;
 
     distance /= (float)(tempInflectionPosXs.size() - 1);
-    cout<<"dis"<<distance<<endl;
+   //cout<<"dis"<<distance<<endl;
     for(auto iter = tempInflectionPosXs.begin(); iter != tempInflectionPosXs.end(); iter++){
         if(iter != tempInflectionPosXs.begin() && (float)(*iter - *(iter - 1)) >= 2.077 * distance){
             int median = *iter - *(iter - 1);
@@ -374,6 +399,47 @@ vector<int> cutPiece::getInflectionPosXs(vector<int> counterVec) {
     }
     return tempInflectionPosXs;
 }
+// ostu算法求阈值
+int cutPiece::OSTU(const CImg<unsigned char>& image) {
+    double variance = 0.0; // 类间方差初始化为0
+    // 灰度直方图初始化为0
+    int histogram[255];
+    for (int i = 0; i < 256; i++) {
+        histogram[i] = 0;
+    }
+    int pixelsNum = image.width() * image.height(); // 像素点总数
+    // 计算灰度直方图分布，Histogram数组下标是灰度值，保存内容是灰度值对应像素点数
+    cimg_forXY(image, i, j) {
+        ++histogram[image(i, j)];
+    }
+    int threshold;
+    for (int i = 0; i < 256; i++) {
+        double P1 = 0.0, P2 = 0.0, m1 = 0.0, m2 = 0.0;
+        for (int j = 0; j <= i; j++) {
+            P1 += (double)histogram[j]; // 前景像素点总数
+            m1 += (double)j * histogram[j]; // 前景部分像素总灰度和
+        }
+        if (P1 == 0.0) continue;
+        m1 /= P1; // 前景像素平均灰度
+        P1 /= pixelsNum; // 前景像素点数所占比例
+
+        for (int j = i + 1; j < 256; j++) {
+            P2 += (double)histogram[j]; // 背景像素点总数
+            m2 += (double)j * histogram[j]; // 背景部分像素总灰度和
+        }
+        if (P2 == 0.0) continue;
+        m2 /= P2; // 背景像素平均灰度
+        P2 /= pixelsNum; // 背景像素点数所占比例
+        double temp_variance = P1 * P2 * (m1 - m2) * (m1 - m2); // 当前类间方差
+        // 更新类间方差和阈值
+        if (variance < temp_variance) {
+            variance = temp_variance;
+            threshold = i;
+        }
+    }
+    return threshold;
+}
+
 CImg<unsigned char> cutPiece::threshold(CImg<unsigned char>& imgIn, float binaryThreshold, int columnNumber, int rowNumber, float abandonThreshold)
 {
     // 分块
@@ -383,17 +449,16 @@ CImg<unsigned char> cutPiece::threshold(CImg<unsigned char>& imgIn, float binary
     int resizeCol = imgIn.width() % columnNumber;
     int resizeRow = imgIn.height() % rowNumber;
     // 主体
+
     for(int i = 0; i < columnNumber; i++){
         for(int j = 0; j < rowNumber; j++){
-            int min = 256;
-            int max = -1;
+            CImg<unsigned char> ostu(columnSize, rowSize, 1, 1, 255);
             for(int k = 0; k < columnSize; k++){
                 for(int l = 0; l < rowSize; l++){
-                    if(imgIn(i * columnSize + k, j * rowSize + l) > max) max = imgIn(i * columnSize + k, j * rowSize + l);
-                    else if(imgIn(i * columnSize + k, j * rowSize + l) < min) min = imgIn(i * columnSize + k, j * rowSize + l);
+                    ostu(k, l) = imgIn(i * columnSize + k, j * rowSize + l);
                 }
             }
-            int threshold = min + (max - min) * binaryThreshold;
+            int threshold = OSTU(ostu);
             int count = 0;
             for(int k = 0; k < columnSize; k++){
                 for(int l = 0; l < rowSize; l++){
@@ -413,19 +478,38 @@ CImg<unsigned char> cutPiece::threshold(CImg<unsigned char>& imgIn, float binary
                     }
                 }
             }
+
+
+//            int min = 256;
+//            int max = -1;
+//            for(int k = 0; k < columnSize; k++){
+//                for(int l = 0; l < rowSize; l++){
+//                    if(imgIn(i * columnSize + k, j * rowSize + l) > max) max = imgIn(i * columnSize + k, j * rowSize + l);
+//                    else if(imgIn(i * columnSize + k, j * rowSize + l) < min) min = imgIn(i * columnSize + k, j * rowSize + l);
+//                }
+//            }
+//            int threshold = min + (max - min) * binaryThreshold;
+//
         }
     }
     // 剩余 x
     for(int j = 0; j < rowNumber; j++){
-        int min = 256;
-        int max = -1;
-        for(int i = imgIn.width() - resizeCol - 1; i < imgIn.width(); i++){
+//        int min = 256;
+//        int max = -1;
+//        for(int i = imgIn.width() - resizeCol - 1; i < imgIn.width(); i++){
+//            for(int l = 0; l < rowSize; l++){
+//                if(imgIn(i, j * rowSize + l) > max) max = imgIn(i, j * rowSize + l);
+//                else if(imgIn(i, j * rowSize + l) < min) min = imgIn(i, j * rowSize + l);
+//            }
+//        }
+//        int threshold = min + (max - min) * binaryThreshold;
+        CImg<unsigned char> ostu(resizeCol, rowSize, 1, 1, 255);
+        for(int i = imgIn.width() - resizeCol; i < imgIn.width(); i++){
             for(int l = 0; l < rowSize; l++){
-                if(imgIn(i, j * rowSize + l) > max) max = imgIn(i, j * rowSize + l);
-                else if(imgIn(i, j * rowSize + l) < min) min = imgIn(i, j * rowSize + l);
+                ostu(i - imgIn.width() + resizeCol, l) = imgIn(i, j * rowSize + l);
             }
         }
-        int threshold = min + (max - min) * binaryThreshold;
+        int threshold = OSTU(ostu);
         int count = 0;
         for(int i = imgIn.width() - resizeCol - 1; i < imgIn.width(); i++){
             for(int l = 0; l < rowSize; l++){
@@ -447,15 +531,23 @@ CImg<unsigned char> cutPiece::threshold(CImg<unsigned char>& imgIn, float binary
     }
     // 剩余 y
     for(int i = 0; i < columnNumber; i++){
-        int min = 256;
-        int max = -1;
-        for(int j = imgIn.height() - resizeRow - 1; j < imgIn.height(); j++){
+//        int min = 256;
+//        int max = -1;
+//        for(int j = imgIn.height() - resizeRow - 1; j < imgIn.height(); j++){
+//            for(int k = 0; k < columnSize; k++){
+//                if(imgIn(i * columnSize + k, j) > max) max = imgIn(i * columnSize + k, j);
+//                else if(imgIn(i * columnSize + k, j) < min) min = imgIn(i * columnSize + k, j);
+//            }
+//        }
+//        int threshold = min + (max - min) * binaryThreshold;
+        CImg<unsigned char> ostu(columnSize, rowSize, 1, 1, 255);
+        for(int j = imgIn.height() - resizeRow; j < imgIn.height(); j++){
             for(int k = 0; k < columnSize; k++){
-                if(imgIn(i * columnSize + k, j) > max) max = imgIn(i * columnSize + k, j);
-                else if(imgIn(i * columnSize + k, j) < min) min = imgIn(i * columnSize + k, j);
+                ostu(k, j - imgIn.height() + resizeRow) = imgIn(i * columnSize + k, j);
             }
         }
-        int threshold = min + (max - min) * binaryThreshold;
+
+        int threshold = OSTU(ostu);
         int count = 0;
         for(int j = imgIn.height() - resizeRow - 1; j < imgIn.height(); j++){
             for(int k = 0; k < columnSize; k++){
@@ -475,10 +567,106 @@ CImg<unsigned char> cutPiece::threshold(CImg<unsigned char>& imgIn, float binary
             }
         }
     }
+
+    //afterThreshold.display();
+    CImg<unsigned char>  tmp(afterThreshold.width(), afterThreshold.height(), 1, 1, 255);
+    cimg_forXY(afterThreshold, x, y){
+        bool flag = false;
+        for(int i = x - 1; i < x + 2; i++){
+            for(int j = y - 1; j < y + 2; j++){
+                if(j < 0 || j >= afterThreshold.height() || i < 0 || i >= afterThreshold.width()) continue;
+                if(afterThreshold(i, j) == 0){
+                    flag = true;
+                    break;
+                }
+            }
+        }
+        if(flag) tmp(x, y) = 0;
+    }
+    afterThreshold = tmp;
+    abandonThreshold = 0.52;
+    // 主体
+    for(int i = 0; i < columnNumber; i++){
+        for(int j = 0; j < rowNumber; j++){
+            int count = 0;
+            for(int k = 0; k < columnSize; k++){
+                for(int l = 0; l < rowSize; l++){
+                    if(afterThreshold(i * columnSize + k, j * rowSize + l) == 255){
+                        count++;
+                    }
+                }
+            }
+
+            // 填充无用块为255
+            if((float)count / (float)(columnSize * rowSize) < abandonThreshold){
+                for(int k = -1; k < columnSize + 1; k++){
+                    for(int l = -1; l < rowSize + 1; l++){
+                        if(i * columnSize + k < 0 || j * rowSize + l < 0
+                        || i * columnSize + k >= afterThreshold.width() || j * rowSize + l >= afterThreshold.height()) continue;
+                            afterThreshold(i * columnSize + k, j * rowSize + l) = 255;
+                    }
+                }
+            }
+        }
+    }
+    // 剩余 x
+    for(int j = 0; j < rowNumber; j++){
+        int count = 0;
+        for(int i = imgIn.width() - resizeCol - 1; i < imgIn.width(); i++){
+            for(int l = 0; l < rowSize; l++){
+                if(afterThreshold(i, j * rowSize + l) == 255){
+                    count++;
+                }
+            }
+        }
+        // 填充无用块为255
+        if((float)count / (float)(resizeCol * rowSize) < abandonThreshold){
+            for(int i = imgIn.width() - resizeCol - 1; i < imgIn.width(); i++){
+                for(int l = 0; l < rowSize; l++){
+                    afterThreshold(i, j * rowSize + l) = 255;
+                }
+            }
+        }
+    }
+    // 剩余 y
+    for(int i = 0; i < columnNumber; i++){
+        int count = 0;
+        for(int j = imgIn.height() - resizeRow - 1; j < imgIn.height(); j++){
+            for(int k = 0; k < columnSize; k++){
+                if(afterThreshold(i * columnSize + k, j) == 255){
+                    count++;
+                }
+            }
+        }
+        // 填充无用块为255
+        if((float)count / (float)(columnSize * resizeRow) < abandonThreshold){
+            for(int j = imgIn.height() - resizeRow - 1; j < imgIn.height(); j++){
+                for(int k = 0; k < columnSize; k++){
+                    afterThreshold(i * columnSize + k, j) = 255;
+                }
+            }
+        }
+    }
     cimg_forXY(afterThreshold, x, y){
         if(x <= BOUNDER || y <= BOUNDER || x >= afterThreshold.width() - BOUNDER || y >= afterThreshold.height() - BOUNDER){
             afterThreshold(x, y) = 255;
         }
     }
+//    // 侵蚀
+//    CImg<unsigned char>  tmp2(gray.width(), gray.height(), 1, 1, 255);
+//    cimg_forXY(gray, x, y){
+//        bool flag = true;
+//        for(int i = y - 1; i < y + 2; i++){
+//            if(i < 0 || i >= gray.height()) continue;
+//                if(gray(x, i) != 0){
+//                    flag = false;
+//                }
+//            }
+//            // cout<<x<<" "<<y<<endl;
+//            if(flag) tmp2(x, y) = 0;
+//    }
+//    gray = tmp2;
+   //afterThreshold.display("threshold result");
+
     return afterThreshold;
 }

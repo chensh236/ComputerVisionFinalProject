@@ -64,9 +64,9 @@ int main() {
         t3.join();
         t4.join();
     }
-
 //
-//threadProcess(6);
+////
+//threadProcess(0);
 //for(int i = 0; i < 10; i++){
 //    threadProcess(i);
 //}

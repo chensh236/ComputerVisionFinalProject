@@ -8,6 +8,7 @@
 #include "segment.h"
 #include "equalization.h"
 #include "warp.h"
+#include "cutPiece.h"
 #include "prepareLearning.h"
 
 class prepareLearning {

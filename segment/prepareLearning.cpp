@@ -174,34 +174,24 @@ void prepareLearning::failAccess(string str){
 }
 
 bool prepareLearning::thresholdDetect(CImg<unsigned char>& input){
-//    // 计算方差
-//    //input.display();
-//    CImg<unsigned char> blur = input.get_blur(1);
-//    double varSum = 0.0;
-//    cimg_forXY(input, x ,y){
-//        varSum += (double)blur(x, y);
-//    }
-//    varSum /= (double)(input.width() * input.height());
-//    double var = 0.0;
-//    cimg_forXY(input, x, y){
-//        var += (blur(x, y) - varSum) * (blur(x, y) - varSum);
-//    }
-//    cout<<"var:"<<var<<endl;
-//    if(var <= 913.0) return false;
-    //input.display();
 
-    //阈值
-    set<int> numStore;
+//    //阈值
+//    set<int> numStore;
+//    cimg_forXY(input, x, y){
+//        numStore.insert(input(x, y));
+//    }
+//    int sum = 0;
+//    for(auto iter = numStore.begin(); iter != numStore.end(); iter++){
+//        sum += *(iter);
+//    }
+//    sum /= numStore.size();
+//    cimg_forXY(input, x, y){
+//        if(input(x, y) >= sum ) input(x, y) = 255;
+//        else input(x, y) = 0;
+//    }
+    int threshold = cutPiece::OSTU(input);
     cimg_forXY(input, x, y){
-        numStore.insert(input(x, y));
-    }
-    int sum = 0;
-    for(auto iter = numStore.begin(); iter != numStore.end(); iter++){
-        sum += *(iter);
-    }
-    sum /= numStore.size();
-    cimg_forXY(input, x, y){
-        if(input(x, y) >= sum ) input(x, y) = 255;
+        if(input(x, y) > threshold) input(x, y) = 255;
         else input(x, y) = 0;
     }
 

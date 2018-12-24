@@ -43,24 +43,25 @@ Hough::Hough(double votingThreshold, double peakDistance, CImg<unsigned char> in
             }
         }
 
-        int count = 2;
-        while(count--){
-            CImg<unsigned char>  tmp(cannyResult.width(), cannyResult.height(), 1, 1, 0);
-            cimg_forXY(cannyResult, x, y){
-                bool flag = true;
-                for(int i = y - 1; i < y + 2; i++){
-                    if(i < 0 || i >= cannyResult.height()) continue;
-                    if(cannyResult(x, i) == 0){
-                        flag = false;
-                    }
-                }
-               // cout<<x<<" "<<y<<endl;
-                if(flag) tmp(x, y) = 255;
-            }
-            cannyResult = tmp;
-        }
-
-        count = 60;
+//        int count = 0;
+//        while(count--){
+//            CImg<unsigned char>  tmp(cannyResult.width(), cannyResult.height(), 1, 1, 0);
+//            cimg_forXY(cannyResult, x, y){
+//                bool flag = true;
+//                for(int i = y - 1; i < y + 2; i++){
+//                    if(i < 0 || i >= cannyResult.height()) continue;
+//                    if(cannyResult(x, i) == 0){
+//                        flag = false;
+//                    }
+//                }
+//               // cout<<x<<" "<<y<<endl;
+//                if(flag) tmp(x, y) = 255;
+//            }
+//            cannyResult = tmp;
+//        }
+//        cannyResult.display();
+        //cannyResult.display();
+        int count = 20;
         while(count--){
             CImg<unsigned char>  tmp(cannyResult.width(), cannyResult.height(), 1, 1, 0);
             cimg_forXY(cannyResult, x, y){
@@ -76,7 +77,8 @@ Hough::Hough(double votingThreshold, double peakDistance, CImg<unsigned char> in
             }
             cannyResult = tmp;
         }
-        count = 1;
+        //cannyResult.display();
+        count = 4;
         while(count--){
             CImg<unsigned char>  tmp(cannyResult.width(), cannyResult.height(), 1, 1, 0);
             cimg_forXY(cannyResult, x, y){
