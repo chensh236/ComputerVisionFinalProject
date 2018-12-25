@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="segment"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="segment">
+				<Option output="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/segment.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment"/>
+					<Add directory="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/."/>
+					<Add directory="c:\nuwen\mingw\bin\../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../include/c++/8.1.0"/>
+					<Add directory="c:\nuwen\mingw\bin\../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../include/c++/8.1.0/x86_64-w64-mingw32"/>
+					<Add directory="c:\nuwen\mingw\bin\../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../include/c++/8.1.0/backward"/>
+					<Add directory="c:\nuwen\mingw\bin\../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="c:\nuwen\mingw\bin\../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="c:\nuwen\mingw\bin\../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/Makefile&quot;  VERBOSE=1 segment"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="segment/fast">
+				<Option output="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/segment.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment"/>
+					<Add directory="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/."/>
+					<Add directory="c:\nuwen\mingw\bin\../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../include/c++/8.1.0"/>
+					<Add directory="c:\nuwen\mingw\bin\../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../include/c++/8.1.0/x86_64-w64-mingw32"/>
+					<Add directory="c:\nuwen\mingw\bin\../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../include/c++/8.1.0/backward"/>
+					<Add directory="c:\nuwen\mingw\bin\../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="c:\nuwen\mingw\bin\../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="c:\nuwen\mingw\bin\../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/Makefile&quot;  VERBOSE=1 segment/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/CImg.h">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Hough.cpp">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Hough.h">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Projection.cpp">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Projection.h">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/canny.cpp">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/canny.h">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/cutPiece.cpp">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/cutPiece.h">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/equalization.cpp">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/equalization.h">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/main.cpp">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/prepareLearning.cpp">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/prepareLearning.h">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/public.h">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/reshape.cpp">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/reshape.h">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/segment.cpp">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/segment.h">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/warp.cpp">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/warp.h">
+			<Option target="segment"/>
+		</Unit>
+		<Unit filename="C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
