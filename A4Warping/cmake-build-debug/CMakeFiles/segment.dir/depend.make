@@ -31,6 +31,7 @@ CMakeFiles/segment.dir/segment/cutPiece.cpp.obj: ../segment/cutPiece.h
 CMakeFiles/segment.dir/segment/cutPiece.cpp.obj: ../segment/equalization.h
 CMakeFiles/segment.dir/segment/cutPiece.cpp.obj: ../segment/prepareLearning.h
 CMakeFiles/segment.dir/segment/cutPiece.cpp.obj: ../segment/public.h
+CMakeFiles/segment.dir/segment/cutPiece.cpp.obj: ../segment/reshape.h
 CMakeFiles/segment.dir/segment/cutPiece.cpp.obj: ../segment/segment.h
 CMakeFiles/segment.dir/segment/cutPiece.cpp.obj: ../segment/warp.h
 
@@ -60,6 +61,7 @@ CMakeFiles/segment.dir/segment/prepareLearning.cpp.obj: ../segment/segment.h
 CMakeFiles/segment.dir/segment/prepareLearning.cpp.obj: ../segment/warp.h
 
 CMakeFiles/segment.dir/segment/reshape.cpp.obj: ../segment/CImg.h
+CMakeFiles/segment.dir/segment/reshape.cpp.obj: ../segment/Projection.h
 CMakeFiles/segment.dir/segment/reshape.cpp.obj: ../segment/public.h
 CMakeFiles/segment.dir/segment/reshape.cpp.obj: ../segment/reshape.cpp
 CMakeFiles/segment.dir/segment/reshape.cpp.obj: ../segment/reshape.h

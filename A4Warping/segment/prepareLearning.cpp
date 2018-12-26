@@ -20,13 +20,7 @@ prepareLearning::prepareLearning(CImg<unsigned char> input, vector<vector<square
             if(thresholdDetect(gray)){
                 //doDilationForEachBarItemImg(gray);
                 gray = resizeNum(gray);
-
-                // strong
-//                gray.display();
                   gray = gray.resize(28, 28, true);
-                //gray.display();
-//                  gray.display();
-
                 imgTmp.push_back(gray);
             }
 
@@ -175,20 +169,6 @@ void prepareLearning::failAccess(string str){
 
 bool prepareLearning::thresholdDetect(CImg<unsigned char>& input){
 
-//    //阈值
-//    set<int> numStore;
-//    cimg_forXY(input, x, y){
-//        numStore.insert(input(x, y));
-//    }
-//    int sum = 0;
-//    for(auto iter = numStore.begin(); iter != numStore.end(); iter++){
-//        sum += *(iter);
-//    }
-//    sum /= numStore.size();
-//    cimg_forXY(input, x, y){
-//        if(input(x, y) >= sum ) input(x, y) = 255;
-//        else input(x, y) = 0;
-//    }
     int threshold = cutPiece::OSTU(input);
     cimg_forXY(input, x, y){
         if(input(x, y) > threshold) input(x, y) = 255;
@@ -196,7 +176,7 @@ bool prepareLearning::thresholdDetect(CImg<unsigned char>& input){
     }
 
     CImg<unsigned char> tmp(input.width(), input.height(), 1, 1, 255);
-    //去除噪点
+    //24邻域膨胀
     cimg_forXY(input,x ,y){
         bool flag = false;
         if(input(x, y) == 0){
@@ -217,7 +197,7 @@ bool prepareLearning::thresholdDetect(CImg<unsigned char>& input){
     input = tmp;
 
 
-    //膨胀
+    //8域膨胀
     CImg<unsigned char>  tmp2(input.width(), input.height(), 1, 1, 255);
     cimg_forXY(input, x, y){
         bool flag = false;
@@ -234,6 +214,7 @@ bool prepareLearning::thresholdDetect(CImg<unsigned char>& input){
     }
     input = tmp2;
 
+    // 侵蚀
     CImg<unsigned char>  tmp3(input.width(), input.height(), 1, 1, 255);
     cimg_forXY(input, x, y){
         bool flag = true;

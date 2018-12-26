@@ -43,57 +43,57 @@ unsigned char Projection::singleBilinearInterpolation(const CImg<unsigned char> 
                            a * b * (double)righttop.val[channel] + (1.0 - a) * b * (double)lefttop.val[channel]);
 }
 
-CImg<unsigned char> Projection::imageProjection(const CImg<unsigned char> &src)
-{
-    
-    CImg<unsigned char> res(src.width(), src.height(), 1, src.spectrum(), 0);
-    bool flag = (src.width() > src.height());
-    int width = flag? src.height() : src.width();
-    int height = flag? src.width() : src.height();
-    const float tanVal = tan(ANGLE * cimg::PI / 180.0);
-    float r = (width / 2.0) / tanVal;
-
-    if(flag)
-    {
-        cimg_forXY(src, x, y)
-        {
-            float dst_x = y - width / 2;
-            float dst_y = x - height / 2;
-
-            float k = r / sqrt(pow(r, 2) + pow(dst_x, 2));
-            float src_x = dst_x / k;
-            float src_y = dst_y / k;
-
-            if (src_x + width / 2 >= 0 && src_x + width / 2 < src.height() && src_y + height / 2 >= 0 && src_y + height / 2 < src.width())
-            {
-                for (int k = 0; k < res.spectrum(); k++)
-                {
-                    res(x, y, k) = Projection::bilinearInterpolation(src, src_y + height / 2, src_x + width / 2, k);
-                }
-            }
-        }
-    }
-    else
-    {
-        cimg_forXY(src, x, y)
-        {
-            float dst_x = x - width / 2;
-            float dst_y = y - height / 2;
-
-            float k = r / sqrt(pow(r, 2) + pow(dst_x, 2));
-            float src_x = dst_x / k;
-            float src_y = dst_y / k;
-
-            if (src_x + width / 2 >= 0 && src_x + width / 2 < src.width() && src_y + height / 2 >= 0 && src_y + height / 2 < src.height())
-            {
-                for (int k = 0; k < res.spectrum(); k++)
-                {
-                    res(x, y, k) = Projection::bilinearInterpolation(src, src_x + width / 2, src_y + height / 2, k);
-                }
-            }
-        }
-    }
-
-    return res;
-    // 数学公式：https://blog.csdn.net/weixinhum/article/details/50611750
-}
+//CImg<unsigned char> Projection::imageProjection(const CImg<unsigned char> &src)
+//{
+//
+//    CImg<unsigned char> res(src.width(), src.height(), 1, src.spectrum(), 0);
+//    bool flag = (src.width() > src.height());
+//    int width = flag? src.height() : src.width();
+//    int height = flag? src.width() : src.height();
+//    const float tanVal = tan(ANGLE * cimg::PI / 180.0);
+//    float r = (width / 2.0) / tanVal;
+//
+//    if(flag)
+//    {
+//        cimg_forXY(src, x, y)
+//        {
+//            float dst_x = y - width / 2;
+//            float dst_y = x - height / 2;
+//
+//            float k = r / sqrt(pow(r, 2) + pow(dst_x, 2));
+//            float src_x = dst_x / k;
+//            float src_y = dst_y / k;
+//
+//            if (src_x + width / 2 >= 0 && src_x + width / 2 < src.height() && src_y + height / 2 >= 0 && src_y + height / 2 < src.width())
+//            {
+//                for (int k = 0; k < res.spectrum(); k++)
+//                {
+//                    res(x, y, k) = Projection::bilinearInterpolation(src, src_y + height / 2, src_x + width / 2, k);
+//                }
+//            }
+//        }
+//    }
+//    else
+//    {
+//        cimg_forXY(src, x, y)
+//        {
+//            float dst_x = x - width / 2;
+//            float dst_y = y - height / 2;
+//
+//            float k = r / sqrt(pow(r, 2) + pow(dst_x, 2));
+//            float src_x = dst_x / k;
+//            float src_y = dst_y / k;
+//
+//            if (src_x + width / 2 >= 0 && src_x + width / 2 < src.width() && src_y + height / 2 >= 0 && src_y + height / 2 < src.height())
+//            {
+//                for (int k = 0; k < res.spectrum(); k++)
+//                {
+//                    res(x, y, k) = Projection::bilinearInterpolation(src, src_x + width / 2, src_y + height / 2, k);
+//                }
+//            }
+//        }
+//    }
+//
+//    return res;
+//    // 数学公式：https://blog.csdn.net/weixinhum/article/details/50611750
+//}

@@ -32,6 +32,7 @@ CMakeFiles/segment.dir/segment/cutPiece.cpp.obj
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/equalization.h
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/prepareLearning.h
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/public.h
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/reshape.h
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/segment.h
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/warp.h
 CMakeFiles/segment.dir/segment/equalization.cpp.obj
@@ -61,6 +62,7 @@ CMakeFiles/segment.dir/segment/prepareLearning.cpp.obj
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/warp.h
 CMakeFiles/segment.dir/segment/reshape.cpp.obj
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/CImg.h
+ C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/Projection.h
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/public.h
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/reshape.cpp
  C:/Users/Chen Sihang/Desktop/finalProject/A4Warping/segment/reshape.h

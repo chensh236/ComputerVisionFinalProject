@@ -14,7 +14,7 @@
 class prepareLearning {
 public:
     prepareLearning(CImg<unsigned char> input, vector< vector<square> > square, int, int);
-    vector< vector< CImg<unsigned char> > > getResult(){return this->imgVec;}
+    //vector< vector< CImg<unsigned char> > > getResult(){return this->imgVec;}
     string subDir;
 
 private:

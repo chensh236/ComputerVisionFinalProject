@@ -22,10 +22,10 @@ static void threadProcess(int i){
     CImg<unsigned char> src(filename.c_str());
     vector <Hough_pos> vec = hough.result;
     warp warping(vec, src, 0);
-//        seg.getSegment().save(segmentFilename.c_str());
-//        seg.getResult().save(edgeFilename.c_str());
-//        warping.getResult().save(resultFilename.c_str());
-//        hough.getResult().save(pointFilename.c_str());
+    seg.getSegment().save(segmentFilename.c_str());
+    seg.getResult().save(edgeFilename.c_str());
+    warping.getResult().save(resultFilename.c_str());
+    hough.getResult().save(pointFilename.c_str());
     cutPiece cut(warping.getResult());
     cut.dividingImg.save(cutFileName.c_str());
 //seg.getSegment().display();
@@ -48,11 +48,12 @@ static void threadProcess(int i){
 
 int main() {
     int sum = 10;
-
-        thread t10(threadProcess, 9);
-        t10.join();
+    cout<<"Single thread begin!"<<endl;
+    thread t10(threadProcess, 9);
+    t10.join();
     thread t9(threadProcess, 8);
     t9.join();
+    cout<<"multi thread begin!"<<endl;
     for(int i = 0; i < 8; i += 4){
         thread t1(threadProcess, i);
         thread t2(threadProcess, i + 1);
@@ -65,10 +66,6 @@ int main() {
         t4.join();
     }
 //
-////
 //threadProcess(0);
-//for(int i = 0; i < 10; i++){
-//    threadProcess(i);
-//}
 
 }

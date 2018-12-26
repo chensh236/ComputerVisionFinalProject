@@ -15,4 +15,4 @@ tasklist |find /i "writeHelper.exe" > nul
 if %errorlevel%==0 (goto WAIT1)
 cd ..\..\A4Warping\result\
 start result.csv
-mshta vbscript:msgbox("Finish",64,"Finish! dir:./A4Warping/result/result.csv")(window.close)
+mshta vbscript:msgbox("Finish! Result store in:dir:./A4Warping/result/result.csv and... Images store in ./A4Warping/data/ Thanks!",64,"Finish!")(window.close)

@@ -10,13 +10,13 @@ public:
     vector< vector<square> > getSquare(){return squareVec;}
     static int OSTU(const CImg<unsigned char>&);
 private:
-    CImg<unsigned char> threshold(CImg<unsigned char>&, float, int, int, float);
-    void divideIntoBarItemImg(int);
+    CImg<unsigned char> threshold(CImg<unsigned char>&, int, int, float);
+    void divideColumn(int);
     void findDividingLine(int, int);
-    vector<int> getDivideLineXofSubImage(CImg<unsigned char>&,int);
-    vector<int> getInflectionPosXs(vector<int>);
+    vector<int> getColumnLine(CImg<unsigned char>&,int);
+    vector<int> getColumnInflectionPoints(vector<int>);
     vector< vector<square> > squareVec;
-    CImg<int> HistogramImage;
-    vector<int> inflectionPoints;
+    vector<int> linePosition;
     vector<int> blackPixelSet;
+    unsigned char lineColor[1] = {0};
 };

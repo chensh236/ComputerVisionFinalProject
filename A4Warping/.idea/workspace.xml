@@ -12,16 +12,1289 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5411d875-377b-46fd-b47a-278796086d3b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/123.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/start.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hand/SAVE/model.ckpt.data-00000-of-00001" beforeDir="false" afterPath="$PROJECT_DIR$/hand/SAVE/model.ckpt.data-00000-of-00001" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hand/SAVE/model.ckpt.index" beforeDir="false" afterPath="$PROJECT_DIR$/hand/SAVE/model.ckpt.index" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hand/SAVE/model.ckpt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/hand/SAVE/model.ckpt.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hand/buildTrain.py" beforeDir="false" afterPath="$PROJECT_DIR$/hand/buildTrain.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hand/make.py" beforeDir="false" afterPath="$PROJECT_DIR$/hand/make.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hand/mnistdeep2.py" beforeDir="false" afterPath="$PROJECT_DIR$/hand/mnistdeep2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hand/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/hand/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/segment.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/objects.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/segment/Hough.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/segment/Hough.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/segment/Projection.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/segment/Projection.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/segment/canny.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/segment/canny.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/segment/cutPiece.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/segment/cutPiece.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/segment/equalization.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/segment/equalization.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/segment/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/segment/main.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/segment/prepareLearning.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/segment/prepareLearning.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/segment/reshape.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/segment/reshape.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/segment/segment.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/segment/segment.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/segment/warp.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/segment.dir/segment/warp.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/segment.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/segment.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/segment/Projection.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/segment/Projection.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/segment/Projection.h" beforeDir="false" afterPath="$PROJECT_DIR$/segment/Projection.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/segment/canny.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/segment/canny.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/segment/canny.h" beforeDir="false" afterPath="$PROJECT_DIR$/segment/canny.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/segment/cutPiece.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/segment/cutPiece.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/segment/cutPiece.h" beforeDir="false" afterPath="$PROJECT_DIR$/segment/cutPiece.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/segment/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/segment/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/segment/prepareLearning.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/segment/prepareLearning.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/segment/prepareLearning.h" beforeDir="false" afterPath="$PROJECT_DIR$/segment/prepareLearning.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/segment/reshape.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/segment/reshape.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/segment/reshape.h" beforeDir="false" afterPath="$PROJECT_DIR$/segment/reshape.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/123.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/3.12.3/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/3.12.3/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/3.12.3/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/3.12.3/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/3.12.3/CMakeRCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/3.12.3/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/3.12.3/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/3.12.3/CompilerIdC/a.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/3.12.3/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/3.12.3/CompilerIdCXX/a.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/feature_tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/segment.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/segment.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/segment.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/segment.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/segment.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/segment.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/segment.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/segment.dir/includes_CXX.rsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/segment.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/segment.dir/linklibs.rsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/segment.dir/objects.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/segment.dir/objects1.rsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/segment.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/segment.dir/segment/Hough.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/segment.dir/segment/Projection.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/segment.dir/segment/canny.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/segment.dir/segment/cutPiece.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/segment.dir/segment/equalization.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/segment.dir/segment/main.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/segment.dir/segment/prepareLearning.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/segment.dir/segment/reshape.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/segment.dir/segment/segment.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/CMakeFiles/segment.dir/segment/warp.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/segment" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/segment.cbp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/segment.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cmake-build-debug/start.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/9 - 副本.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/cut_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/cut_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/cut_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/cut_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/cut_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/cut_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/cut_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/cut_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/cut_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/cut_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/MNIST_data/t10k-images-idx3-ubyte.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/MNIST_data/t10k-labels-idx1-ubyte.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/MNIST_data/train-images-idx3-ubyte.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/MNIST_data/train-labels-idx1-ubyte.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/SAVE/checkpoint" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/SAVE/model.ckpt.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/SAVE/model.ckpt.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/SAVE/model.ckpt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/buildTrain.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/make.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/makeit.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/mnistdeep.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/mnistdeep2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/read.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/sample.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/0_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/0_10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/0_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/0_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/0_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/0_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/0_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/0_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/0_8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/0_9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/1_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/1_10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/1_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/1_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/1_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/1_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/1_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/1_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/1_8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/1_9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/2_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/2_10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/2_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/2_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/2_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/2_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/2_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/2_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/2_8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/2_9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/3_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/3_10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/3_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/3_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/3_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/3_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/3_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/3_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/3_8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/3_9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/4_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/4_10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/4_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/4_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/4_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/4_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/4_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/4_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/4_8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/4_9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/5_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/5_10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/5_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/5_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/5_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/5_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/5_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/5_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/5_8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/5_9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/6_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/6_10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/6_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/6_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/6_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/6_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/6_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/6_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/6_8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/6_9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/7_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/7_10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/7_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/7_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/7_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/7_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/7_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/7_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/7_8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/7_9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/8_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/8_10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/8_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/8_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/8_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/8_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/8_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/8_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/8_8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/8_9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/9_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/9_10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/9_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/9_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/9_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/9_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/9_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/9_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/9_8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hand/test/9_9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segment.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segment/CImg.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segment/Hough.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segment/Hough.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segment/Projection.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segment/Projection.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segment/canny.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segment/canny.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segment/cutPiece.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segment/cutPiece.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segment/equalization.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segment/equalization.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segment/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segment/prepareLearning.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segment/prepareLearning.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segment/public.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segment/reshape.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segment/reshape.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segment/segment.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segment/segment.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segment/segment.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segment/warp.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segment/warp.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../start.bat" beforeDir="false" afterPath="$PROJECT_DIR$/../start.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/0_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/0_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/0_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/0_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/0_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/0_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/0_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/0_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/1_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/1_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/1_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/1_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/1_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/1_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/1_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/1_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/1_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/1_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/1_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/2_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/2_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/2_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/2_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/2_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/2_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/2_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/2_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/2_16.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/2_17.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/2_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/2_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/2_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/2_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/2_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/2_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/2_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/2_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/guide.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img0/points.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/0_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/0_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/0_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/0_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/0_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/0_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/0_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/0_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/1_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/1_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/1_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/1_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/1_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/1_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/1_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/1_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/1_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/1_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/1_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/2_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/2_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/2_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/2_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/2_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/2_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/2_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/2_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/2_16.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/2_17.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/2_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/2_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/2_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/2_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/2_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/2_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/2_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/2_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/3_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/3_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/3_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/3_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/3_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/3_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/3_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/3_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/4_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/4_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/4_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/4_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/4_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/4_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/4_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/4_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/4_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/4_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/4_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/5_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/5_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/5_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/5_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/5_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/5_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/5_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/5_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/5_16.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/5_17.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/5_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/5_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/5_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/5_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/5_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/5_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/5_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/5_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/6_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/6_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/6_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/6_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/6_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/6_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/7_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/7_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/7_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/7_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/7_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/7_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/7_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/7_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/7_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/7_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/8_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/8_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/8_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/8_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/8_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/8_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/8_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/8_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/8_16.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/8_17.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/8_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/8_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/8_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/8_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/8_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/8_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/8_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/8_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/guide.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img1/points.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/0_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/0_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/0_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/0_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/0_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/0_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/0_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/0_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/1_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/1_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/1_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/1_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/1_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/1_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/1_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/1_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/1_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/1_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/1_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/2_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/2_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/2_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/2_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/2_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/2_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/2_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/2_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/2_16.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/2_17.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/2_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/2_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/2_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/2_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/2_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/2_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/2_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/2_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/3_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/3_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/3_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/3_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/3_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/3_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/3_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/3_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/4_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/4_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/4_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/4_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/4_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/4_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/4_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/4_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/4_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/4_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/4_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/5_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/5_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/5_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/5_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/5_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/5_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/5_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/5_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/5_16.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/5_17.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/5_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/5_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/5_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/5_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/5_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/5_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/5_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/5_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/6_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/6_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/6_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/6_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/6_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/6_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/7_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/7_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/7_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/7_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/7_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/7_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/7_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/7_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/7_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/7_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/7_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/8_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/8_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/8_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/8_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/8_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/8_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/8_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/8_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/8_16.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/8_17.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/8_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/8_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/8_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/8_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/8_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/8_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/8_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/8_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/guide.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img2/points.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/0_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/0_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/0_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/0_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/0_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/0_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/0_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/0_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/1_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/1_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/1_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/1_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/1_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/1_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/1_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/1_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/1_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/1_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/1_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/2_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/2_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/2_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/2_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/2_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/2_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/2_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/2_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/2_16.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/2_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/2_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/2_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/2_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/2_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/2_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/2_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/2_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/3_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/3_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/3_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/3_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/3_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/3_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/3_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/3_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/4_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/4_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/4_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/4_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/4_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/4_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/4_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/4_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/4_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/4_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/4_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/5_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/5_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/5_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/5_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/5_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/5_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/5_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/5_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/5_16.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/5_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/5_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/5_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/5_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/5_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/5_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/5_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/5_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/6_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/6_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/6_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/6_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/6_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/6_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/6_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/7_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/7_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/7_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/7_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/7_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/7_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/7_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/7_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/7_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/7_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/7_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/8_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/8_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/8_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/8_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/8_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/8_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/8_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/8_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/8_16.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/8_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/8_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/8_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/8_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/8_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/8_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/8_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/8_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/guide.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img3/points.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/0_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/0_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/0_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/0_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/0_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/0_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/0_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/0_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/1_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/1_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/1_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/1_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/1_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/1_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/1_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/1_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/1_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/1_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/1_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/2_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/2_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/2_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/2_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/2_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/2_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/2_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/2_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/2_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/2_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/2_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/2_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/2_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/2_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/2_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/2_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/3_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/3_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/3_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/3_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/3_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/3_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/3_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/4_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/4_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/4_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/4_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/4_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/4_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/4_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/4_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/4_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/4_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/4_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/5_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/5_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/5_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/5_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/5_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/5_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/5_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/5_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/5_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/5_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/5_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/5_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/5_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/5_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/5_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/5_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/6_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/6_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/6_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/6_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/6_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/6_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/6_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/6_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/7_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/7_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/7_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/7_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/7_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/7_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/7_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/7_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/7_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/7_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/7_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/8_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/8_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/8_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/8_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/8_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/8_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/8_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/8_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/8_16.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/8_17.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/8_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/8_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/8_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/8_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/8_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/8_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/8_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/8_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/guide.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img4/points.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/0_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/0_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/0_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/0_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/0_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/0_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/0_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/0_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/1_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/1_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/1_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/1_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/1_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/1_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/1_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/1_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/1_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/1_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/1_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/2_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/2_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/2_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/2_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/2_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/2_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/2_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/2_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/2_16.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/2_17.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/2_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/2_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/2_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/2_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/2_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/2_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/2_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/2_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/3_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/3_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/3_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/3_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/3_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/3_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/3_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/3_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/4_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/4_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/4_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/4_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/4_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/4_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/4_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/4_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/4_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/4_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/4_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/5_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/5_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/5_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/5_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/5_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/5_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/5_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/5_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/5_16.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/5_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/5_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/5_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/5_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/5_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/5_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/5_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/5_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/6_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/6_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/6_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/6_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/6_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/6_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/6_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/7_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/7_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/7_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/7_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/7_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/7_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/7_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/7_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/7_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/7_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/7_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/8_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/8_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/8_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/8_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/8_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/8_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/8_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/8_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/8_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/8_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/8_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/8_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/8_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/8_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/8_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/8_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/guide.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img5/points.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/0_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/0_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/0_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/0_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/0_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/0_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/0_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/0_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/1_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/1_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/1_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/1_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/1_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/1_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/1_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/1_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/1_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/1_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/1_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/2_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/2_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/2_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/2_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/2_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/2_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/2_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/2_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/2_16.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/2_17.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/2_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/2_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/2_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/2_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/2_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/2_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/2_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/2_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/3_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/3_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/3_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/3_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/3_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/3_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/3_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/4_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/4_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/4_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/4_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/4_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/4_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/4_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/4_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/4_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/4_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/4_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/5_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/5_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/5_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/5_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/5_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/5_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/5_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/5_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/5_16.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/5_17.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/5_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/5_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/5_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/5_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/5_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/5_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/5_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/5_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/6_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/6_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/6_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/6_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/6_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/6_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/6_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/6_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/7_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/7_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/7_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/7_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/7_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/7_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/7_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/7_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/7_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/7_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/7_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/8_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/8_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/8_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/8_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/8_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/8_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/8_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/8_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/8_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/8_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/8_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/8_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/8_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/8_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/8_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/8_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/guide.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img6/points.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/0_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/0_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/0_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/0_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/0_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/0_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/0_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/0_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/1_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/1_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/1_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/1_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/1_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/1_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/1_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/1_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/1_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/1_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/1_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/2_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/2_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/2_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/2_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/2_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/2_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/2_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/2_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/2_16.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/2_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/2_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/2_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/2_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/2_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/2_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/2_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/2_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/3_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/3_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/3_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/3_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/3_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/3_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/3_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/3_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/4_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/4_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/4_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/4_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/4_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/4_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/4_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/4_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/4_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/4_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/4_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/5_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/5_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/5_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/5_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/5_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/5_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/5_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/5_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/5_16.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/5_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/5_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/5_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/5_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/5_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/5_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/5_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/5_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/6_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/6_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/6_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/6_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/6_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/6_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/6_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/6_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/7_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/7_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/7_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/7_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/7_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/7_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/7_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/7_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/7_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/7_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/7_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/8_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/8_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/8_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/8_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/8_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/8_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/8_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/8_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/8_16.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/8_17.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/8_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/8_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/8_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/8_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/8_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/8_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/8_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/8_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/guide.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img7/points.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/0_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/0_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/0_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/0_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/0_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/0_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/0_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/0_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/1_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/1_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/1_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/1_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/1_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/1_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/1_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/1_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/1_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/1_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/1_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/2_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/2_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/2_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/2_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/2_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/2_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/2_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/2_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/2_16.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/2_17.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/2_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/2_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/2_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/2_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/2_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/2_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/2_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/2_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/3_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/3_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/3_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/3_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/3_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/3_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/3_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/3_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/4_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/4_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/4_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/4_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/4_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/4_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/4_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/4_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/4_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/4_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/4_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/5_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/5_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/5_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/5_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/5_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/5_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/5_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/5_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/5_16.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/5_17.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/5_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/5_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/5_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/5_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/5_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/5_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/5_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/5_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/6_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/6_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/6_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/6_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/6_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/6_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/6_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/6_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/7_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/7_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/7_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/7_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/7_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/7_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/7_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/7_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/7_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/7_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/7_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/8_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/8_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/8_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/8_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/8_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/8_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/8_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/8_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/8_16.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/8_17.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/8_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/8_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/8_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/8_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/8_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/8_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/8_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/8_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/guide.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img8/points.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/0_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/0_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/0_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/0_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/0_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/0_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/0_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/0_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/1_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/1_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/1_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/1_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/1_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/1_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/1_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/1_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/1_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/1_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/1_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/2_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/2_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/2_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/2_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/2_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/2_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/2_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/2_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/2_16.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/2_17.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/2_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/2_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/2_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/2_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/2_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/2_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/2_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/2_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/3_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/3_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/3_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/3_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/3_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/3_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/3_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/3_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/4_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/4_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/4_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/4_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/4_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/4_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/4_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/4_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/4_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/4_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/5_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/5_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/5_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/5_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/5_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/5_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/5_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/5_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/5_16.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/5_17.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/5_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/5_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/5_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/5_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/5_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/5_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/5_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/5_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/6_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/6_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/6_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/6_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/6_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/6_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/6_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/6_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/7_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/7_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/7_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/7_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/7_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/7_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/7_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/7_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/7_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/7_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/7_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/8_0.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/8_1.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/8_10.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/8_11.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/8_12.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/8_13.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/8_14.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/8_15.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/8_16.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/8_17.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/8_2.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/8_3.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/8_4.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/8_5.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/8_6.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/8_7.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/8_8.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/8_9.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/guide.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../temp/img9/points.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../writeHelper/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../writeHelper/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,33 +1308,33 @@
     <session id="-1467108860">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="12" />
-          <entry key="project.open.time.0" value="3" />
+          <entry key="project.closed" value="13" />
+          <entry key="project.open.time.0" value="4" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.4" value="10" />
+          <entry key="project.open.time.4" value="12" />
           <entry key="project.open.time.5" value="2" />
-          <entry key="project.opened" value="16" />
+          <entry key="project.opened" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cpp" value="30" />
-          <entry key="h" value="33" />
+          <entry key="cpp" value="38" />
+          <entry key="h" value="41" />
           <entry key="segment (disassembly)" value="2" />
-          <entry key="txt" value="3" />
+          <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CMakeLists.txt" value="3" />
+          <entry key="CMakeLists.txt" value="4" />
           <entry key="Disassembly" value="2" />
-          <entry key="ObjectiveC" value="63" />
+          <entry key="ObjectiveC" value="79" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="31659" />
-          <entry key="h" value="1875" />
+          <entry key="cpp" value="31823" />
+          <entry key="h" value="1926" />
           <entry key="mm" value="35" />
           <entry key="txt" value="164" />
         </counts>
@@ -69,7 +1342,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CMakeLists.txt" value="164" />
-          <entry key="ObjectiveC" value="33569" />
+          <entry key="ObjectiveC" value="33784" />
         </counts>
       </usages-collector>
     </session>
@@ -77,49 +1350,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/segment/main.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="33" column="41" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/segment/prepareLearning.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3298">
-              <caret line="194" column="29" selection-start-line="194" selection-start-column="29" selection-end-line="194" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/segment/prepareLearning.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/segment/equalization.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/segment/cutPiece.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="416" column="41" selection-start-line="416" selection-start-column="41" selection-end-line="416" selection-end-column="41" />
+            <state relative-caret-position="816">
+              <caret line="48" column="23" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
               <folding>
                 <element signature="e#47#68#0" expanded="true" />
               </folding>
@@ -127,11 +1361,63 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/segment/canny.cpp">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/segment/prepareLearning.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4488">
-              <caret line="264" column="26" selection-start-line="264" selection-start-column="26" selection-end-line="264" selection-end-column="26" />
+            <state relative-caret-position="782">
+              <caret line="199" column="7" selection-start-line="199" selection-start-column="7" selection-end-line="199" selection-end-column="7" />
+              <folding>
+                <element signature="e#1461#1495#0" expanded="true" />
+                <element signature="e#1978#2015#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/segment/prepareLearning.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/segment/Projection.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/segment/public.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="265">
+              <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/segment/reshape.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
+              <folding>
+                <element signature="e#100#119#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -146,28 +1432,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/segment/warp.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/segment/Hough.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1190">
-              <caret line="70" column="47" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/segment/cutPiece.h">
+        <entry file="file://$PROJECT_DIR$/segment/segment.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
-              <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+              <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/segment/warp.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1341">
+              <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -176,7 +1453,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>displ</find>
       <find>blockblock</find>
       <find>getRowItemImgSet</find>
       <find>displa</find>
@@ -206,10 +1482,11 @@
       <find>HistogramIm</find>
       <find>HistogramImage</find>
       <find>display</find>
+      <find>equalization.cpp</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -219,25 +1496,25 @@
         <option value="C:/Anaconda/pkgs/python-3.5.6-he025d50_0/include/pyconfig.h" />
         <option value="$PROJECT_DIR$/segment/warp.h" />
         <option value="$PROJECT_DIR$/segment/warp.cpp" />
-        <option value="$PROJECT_DIR$/segment/reshape.h" />
-        <option value="$PROJECT_DIR$/segment/reshape.cpp" />
         <option value="$PROJECT_DIR$/segment/segment.h" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/segment/canny.h" />
         <option value="$PROJECT_DIR$/segment/canny.cpp" />
-        <option value="$PROJECT_DIR$/segment/Projection.h" />
-        <option value="$PROJECT_DIR$/segment/Projection.cpp" />
         <option value="$PROJECT_DIR$/segment/public.h" />
         <option value="$PROJECT_DIR$/segment/equalization.cpp" />
         <option value="$PROJECT_DIR$/segment/equalization.h" />
         <option value="$PROJECT_DIR$/segment/Hough.h" />
         <option value="$PROJECT_DIR$/segment/segment.cpp" />
         <option value="$PROJECT_DIR$/segment/Hough.cpp" />
-        <option value="$PROJECT_DIR$/segment/main.cpp" />
+        <option value="$PROJECT_DIR$/segment/reshape.h" />
         <option value="$PROJECT_DIR$/segment/cutPiece.h" />
+        <option value="$PROJECT_DIR$/segment/cutPiece.cpp" />
+        <option value="$PROJECT_DIR$/segment/reshape.cpp" />
+        <option value="$PROJECT_DIR$/segment/main.cpp" />
+        <option value="$PROJECT_DIR$/segment/Projection.cpp" />
+        <option value="$PROJECT_DIR$/segment/Projection.h" />
         <option value="$PROJECT_DIR$/segment/prepareLearning.h" />
         <option value="$PROJECT_DIR$/segment/prepareLearning.cpp" />
-        <option value="$PROJECT_DIR$/segment/cutPiece.cpp" />
       </list>
     </option>
   </component>
@@ -248,12 +1525,13 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds">
-    <option name="x" value="212" />
-    <option name="y" value="226" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-1088" />
+    <option name="y" value="-286" />
     <option name="width" value="1438" />
     <option name="height" value="858" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -277,6 +1555,11 @@
               <item name="A4Warping" type="462c0819:PsiDirectoryNode" />
               <item name="segment" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="segment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="A4Warping" type="462c0819:PsiDirectoryNode" />
+              <item name="temp" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -287,7 +1570,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="dynamic.analysis.tools.valgrind" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -348,28 +1631,31 @@
       <workItem from="1545487243273" duration="761000" />
       <workItem from="1545628345375" duration="26019000" />
       <workItem from="1545672065911" duration="13000" />
+      <workItem from="1545731294237" duration="390000" />
+      <workItem from="1545751665110" duration="3229000" />
+      <workItem from="1545787139482" duration="1408000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165980000" />
+    <option name="totallyTimeSpent" value="171007000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="212" y="226" width="1438" height="858" extended-state="0" />
+    <frame x="-1088" y="-286" width="1096" height="1936" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22423802" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2046332" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.082519" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.09229099" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.082176566" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.09161577" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3697706" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.3344191" />
+      <window_info anchor="bottom" id="Messages" order="8" visible="true" weight="0.17046085" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
@@ -439,69 +1725,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/segment/reshape.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/segment/reshape.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="84" column="22" selection-start-line="84" selection-start-column="22" selection-end-line="84" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/segment/segment.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="11" lean-forward="true" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/segment/canny.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/segment/Projection.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/segment/public.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/segment/Projection.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/segment/equalization.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="58" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/segment/Hough.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -509,55 +1732,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/segment/main.cpp">
+    <entry file="file://$PROJECT_DIR$/segment/reshape.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="41" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/segment/prepareLearning.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3298">
-          <caret line="194" column="29" selection-start-line="194" selection-start-column="29" selection-end-line="194" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/segment/prepareLearning.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/segment/equalization.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/segment/canny.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4488">
-          <caret line="264" column="26" selection-start-line="264" selection-start-column="26" selection-end-line="264" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/segment/segment.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="935">
-          <caret line="55" column="58" selection-start-line="55" selection-start-column="58" selection-end-line="55" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/segment/warp.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+        <state relative-caret-position="425">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>
@@ -570,17 +1748,132 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/segment/cutPiece.h">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/segment/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1173">
+          <caret line="69" selection-start-line="69" selection-end-line="69" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/segment/canny.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/segment/canny.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="8" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/segment/Projection.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/segment/Projection.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/segment/public.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/segment/reshape.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#100#119#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/segment/segment.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="935">
+          <caret line="55" column="58" selection-start-line="55" selection-start-column="58" selection-end-line="55" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/segment/segment.h">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/segment/warp.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1341">
+          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/segment/cutPiece.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="416" column="41" selection-start-line="416" selection-start-column="41" selection-end-line="416" selection-end-column="41" />
+        <state relative-caret-position="816">
+          <caret line="48" column="23" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
           <folding>
             <element signature="e#47#68#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/segment/equalization.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/segment/equalization.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="58" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/segment/prepareLearning.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/segment/prepareLearning.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="199" column="7" selection-start-line="199" selection-start-column="7" selection-end-line="199" selection-end-column="7" />
+          <folding>
+            <element signature="e#1461#1495#0" expanded="true" />
+            <element signature="e#1978#2015#0" expanded="true" />
           </folding>
         </state>
       </provider>

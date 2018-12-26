@@ -6,84 +6,16 @@
 #include "prepareLearning.h"
 #include "Hough.h"
 #include "canny.h"
-
-
-// 获得旋转后图片的像素对应于原图的像素位置，用于双线性插值
-bool get_origin_pos(int x, int y, int srcWidth, int srcHeight, double theta,
-                    double& srcX, double& srcY) {
-    // 找到(x, y)在原图中对应的位置(srcX, srcY)
-    srcX = (double)x * cos(theta) - (double)y * sin(theta);
-    srcY = (double)x * sin(theta) + (double)y * cos(theta);
-    if (srcX >= (0-srcWidth/2-1) && srcX <= srcWidth/2+1 && srcY >= (0-srcHeight/2-1) && srcY <= srcHeight/2+1) {
-        srcX += srcWidth/2;
-        srcY += srcHeight/2;
-        return true;
-    } else {
-        return false;
-    }
-}
-
-
-/**
-* 采用双线性插值填充新图
-*/
-void bilinear_interpolation(CImg<unsigned char>& outImg,
-                            const CImg<unsigned char>& srcImg, double theta) {
-
-    int halfW = outImg.width() / 2;
-    int halfH = outImg.height() / 2;
-    cimg_forXY(outImg, x, y)
-    {
-        double src_x, src_y;
-        if(get_origin_pos( x - halfW, y - halfH, srcImg.width(), srcImg.height(), theta, src_x, src_y)){
-            src_x = (src_x >= (double)srcImg.width()) ? ((double)srcImg.width() - 1.0) : (src_x < 0.0) ? 0.0 : src_x;
-            src_y = (src_y >= (double)srcImg.height()) ? ((double)srcImg.height() - 1.0) : (src_y < 0.0) ? 0.0 : src_y;
-            outImg(x, y) = Projection::singleBilinearInterpolation(srcImg, src_x, src_y, 0);
-        }
-    }
-}
-
-CImg<unsigned char> reotate_biliinar(const CImg<unsigned char>& srcImg, double theta, bool isBinary) {
-    int width = srcImg.width();
-    int height = srcImg.height();
-    // 原图的四个顶点坐标，这里以图片中心为坐标原点
-    Hough_pos lt(0-width/2, 0+height/2), lb(0-width/2, 0-height/2),
-            rt(0+width/2, 0+height/2), rb(0+width/2, 0-height/2);
-    // 获得旋转后的图片的四个顶点坐标
-    Hough_pos new_lt((int)(lt.x*cos(theta)+lt.y*sin(theta)), (int)(lt.y*cos(theta)-lt.x*sin(theta))),
-            new_lb((int)(lb.x*cos(theta)+lb.y*sin(theta)), (int)(lb.y*cos(theta)-lb.x*sin(theta))),
-            new_rt((int)(rt.x*cos(theta)+rt.y*sin(theta)), (int)(rt.y*cos(theta)-rt.x*sin(theta))),
-            new_rb((int)(rb.x*cos(theta)+rb.y*sin(theta)), (int)(rb.y*cos(theta)-rb.x*sin(theta)));
-    int newWidth = max(abs(new_rt.x-new_lb.x), abs(new_lt.x-new_rb.x));
-    int newHeight = max(abs(new_lt.y-new_rb.y), abs(new_lb.y-new_rt.y));
-
-    CImg<unsigned char> newImg(newWidth, newHeight, 1, 1, 255);
-    // 开始填充新图片的灰度值
-    bilinear_interpolation(newImg, srcImg, theta);
-
-    if(isBinary){
-        //newImg.display();
-        cimg_forXY(newImg, x, y){
-            if(newImg(x, y) > 200) newImg(x, y) = 255;
-            else newImg(x, y) = 0;
-        }
-    }
-
-    return newImg;
-}
+#include "reshape.h"
 
 
 cutPiece::cutPiece(CImg<unsigned char> input){
     gray = segment::toGrayScale(input);
     resultGray = gray;
     CImg<unsigned char> grayScale = gray;
-    //gray.display();
     //单阈值检测
-    //第一个低 多 第二个高 多
-    gray = threshold(grayScale, 0.76, 24, 24, 0.80);
-
-//    //gray.display();
-//    //gray.display();
+    //第一个高 多
+    gray = threshold(grayScale, 24, 24, 0.80);
     CImg<unsigned char> dilationed = gray;
     cimg_forXY(dilationed, x, y){
         if(dilationed(x, y) == 0) dilationed(x, y) = 255;
@@ -92,8 +24,6 @@ cutPiece::cutPiece(CImg<unsigned char> input){
     gray = dilationed;
     dilationed = canny::newFunc(dilationed, 140);
     gray = canny::newFunc(gray, 11);
-   // gray.display();
-    //dilationed.display();
     Hough hough(0, 0, dilationed, 0, false);
     cimg_forXY(dilationed, x, y){
         if(dilationed(x, y) == 0) dilationed(x, y) = 255;
@@ -102,22 +32,20 @@ cutPiece::cutPiece(CImg<unsigned char> input){
         else gray(x, y) = 0;
     }
 
+    // 旋转角度
     double theta = hough.randonTheta;
 
     theta = (theta - 90.0);
-    cout<<theta<<endl;
+    cout<<"theta:"<<theta<<endl;
     double ror = theta / 180.0 * cimg::PI;
-    gray = reotate_biliinar(gray, ror, true);
-    resultGray = reotate_biliinar(resultGray, ror, false);
-  // gray.display();
-//
+    gray = reshape::reotate_biliinar(gray, ror, true);
+    resultGray = reshape::reotate_biliinar(resultGray, ror, false);
     findDividingLine(5, 4);
-    divideIntoBarItemImg(5);
-
+    divideColumn(5);
 
 }
 void cutPiece::findDividingLine(int singleThreshold, int threshold) {
-    HistogramImage = CImg<int>(gray.width(), gray.height(), 1, 1, 255);
+    CImg<int> histogram(gray.width(), gray.height(), 1, 1, 255);
     dividingImg = gray;
 
     // 扫描
@@ -131,10 +59,10 @@ void cutPiece::findDividingLine(int singleThreshold, int threshold) {
         blackPixelSet.push_back(blackPixel);
     }
 
-//    cimg_forXY(HistogramImage, x, y){
-//        if(x < blackPixelSet[y]) HistogramImage(x, y) = 0;
+//    cimg_forXY(histogram, x, y){
+//        if(x < blackPixelSet[y]) histogram(x, y) = 0;
 //    }
-    //HistogramImage.display();
+    //histogram.display();
     //去除不够长的边
     cimg_forY(gray, y){
         if(blackPixelSet[y] != 0){
@@ -163,16 +91,16 @@ void cutPiece::findDividingLine(int singleThreshold, int threshold) {
         if(y == 0) continue;
 
         if (blackPixelSet[y] == 0 && blackPixelSet[y - 1] != 0)
-            inflectionPoints.push_back(y);
+            linePosition.push_back(y);
 
         else if (blackPixelSet[y] != 0 && blackPixelSet[y - 1] == 0)
-            inflectionPoints.push_back(y - 1);
+            linePosition.push_back(y - 1);
     }
 
     unsigned char lineColor[1] = {0};
 
-    vector<int> tmpVec = inflectionPoints;
-    inflectionPoints.clear();
+    vector<int> tmpVec = linePosition;
+    linePosition.clear();
 
     //零值淘汰，每一行只有一条中线
     for(int index = 0; index < tmpVec.size() - 1; index++){
@@ -182,84 +110,70 @@ void cutPiece::findDividingLine(int singleThreshold, int threshold) {
         }
         if((double)counter / (double)(tmpVec[index + 1] - tmpVec[index]) < 0.1) {
             int median = (tmpVec[index + 1] + tmpVec[index]) / 2;
-            inflectionPoints.push_back(median);
+            linePosition.push_back(median);
             index++;
         } else{
-            inflectionPoints.push_back(tmpVec[index]);
+            linePosition.push_back(tmpVec[index]);
         }
     }
-    inflectionPoints.push_back(tmpVec[tmpVec.size() - 1]);
-    tmpVec = inflectionPoints;
-    inflectionPoints.clear();
+    linePosition.push_back(tmpVec[tmpVec.size() - 1]);
+    tmpVec = linePosition;
+    linePosition.clear();
     int distance = tmpVec[ tmpVec.size() - 1 ] - tmpVec[0];
     distance /= tmpVec.size();
     // 距离淘汰(太近合并)
     for(int index = 0; index < tmpVec.size() - 1; index++){
         if(tmpVec[index + 1] - tmpVec[index] < (distance / 3)) {
             int median = (tmpVec[index + 1] + tmpVec[index]) / 2;
-            inflectionPoints.push_back(median);
+            linePosition.push_back(median);
             index++;
         } else{
-            inflectionPoints.push_back(tmpVec[index]);
+            linePosition.push_back(tmpVec[index]);
         }
     }
 
-    inflectionPoints.push_back(tmpVec[tmpVec.size() - 1]);
-    if(inflectionPoints[0] > 2){
-        inflectionPoints[0] -= 2;
+    linePosition.push_back(tmpVec[tmpVec.size() - 1]);
+    if(linePosition[0] > 2){
+        linePosition[0] -= 2;
     }
 
-    if(inflectionPoints[inflectionPoints.size() - 1] + 2 < gray.height()){
-        inflectionPoints[inflectionPoints.size() - 1] += 2;
+    if(linePosition[linePosition.size() - 1] + 2 < gray.height()){
+        linePosition[linePosition.size() - 1] += 2;
     }
 
-//    for(int i = 0; i < inflectionPoints.size(); i++){
-//        bool flag = true;
-//        for(int y = inflectionPoints[i]; y < inflectionPoints[i] + 3; y++){
-//            cimg_forX(gray, x){
-//                if(gray(x, y) == 0){
-//                    flag = false;
-//                    break;
-//                }
-//            }
-//            if(!flag) break;
-//        }
-//        if(flag) inflectionPoints[i] += 3;
-//    }
 
-    for(int i = 0; i < inflectionPoints.size(); i++){
+    for(int i = 0; i < linePosition.size(); i++){
 
-        dividingImg.draw_line(0, inflectionPoints[i], gray.width() - 1, inflectionPoints[i], lineColor);
+        dividingImg.draw_line(0, linePosition[i], gray.width() - 1, linePosition[i], lineColor);
     }
 }
 
 // 根据行分割线划分图片
-void cutPiece::divideIntoBarItemImg(int threshold) {
+void cutPiece::divideColumn(int threshold) {
 
-    for (int i = 1; i < inflectionPoints.size(); i++) {
-        int barHeight = inflectionPoints[i] - inflectionPoints[i - 1];
+    for (int i = 1; i < linePosition.size(); i++) {
+        int barHeight = linePosition[i] - linePosition[i - 1];
         int blackPixel = 0;
         CImg<unsigned char> barItemImg = CImg<unsigned char>(gray.width(), barHeight, 1, 1, 0);
         cimg_forXY(barItemImg, x, y) {
-            barItemImg(x, y, 0) = gray(x, inflectionPoints[i - 1] + 1 + y, 0);
+            barItemImg(x, y, 0) = gray(x, linePosition[i - 1] + 1 + y, 0);
             if (barItemImg(x, y, 0) == 0)
                 blackPixel++;
         }
-
-        unsigned char lineColor[1] = {0};
+        
         double blackPercent = (double)blackPixel / (double)(gray.width() * barHeight);
 
         // 只有当黑色像素个数超过图像大小一定比例时，该航才可视作有数字
         if (blackPercent > (7.0/594.0)) {
             vector<square> squareTmp;
-            vector<int> dividePosXset = getDivideLineXofSubImage(barItemImg, threshold);
+            vector<int> dividePosXset = getColumnLine(barItemImg, threshold);
             if(dividePosXset.empty())continue;
 
             for(int j = 1; j < dividePosXset.size(); j++){
 
                 //去除污点！
-                square squ(Hough_pos(dividePosXset[j - 1], inflectionPoints[i - 1]), Hough_pos(dividePosXset[j - 1], inflectionPoints[i]),
-                           Hough_pos(dividePosXset[j], inflectionPoints[i - 1]), Hough_pos(dividePosXset[j], inflectionPoints[i]));
+                square squ(Hough_pos(dividePosXset[j - 1], linePosition[i - 1]), Hough_pos(dividePosXset[j - 1], linePosition[i]),
+                           Hough_pos(dividePosXset[j], linePosition[i - 1]), Hough_pos(dividePosXset[j], linePosition[i]));
                 int count = 0.0;
                 for(int y = squ.lt.y; y<= squ.lb.y; y++){
                     bool flag = false;
@@ -275,13 +189,12 @@ void cutPiece::divideIntoBarItemImg(int threshold) {
                 if(count > 6){
                     squareTmp.push_back(squ);
                 }
-
             }
             squareVec.push_back(squareTmp);
             // 绘制竖线
             for (int j = 0; j < dividePosXset.size(); j++) {
-                dividingImg.draw_line(dividePosXset[j], inflectionPoints[i - 1],
-                                      dividePosXset[j], inflectionPoints[i], lineColor);
+                dividingImg.draw_line(dividePosXset[j], linePosition[i - 1],
+                                      dividePosXset[j], linePosition[i], lineColor);
             }
         }
     }
@@ -289,7 +202,7 @@ void cutPiece::divideIntoBarItemImg(int threshold) {
 }
 
 // 获取一行行的子图的水平分割线
-vector<int> cutPiece::getDivideLineXofSubImage(CImg<unsigned char>& subImg, int threshold) {
+vector<int> cutPiece::getColumnLine(CImg<unsigned char>& subImg, int threshold) {
     // 先绘制X方向灰度直方图
     vector<int> countVec;
     cimg_forX(subImg, x){
@@ -309,29 +222,26 @@ vector<int> cutPiece::getDivideLineXofSubImage(CImg<unsigned char>& subImg, int 
         countVec.push_back(blackPixel);
     }
 
-
-
     //不为0的数，判断空的航
     int counter = 0;
     for(int i = 0; i < countVec.size(); i++){
         if(countVec[i] != 0) counter++;
     }
 
-    CImg<int> Hou(subImg.width(), subImg.height(), 1, 1, 255);
-    cimg_forXY(Hou, x, y){
-        if(y < countVec[x]){
-            Hou(x, y) = 0;
-        }
-    }
+    // CImg<int> Hou(subImg.width(), subImg.height(), 1, 1, 255);
+    // cimg_forXY(Hou, x, y){
+    //     if(y < countVec[x]){
+    //         Hou(x, y) = 0;
+    //     }
+    // }
     //Hou.display();
-    //空的行
+    //去掉空的行
     if(counter == 0){
         vector<int> InflectionPosXs;
         InflectionPosXs.clear();
         return InflectionPosXs;
     }
-    vector<int> InflectionPosXs = getInflectionPosXs(countVec);    //获取拐点
-    unsigned char lineColor[3] ={0, 0, 0};
+    vector<int> InflectionPosXs = getColumnInflectionPoints(countVec);    //获取拐点
     for(int i = 0; i < InflectionPosXs.size(); i++){
         subImg.draw_line(InflectionPosXs[i], 0, InflectionPosXs[i], subImg.width() - 1, lineColor);
     }
@@ -340,7 +250,7 @@ vector<int> cutPiece::getDivideLineXofSubImage(CImg<unsigned char>& subImg, int 
 }
 
 // 根据X方向直方图判断真实的拐点
-vector<int> cutPiece::getInflectionPosXs(vector<int> counterVec) {
+vector<int> cutPiece::getColumnInflectionPoints(vector<int> counterVec) {
     vector<int> resultInflectionPosXs, tempInflectionPosXs;
     // 查找拐点
     for(int i = 0; i < counterVec.size(); i++){
@@ -401,37 +311,33 @@ vector<int> cutPiece::getInflectionPosXs(vector<int> counterVec) {
 }
 // ostu算法求阈值
 int cutPiece::OSTU(const CImg<unsigned char>& image) {
-    double variance = 0.0; // 类间方差初始化为0
-    // 灰度直方图初始化为0
-    int histogram[255];
-    for (int i = 0; i < 256; i++) {
-        histogram[i] = 0;
-    }
-    int pixelsNum = image.width() * image.height(); // 像素点总数
-    // 计算灰度直方图分布，Histogram数组下标是灰度值，保存内容是灰度值对应像素点数
+    int histogram[255] = {0};
+    int pixelsNum = image.width() * image.height();
     cimg_forXY(image, i, j) {
         ++histogram[image(i, j)];
     }
     int threshold;
+    double variance = 0.0;
     for (int i = 0; i < 256; i++) {
         double P1 = 0.0, P2 = 0.0, m1 = 0.0, m2 = 0.0;
+        // 前景
         for (int j = 0; j <= i; j++) {
-            P1 += (double)histogram[j]; // 前景像素点总数
-            m1 += (double)j * histogram[j]; // 前景部分像素总灰度和
+            
+            P1 += (double)histogram[j];
+            m1 += (double)j * histogram[j];
         }
         if (P1 == 0.0) continue;
-        m1 /= P1; // 前景像素平均灰度
-        P1 /= pixelsNum; // 前景像素点数所占比例
-
+        m1 /= P1;
+        P1 /= pixelsNum;
+        // 后景
         for (int j = i + 1; j < 256; j++) {
-            P2 += (double)histogram[j]; // 背景像素点总数
-            m2 += (double)j * histogram[j]; // 背景部分像素总灰度和
+            P2 += (double)histogram[j];
+            m2 += (double)j * histogram[j];
         }
         if (P2 == 0.0) continue;
-        m2 /= P2; // 背景像素平均灰度
-        P2 /= pixelsNum; // 背景像素点数所占比例
-        double temp_variance = P1 * P2 * (m1 - m2) * (m1 - m2); // 当前类间方差
-        // 更新类间方差和阈值
+        m2 /= P2;
+        P2 /= pixelsNum;
+        double temp_variance = P1 * P2 * (m1 - m2) * (m1 - m2);
         if (variance < temp_variance) {
             variance = temp_variance;
             threshold = i;
@@ -440,7 +346,7 @@ int cutPiece::OSTU(const CImg<unsigned char>& image) {
     return threshold;
 }
 
-CImg<unsigned char> cutPiece::threshold(CImg<unsigned char>& imgIn, float binaryThreshold, int columnNumber, int rowNumber, float abandonThreshold)
+CImg<unsigned char> cutPiece::threshold(CImg<unsigned char>& imgIn, int columnNumber, int rowNumber, float abandonThreshold)
 {
     // 分块
     CImg<unsigned char> afterThreshold(imgIn.width(), imgIn.height(), 1, 1, 0);
@@ -448,8 +354,8 @@ CImg<unsigned char> cutPiece::threshold(CImg<unsigned char>& imgIn, float binary
     int rowSize = floor((float)imgIn.height() / (float)rowNumber);
     int resizeCol = imgIn.width() % columnNumber;
     int resizeRow = imgIn.height() % rowNumber;
+    
     // 主体
-
     for(int i = 0; i < columnNumber; i++){
         for(int j = 0; j < rowNumber; j++){
             CImg<unsigned char> ostu(columnSize, rowSize, 1, 1, 255);
@@ -478,31 +384,10 @@ CImg<unsigned char> cutPiece::threshold(CImg<unsigned char>& imgIn, float binary
                     }
                 }
             }
-
-
-//            int min = 256;
-//            int max = -1;
-//            for(int k = 0; k < columnSize; k++){
-//                for(int l = 0; l < rowSize; l++){
-//                    if(imgIn(i * columnSize + k, j * rowSize + l) > max) max = imgIn(i * columnSize + k, j * rowSize + l);
-//                    else if(imgIn(i * columnSize + k, j * rowSize + l) < min) min = imgIn(i * columnSize + k, j * rowSize + l);
-//                }
-//            }
-//            int threshold = min + (max - min) * binaryThreshold;
-//
         }
     }
     // 剩余 x
     for(int j = 0; j < rowNumber; j++){
-//        int min = 256;
-//        int max = -1;
-//        for(int i = imgIn.width() - resizeCol - 1; i < imgIn.width(); i++){
-//            for(int l = 0; l < rowSize; l++){
-//                if(imgIn(i, j * rowSize + l) > max) max = imgIn(i, j * rowSize + l);
-//                else if(imgIn(i, j * rowSize + l) < min) min = imgIn(i, j * rowSize + l);
-//            }
-//        }
-//        int threshold = min + (max - min) * binaryThreshold;
         CImg<unsigned char> ostu(resizeCol, rowSize, 1, 1, 255);
         for(int i = imgIn.width() - resizeCol; i < imgIn.width(); i++){
             for(int l = 0; l < rowSize; l++){
@@ -531,15 +416,6 @@ CImg<unsigned char> cutPiece::threshold(CImg<unsigned char>& imgIn, float binary
     }
     // 剩余 y
     for(int i = 0; i < columnNumber; i++){
-//        int min = 256;
-//        int max = -1;
-//        for(int j = imgIn.height() - resizeRow - 1; j < imgIn.height(); j++){
-//            for(int k = 0; k < columnSize; k++){
-//                if(imgIn(i * columnSize + k, j) > max) max = imgIn(i * columnSize + k, j);
-//                else if(imgIn(i * columnSize + k, j) < min) min = imgIn(i * columnSize + k, j);
-//            }
-//        }
-//        int threshold = min + (max - min) * binaryThreshold;
         CImg<unsigned char> ostu(columnSize, rowSize, 1, 1, 255);
         for(int j = imgIn.height() - resizeRow; j < imgIn.height(); j++){
             for(int k = 0; k < columnSize; k++){
@@ -568,7 +444,7 @@ CImg<unsigned char> cutPiece::threshold(CImg<unsigned char>& imgIn, float binary
         }
     }
 
-    //afterThreshold.display();
+    //膨胀
     CImg<unsigned char>  tmp(afterThreshold.width(), afterThreshold.height(), 1, 1, 255);
     cimg_forXY(afterThreshold, x, y){
         bool flag = false;
@@ -585,6 +461,7 @@ CImg<unsigned char> cutPiece::threshold(CImg<unsigned char>& imgIn, float binary
     }
     afterThreshold = tmp;
     abandonThreshold = 0.52;
+    // 舍弃
     // 主体
     for(int i = 0; i < columnNumber; i++){
         for(int j = 0; j < rowNumber; j++){
@@ -652,21 +529,5 @@ CImg<unsigned char> cutPiece::threshold(CImg<unsigned char>& imgIn, float binary
             afterThreshold(x, y) = 255;
         }
     }
-//    // 侵蚀
-//    CImg<unsigned char>  tmp2(gray.width(), gray.height(), 1, 1, 255);
-//    cimg_forXY(gray, x, y){
-//        bool flag = true;
-//        for(int i = y - 1; i < y + 2; i++){
-//            if(i < 0 || i >= gray.height()) continue;
-//                if(gray(x, i) != 0){
-//                    flag = false;
-//                }
-//            }
-//            // cout<<x<<" "<<y<<endl;
-//            if(flag) tmp2(x, y) = 0;
-//    }
-//    gray = tmp2;
-   //afterThreshold.display("threshold result");
-
     return afterThreshold;
 }
