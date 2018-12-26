@@ -2,6 +2,8 @@
 
 16340028 陈思航
 
+Github:https://github.com/chensh236/ComputerVisionFinalProject
+
 ## 题目
 
 普通A4打印纸，包含如下信息：
@@ -482,101 +484,38 @@ core1.setPosition(src.width() / 2, src.height() / 2);
     }
 ```
 
-#### 滞后边缘检测
+#### DFS
 
-这一部分跟canny算法增加的滞后边缘检测一样，阈值设定为40。
+通过DFS算法找出需要识别的A4纸，以图像中心作为起始点。
 
 ```C++
-CImg<unsigned char> segment::deleteEdge(CImg<unsigned char> imgin, int length)
-{
-    CImg<unsigned char> output = CImg<unsigned char>(imgin.width(), imgin.height(), 1, 1, 0);
-    stack<position> s;
-    queue<position> q;
-    cimg_forXY(imgin, x, y){
-        // DFS begin
-        if(imgin(x, y) == 255){
-            s.push(position(x, y));
-            q.push(position(x, y));
-            imgin(x ,y) = 0;
-            while(!s.empty()){
-                position p = s.top();
-                s.pop();
-                // search in 8 different direcvtions
-                if(p.x - 1 > 0 && p.y - 1 > 0 && imgin(p.x - 1, p.y - 1) == 255){
-                    position np = position(p.x - 1, p.y - 1);
-                    s.push(np);
-                    q.push(np);
-                    imgin(p.x - 1, p.y - 1) = 0;
-                }
-
-                if(p.y - 1 > 0 && imgin(p.x, p.y - 1) == 255){
-                    position np = position(p.x, p.y - 1);
-                    s.push(np);
-                    q.push(np);
-                    imgin(p.x, p.y - 1) = 0;
-                }
-
-                if(p.x + 1 < imgin.width() && p.y - 1 > 0 && imgin(p.x + 1, p.y - 1) == 255){
-                    position np = position(p.x + 1, p.y - 1);
-                    s.push(np);
-                    q.push(np);
-                    imgin(p.x + 1, p.y - 1) = 0;
-                }
-
-                if(p.x - 1 > 0 && imgin(p.x - 1, p.y) == 255){
-                    position np = position(p.x - 1, p.y);
-                    s.push(np);
-                    q.push(np);
-                    imgin(p.x - 1, p.y) = 0;
-                }
-
-                if(p.x + 1 < imgin.width() && imgin(p.x + 1, p.y) == 255){
-                    position np = position(p.x + 1, p.y);
-                    s.push(np);
-                    q.push(np);
-                    imgin(p.x + 1, p.y) = 0;
-                }
-
-                if(p.x - 1 > 0 && p.y + 1 < imgin.height() && imgin(p.x - 1, p.y + 1) == 255){
-                    position np = position(p.x - 1, p.y + 1);
-                    s.push(np);
-                    q.push(np);
-                    imgin(p.x - 1, p.y + 1) = 0;
-                }
-
-                if(p.y + 1 < imgin.height() && imgin(p.x, p.y + 1) == 255){
-                    position np = position(p.x, p.y + 1);
-                    s.push(np);
-                    q.push(np);
-                    imgin(p.x, p.y + 1) = 0;
-                }
-
-                if(p.x + 1 < imgin.width() && p.y + 1 < imgin.height() && imgin(p.x + 1, p.y + 1) == 255){
-                    position np = position(p.x + 1, p.y + 1);
-                    s.push(np);
-                    q.push(np);
-                    imgin(p.x + 1, p.y + 1) = 0;
-                }
-            }
-
-            // No more element in the stack
-            if (q.size() > length)
+// DFS
+    CImg<unsigned char> afterGenerate(input.width(), input.height(), 1, 1, 0);
+    while (!posStack.empty())
+    {
+        Hough_pos currentPos = posStack.top();
+        posStack.pop();
+        if (isVisted[currentPos.x][currentPos.y])
+            continue;
+        isVisted[currentPos.x][currentPos.y] = true;
+        afterGenerate(currentPos.x, currentPos.y) = 255;
+        for (int i = currentPos.x - 1; i < currentPos.x + 2; i++)
+        {
+            for (int j = currentPos.y - 1; j < currentPos.y + 2; j++)
             {
-                // The weak edge is not connected to any strong edge. Suppress it.
-                while (!q.empty())
+                if (i >= 0 && i < input.width() && j >= 0 && j < input.height())
                 {
-                    position p = q.front();
-                    q.pop();
-                    output(p.x, p.y) = 255;
+                    if (i == currentPos.x && j == currentPos.y)
+                        continue;
+                    if (input(i, j) == 255)
+                    {
+                        Hough_pos nextPos(i, j);
+                        posStack.push(nextPos);
+                    }
                 }
-            }else{
-                // Clean the queue
-                while (!q.empty()) q.pop();
             }
         }
     }
-    return output;
-}
 ```
 
 #### 马尔科夫邻域边缘提取
@@ -1234,7 +1173,7 @@ input = tmp2;
 ##### 腐蚀 （8邻域）
 
 ```C++
-// A4Warping/data
+// reportSrc/data
     CImg<unsigned char>  tmp3(input.width(), input.height(), 1, 1, 255);
     cimg_forXY(input, x, y){
         bool flag = true;
@@ -1472,31 +1411,7 @@ with tf.Session() as sess: #开始一个会话
 #            plt.show()
             tv = list(img.getdata())
                         # normalization
-            tva = [(255-x)*1.0/255.0 for x in tv]
-#            print( l[i] )
-#            inputArr = []
-#            if l == 0 :
-#                inputArr = np.array([1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
-#            if l == 1 :
-#                inputArr = np.array([0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
-#            if l == 2 :
-#                inputArr = np.array([0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
-#            if l == 3 :
-#                inputArr = np.array([0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
-#            if l == 4 :
-#                inputArr = np.array([0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0])
-#            if l == 5 :
-#                inputArr = np.array([0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0])
-#            if l == 6 :
-#                inputArr = np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0])
-#            if l == 7 :
-#                inputArr = np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0])
-#            if l == 8 :
-#                inputArr = np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0])
-#            if l == 9 :
-#                inputArr = np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0])
-#            
-#                
+            tva = [(255-x)*1.0/255.0 for x in tv]           
         train_step.run(feed_dict={x: [tva], y_: [ l[i] ], keep_prob: 0.5})
         if index % 100 == 0:
             train_accuracy = accuracy.eval(feed_dict={
@@ -1568,14 +1483,14 @@ accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
 ```python
 
 def _create_file():
-    writer= tf.python_io.TFRecordWriter("./A4Warping/hand/numbersGenerate.tfrecords") #要生成的文件
+    writer= tf.python_io.TFRecordWriter("./reportSrc/hand/numbersGenerate.tfrecords") #要生成的文件
     for i in range(10):
-        var = "./A4Warping/temp/img" + str(i) + "/guide.txt"
+        var = "./reportSrc/temp/img" + str(i) + "/guide.txt"
         reader = np.loadtxt(var, dtype = int)
         for j in range(len(reader)):
             col = reader[j]
             for k in range(col):
-                fileStr = "./A4Warping/temp/img" + str(i) + "/" + str(j) + "_" + str(k) + ".bmp"
+                fileStr = "./reportSrc/temp/img" + str(i) + "/" + str(j) + "_" + str(k) + ".bmp"
                 img=Image.open(fileStr)
                 img= img.resize((28,28))
 #                plt.imshow(img)  #显示需要识别的图片
@@ -1596,11 +1511,11 @@ with tf.Session() as sess: #开始一个会话
         sess.run(tf.global_variables_initializer())
         coord=tf.train.Coordinator()
         threads= tf.train.start_queue_runners(coord=coord)
-        saver.restore(sess, "./A4Warping/hand/SAVE/model.ckpt") #使用模型，参数和之前的代码保持一致
+        saver.restore(sess, "./reportSrc/hand/SAVE/model.ckpt") #使用模型，参数和之前的代码保持一致
         for i in range(10):
-            writePath = "./A4Warping/temp/img" + str(i) + "/result.txt"
+            writePath = "./reportSrc/temp/img" + str(i) + "/result.txt"
             with open(writePath, 'w') as f:
-                dictionary= "./A4Warping/temp/img" + str(i) + "/guide.txt"
+                dictionary= "./reportSrc/temp/img" + str(i) + "/guide.txt"
                 reader = np.loadtxt(dictionary, dtype = int)
                 for j in range(len(reader)):
                     col = reader[j]
@@ -1629,80 +1544,80 @@ with tf.Session() as sess: #开始一个会话
 
 <table>
     <tr>
-    <td><img src="A4Warping/data/1.bmp">原图</td>
-        <td><img src="A4Warping/data/segment_1.bmp">分割</td>
-        <td><img src="A4Warping/data/edge_1.bmp">边缘</td>
-        <td><img src="A4Warping/data/point_1.bmp">角点</td>    
+    <td><img src="reportSrc/data/1.bmp">原图</td>
+        <td><img src="reportSrc/data/segment_1.bmp">分割</td>
+        <td><img src="reportSrc/data/edge_1.bmp">边缘</td>
+        <td><img src="reportSrc/data/point_1.bmp">角点</td>    
     </tr>
     <tr>
-    <td><img src="A4Warping/data/2.bmp">原图</td>
-        <td><img src="A4Warping/data/segment_2.bmp">分割</td>
-        <td><img src="A4Warping/data/edge_2.bmp">边缘</td>
-        <td><img src="A4Warping/data/point_2.bmp">角点</td>    
+    <td><img src="reportSrc/data/2.bmp">原图</td>
+        <td><img src="reportSrc/data/segment_2.bmp">分割</td>
+        <td><img src="reportSrc/data/edge_2.bmp">边缘</td>
+        <td><img src="reportSrc/data/point_2.bmp">角点</td>    
     </tr>
     <tr>
-    <td><img src="A4Warping/data/3.bmp">原图</td>
-        <td><img src="A4Warping/data/segment_3.bmp">分割</td>
-        <td><img src="A4Warping/data/edge_3.bmp">边缘</td>
-        <td><img src="A4Warping/data/point_3.bmp">角点</td>    
+    <td><img src="reportSrc/data/3.bmp">原图</td>
+        <td><img src="reportSrc/data/segment_3.bmp">分割</td>
+        <td><img src="reportSrc/data/edge_3.bmp">边缘</td>
+        <td><img src="reportSrc/data/point_3.bmp">角点</td>    
     </tr>
     <tr>
-    <td><img src="A4Warping/data/4.bmp">原图</td>
-        <td><img src="A4Warping/data/segment_4.bmp">分割</td>
-        <td><img src="A4Warping/data/edge_4.bmp">边缘</td>
-        <td><img src="A4Warping/data/point_4.bmp">角点</td>    
+    <td><img src="reportSrc/data/4.bmp">原图</td>
+        <td><img src="reportSrc/data/segment_4.bmp">分割</td>
+        <td><img src="reportSrc/data/edge_4.bmp">边缘</td>
+        <td><img src="reportSrc/data/point_4.bmp">角点</td>    
     </tr>
     <tr>
-    <td><img src="A4Warping/data/5.bmp">原图</td>
-        <td><img src="A4Warping/data/segment_5.bmp">分割</td>
-        <td><img src="A4Warping/data/edge_5.bmp">边缘</td>
-        <td><img src="A4Warping/data/point_5.bmp">角点</td>    
+    <td><img src="reportSrc/data/5.bmp">原图</td>
+        <td><img src="reportSrc/data/segment_5.bmp">分割</td>
+        <td><img src="reportSrc/data/edge_5.bmp">边缘</td>
+        <td><img src="reportSrc/data/point_5.bmp">角点</td>    
     </tr>
     <tr>
-    <td><img src="A4Warping/data/6.bmp">原图</td>
-        <td><img src="A4Warping/data/segment_6.bmp">分割</td>
-        <td><img src="A4Warping/data/edge_6.bmp">边缘</td>
-        <td><img src="A4Warping/data/point_6.bmp">角点</td>    
+    <td><img src="reportSrc/data/6.bmp">原图</td>
+        <td><img src="reportSrc/data/segment_6.bmp">分割</td>
+        <td><img src="reportSrc/data/edge_6.bmp">边缘</td>
+        <td><img src="reportSrc/data/point_6.bmp">角点</td>    
     </tr>
      <tr>
-    <td><img src="A4Warping/data/7.bmp">原图</td>
-        <td><img src="A4Warping/data/segment_7.bmp">分割</td>
-        <td><img src="A4Warping/data/edge_7.bmp">边缘</td>
-        <td><img src="A4Warping/data/point_7.bmp">角点</td>    
+    <td><img src="reportSrc/data/7.bmp">原图</td>
+        <td><img src="reportSrc/data/segment_7.bmp">分割</td>
+        <td><img src="reportSrc/data/edge_7.bmp">边缘</td>
+        <td><img src="reportSrc/data/point_7.bmp">角点</td>    
     </tr>
      <tr>
-    <td><img src="A4Warping/data/8.bmp">原图</td>
-        <td><img src="A4Warping/data/segment_8.bmp">分割</td>
-        <td><img src="A4Warping/data/edge_8.bmp">边缘</td>
-        <td><img src="A4Warping/data/point_8.bmp">角点</td>    
+    <td><img src="reportSrc/data/8.bmp">原图</td>
+        <td><img src="reportSrc/data/segment_8.bmp">分割</td>
+        <td><img src="reportSrc/data/edge_8.bmp">边缘</td>
+        <td><img src="reportSrc/data/point_8.bmp">角点</td>    
     </tr>
      <tr>
-    <td><img src="A4Warping/data/9.bmp">原图</td>
-        <td><img src="A4Warping/data/segment_9.bmp">分割</td>
-        <td><img src="A4Warping/data/edge_9.bmp">边缘</td>
-        <td><img src="A4Warping/data/point_9.bmp">角点</td>    
+    <td><img src="reportSrc/data/9.bmp">原图</td>
+        <td><img src="reportSrc/data/segment_9.bmp">分割</td>
+        <td><img src="reportSrc/data/edge_9.bmp">边缘</td>
+        <td><img src="reportSrc/data/point_9.bmp">角点</td>    
     </tr>
      <tr>
-    <td><img src="A4Warping/data/10.bmp">原图</td>
-        <td><img src="A4Warping/data/segment_10.bmp">分割</td>
-        <td><img src="A4Warping/data/edge_10.bmp">边缘</td>
-        <td><img src="A4Warping/data/point_10.bmp">角点</td>    
+    <td><img src="reportSrc/data/10.bmp">原图</td>
+        <td><img src="reportSrc/data/segment_10.bmp">分割</td>
+        <td><img src="reportSrc/data/edge_10.bmp">边缘</td>
+        <td><img src="reportSrc/data/point_10.bmp">角点</td>    
     </tr>
     <tr>
-        <td><img src="A4Warping/data/result_1.bmp">结果1</td>
-        <td><img src="A4Warping/data/result_2.bmp">结果2</td>
-        <td><img src="A4Warping/data/result_3.bmp">结果3</td>
-        <td><img src="A4Warping/data/result_4.bmp">结果4</td>
+        <td><img src="reportSrc/data/result_1.bmp">结果1</td>
+        <td><img src="reportSrc/data/result_2.bmp">结果2</td>
+        <td><img src="reportSrc/data/result_3.bmp">结果3</td>
+        <td><img src="reportSrc/data/result_4.bmp">结果4</td>
     </tr>
     <tr>
-        <td><img src="A4Warping/data/result_5.bmp">结果5</td>
-        <td><img src="A4Warping/data/result_6.bmp">结果6</td>
-         <td><img src="A4Warping/data/result_7.bmp">结果7</td>
-        <td><img src="A4Warping/data/result_8.bmp">结果8</td>
+        <td><img src="reportSrc/data/result_5.bmp">结果5</td>
+        <td><img src="reportSrc/data/result_6.bmp">结果6</td>
+         <td><img src="reportSrc/data/result_7.bmp">结果7</td>
+        <td><img src="reportSrc/data/result_8.bmp">结果8</td>
     </tr>
     <tr>
-     <td><img src="A4Warping/data/result_9.bmp">结果9</td>
-        <td><img src="A4Warping/data/result_10.bmp">结果10</td>
+     <td><img src="reportSrc/data/result_9.bmp">结果9</td>
+        <td><img src="reportSrc/data/result_10.bmp">结果10</td>
     </tr>
 </table>
 
@@ -1732,18 +1647,45 @@ with tf.Session() as sess: #开始一个会话
 
 <table>
      <tr>
-        <td><img src="/A4Warping/temp/img0/0_0.bmp">结果</td>
-        <td><img src="/A4Warping/temp/img0/0_1.bmp">结果</td>
-        <td><img src="/A4Warping/temp/img0/0_2.bmp">结果</td>
-        <td><img src="/A4Warping/temp/img0/0_3.bmp">结果</td>
+        <td><img src="reportSrc/img0/0_0.bmp">结果</td>
+        <td><img src="reportSrc/img0/0_1.bmp">结果</td>
+        <td><img src="reportSrc/img0/0_2.bmp">结果</td>
+        <td><img src="reportSrc/img0/0_3.bmp">结果</td>
     </tr>
     <tr>
-        <td><img src="/A4Warping/temp/img0/0_4.bmp">结果</td>
-        <td><img src="/A4Warping/temp/img0/0_5.bmp">结果</td>
-         <td><img src="/A4Warping/temp/img0/0_6.bmp">结果</td>
-        <td><img src="/A4Warping/temp/img0/0_7.bmp">结果</td>
+        <td><img src="reportSrc/img0/0_4.bmp">结果</td>
+        <td><img src="reportSrc/img0/0_5.bmp">结果</td>
+         <td><img src="reportSrc/img0/0_6.bmp">结果</td>
+        <td><img src="reportSrc/img0/0_7.bmp">结果</td>
     </tr>
 </table>
+### 分析
 
-字符分割保存路径：`\A4Warping\temp\`
+![1545807000250](C:\Users\Chen Sihang\AppData\Roaming\Typora\typora-user-images\1545807000250.png)
+
+实验结果达到预期，识别率是比较高的。但是由于在切分的时候部分字符镶嵌，出现了字符信息的丢失。在通过确定字符所在块后重新在灰度图上切分虽然可以避免字符部分信息丢失的问题，但是OTSU法阈值不可控，可能出现有噪点的问题，也会影响识别。整个项目流程下来，最困难的地方在于字符的分割，因为对于不同的图像需要考虑的因素非常多，所以需要通过占比、长度等特征设定阈值来进行分割。同时，字符的分割承上启下，上面图像仿射变换的结果也会影响分割，所以需要通过padding等方法进行处理。而电脑分割的图像与手写图像仍有一定的差别，直接拿MNIST数据集可能会出现一定的问题，所以需要通过自己的数据集（与MNIST杂揉在一起）进行训练，提高准确性。TFRecord和batch的创建只能参考网上资料自己实现。而对于混合编译，无法实现互相调用，则通过脚本将这3个程序整合在一起，达到实验一键运行的目标。
+
+## 相关文件路径
+
+分割效果`\A4Warping\data\`
+
+字符分割保存路径`\A4Warping\temp\`
+
+识别结果`\A4Warping\result\result.csv`
+
+CNN模型训练与数据集`\A4Warping\hand\`
+
+一键运行`\start.bat`
+
+## 实验环境
+
+```
+CPU: R7-2700X
+GPU: GTX1080
+OS: Windows10 Pro
+Python: 3.5
+Tensorflow: 1.1.0
+cuDNN:*
+CUDA:V8.0
+```
 
