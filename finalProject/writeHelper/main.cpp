@@ -11,7 +11,7 @@ void beginProcess(){
     ofstream ofs(resultPath.c_str());
     ofs<<"filename"<<","<<"\"corner 1\""<<","<<"\"corner 2\""<<","<<"\"corner 3\""<<","<<"\"corner 4\""<<","<<"\"student ID\""<<","<<"\"phone number\""<<","<<"\"ID card\""<<endl;
 
-    for(int i = 0; i < 10; i ++){
+    for(int i = 0; i < 100; i ++){
         string subDir = "../../A4Warping/temp/img" + to_string(i);
         string pointsPath = subDir + "/points.txt";
         string detectionPath = subDir + "/result.txt";

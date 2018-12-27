@@ -40,7 +40,7 @@ void reshape::bilinear(CImg<unsigned char> &src, CImg<unsigned char> &output, do
     }
 }
 
-CImg<unsigned char> reshape::reotate_biliinar(CImg<unsigned char> &src, double theta, bool isBinary)
+CImg<unsigned char> reshape::reotate_biliinar(CImg<unsigned char> &src, double theta)
 {
     // 获得图像旋转中心
     Hough_pos lt(0 - src.width() / 2, 0 + src.height() / 2), lb(0 - src.width() / 2, 0 - src.height() / 2),
@@ -58,16 +58,12 @@ CImg<unsigned char> reshape::reotate_biliinar(CImg<unsigned char> &src, double t
     // 开始填充新图片的灰度值
     bilinear(src, output, theta);
 
-    // 如果是二值化图，进行处理，否则不进行处理
-    if (isBinary)
+    cimg_forXY(output, x, y)
     {
-        cimg_forXY(output, x, y)
-        {
-            if (output(x, y) > 200)
-                output(x, y) = 255;
-            else
-                output(x, y) = 0;
-        }
+        if (output(x, y) > 200)
+            output(x, y) = 255;
+        else
+            output(x, y) = 0;
     }
 
     return output;

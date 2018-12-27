@@ -230,33 +230,6 @@ segment/cutPiece.cpp.s:
 	$(MAKE) -f CMakeFiles\segment.dir\build.make CMakeFiles/segment.dir/segment/cutPiece.cpp.s
 .PHONY : segment/cutPiece.cpp.s
 
-segment/equalization.obj: segment/equalization.cpp.obj
-
-.PHONY : segment/equalization.obj
-
-# target to build an object file
-segment/equalization.cpp.obj:
-	$(MAKE) -f CMakeFiles\segment.dir\build.make CMakeFiles/segment.dir/segment/equalization.cpp.obj
-.PHONY : segment/equalization.cpp.obj
-
-segment/equalization.i: segment/equalization.cpp.i
-
-.PHONY : segment/equalization.i
-
-# target to preprocess a source file
-segment/equalization.cpp.i:
-	$(MAKE) -f CMakeFiles\segment.dir\build.make CMakeFiles/segment.dir/segment/equalization.cpp.i
-.PHONY : segment/equalization.cpp.i
-
-segment/equalization.s: segment/equalization.cpp.s
-
-.PHONY : segment/equalization.s
-
-# target to generate assembly for a file
-segment/equalization.cpp.s:
-	$(MAKE) -f CMakeFiles\segment.dir\build.make CMakeFiles/segment.dir/segment/equalization.cpp.s
-.PHONY : segment/equalization.cpp.s
-
 segment/main.obj: segment/main.cpp.obj
 
 .PHONY : segment/main.obj
@@ -413,9 +386,6 @@ help:
 	@echo ... segment/cutPiece.obj
 	@echo ... segment/cutPiece.i
 	@echo ... segment/cutPiece.s
-	@echo ... segment/equalization.obj
-	@echo ... segment/equalization.i
-	@echo ... segment/equalization.s
 	@echo ... segment/main.obj
 	@echo ... segment/main.i
 	@echo ... segment/main.s

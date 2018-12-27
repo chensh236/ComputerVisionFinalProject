@@ -6,7 +6,6 @@
 #define SEGMENT_PREPARELEARNING_H
 #include "public.h"
 #include "segment.h"
-#include "equalization.h"
 #include "warp.h"
 #include "cutPiece.h"
 #include "prepareLearning.h"

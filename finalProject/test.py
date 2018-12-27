@@ -11,9 +11,9 @@ def _int64_feature(value):
 def _bytes_feature(value):
     return tf.train.Feature(bytes_list = tf.train.BytesList(value = [value]))
 
-def _create_file():
+def _create_file(total):
     writer= tf.python_io.TFRecordWriter("./A4Warping/hand/numbersGenerate.tfrecords") #要生成的文件
-    for i in range(10):
+    for i in range(total):
         var = "./A4Warping/temp/img" + str(i) + "/guide.txt"
         reader = np.loadtxt(var, dtype = int)
         for j in range(len(reader)):
@@ -48,7 +48,7 @@ def conv2d(x,W):
 def max_pool_2x2(x):
     return tf.nn.max_pool(x, ksize=[1,2,2,1], strides=[1,2,2,1], padding='SAME')
 
-def detection():
+def detection(total):
     x = tf.placeholder(tf.float32, [None, 784])
 
     W_conv1 = weight_variable([5, 5, 1, 32], name = 'W1')
@@ -102,13 +102,14 @@ def detection():
         coord=tf.train.Coordinator()
         threads= tf.train.start_queue_runners(coord=coord)
         saver.restore(sess, "./A4Warping/hand/SAVE/model.ckpt") #使用模型，参数和之前的代码保持一致
-        for i in range(10):
+        for i in range(total):
             writePath = "./A4Warping/temp/img" + str(i) + "/result.txt"
             with open(writePath, 'w') as f:
                 dictionary= "./A4Warping/temp/img" + str(i) + "/guide.txt"
                 reader = np.loadtxt(dictionary, dtype = int)
                 for j in range(len(reader)):
                     col = reader[j]
+                    print("number of this column: " + str(col))
                     for k in range(col):
                         example, l = sess.run([image,label])#在会话中取出image和label
                         img = Image.fromarray(example, 'RGB')#这里Image是之前提到的
@@ -129,9 +130,10 @@ def detection():
  
 
 if __name__ == '__main__':
-    _create_file()
+    total = 100
+    _create_file(total)
     print("create TFRecord finish!")
-    detection()
+    detection(total)
 #   for i in range(10):
 #       writePath = "../temp/img" + str(i) + "/result.txt"
 #       with open(writePath, 'w') as f:

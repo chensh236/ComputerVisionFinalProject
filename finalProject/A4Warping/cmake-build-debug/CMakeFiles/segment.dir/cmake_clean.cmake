@@ -6,7 +6,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/segment.dir/segment/Projection.cpp.obj"
   "CMakeFiles/segment.dir/segment/cutPiece.cpp.obj"
   "CMakeFiles/segment.dir/segment/prepareLearning.cpp.obj"
-  "CMakeFiles/segment.dir/segment/equalization.cpp.obj"
   "CMakeFiles/segment.dir/segment/reshape.cpp.obj"
   "CMakeFiles/segment.dir/segment/canny.cpp.obj"
   "segment.pdb"

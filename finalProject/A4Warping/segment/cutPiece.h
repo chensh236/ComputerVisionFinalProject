@@ -3,14 +3,13 @@
 
 class cutPiece{
 public:
-    cutPiece(CImg<unsigned char>);
+    cutPiece(CImg<unsigned char>, int);
     CImg<unsigned char> gray;
-    CImg<unsigned char> resultGray;
     CImg<unsigned char> dividingImg;
     vector< vector<square> > getSquare(){return squareVec;}
     static int OSTU(const CImg<unsigned char>&);
 private:
-    CImg<unsigned char> threshold(CImg<unsigned char>&, int, int, float);
+    CImg<unsigned char> threshold(CImg<unsigned char>&, int, float);
     void divideColumn(int);
     void findDividingLine(int, int);
     vector<int> getColumnLine(CImg<unsigned char>&,int);
@@ -19,4 +18,5 @@ private:
     vector<int> linePosition;
     vector<int> blackPixelSet;
     unsigned char lineColor[1] = {0};
+    int seq;
 };

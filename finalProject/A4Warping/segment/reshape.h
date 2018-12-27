@@ -12,7 +12,7 @@ public:
 
     static void bilinear(CImg<unsigned char>&, CImg<unsigned char>&, double);
 
-    static CImg<unsigned char> reotate_biliinar(CImg<unsigned char>&, double, bool);
+    static CImg<unsigned char> reotate_biliinar(CImg<unsigned char>&, double);
 };
 
 

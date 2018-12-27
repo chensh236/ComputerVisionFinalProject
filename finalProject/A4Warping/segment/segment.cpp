@@ -20,6 +20,7 @@ CImg<unsigned char> segment::toGrayScale(CImg<unsigned char> &src)
         double newValue = r * 0.2126 + g * 0.7152 + b * 0.0722;
         gray(x, y) = newValue;
     }
+   // gray.display();
     return gray;
 }
 
@@ -62,26 +63,28 @@ void segment::kmeans(CImg<unsigned char> &src)
     {
         tmp(set1[i].x, set1[i].y) = 255;
     }
+   //tmp.display();
     tmp = generate(tmp);
     block = tmp;
+    //block.display();
     cimg_forXY(tmp, x, y)
     {
         if (tmp(x, y) == 0)
             continue;
-        if ((x - 1 >= 0 && y - 1 >= 0 && tmp(x - 1, y - 1) == 0) ||                 //0
-            (y - 1 >= 0 && tmp(x, y - 1) == 0) ||                                   //1
-            (x + 1 < tmp.width() && y - 1 >= 0 && tmp(x + 1, y - 1) == 0) ||        //2
-            (x - 1 >= 0 && tmp(x - 1, y) == 0) ||                                   //3
-            (x + 1 < tmp.width() && tmp(x + 1, y) == 0) ||                          //5
-            (x - 1 >= 0 && y + 1 < tmp.height() && tmp(x - 1, y + 1) == 0) ||       //6
-            (y + 1 < tmp.height() && tmp(x, y + 1) == 0) ||                         //7
-            (x + 1 < tmp.width() && y + 1 < tmp.height() && tmp(x + 1, y + 1) == 0) //8
-        )
-        {
-            result(x, y) = 255;
+        bool flag = false;
+        for(int i = x - 2; i < x + 3; i++){
+            for(int j = y - 2; j < y + 3; j++){
+                if(i < 0 || j < 0 || i >= tmp.width() || j >= tmp.height()) continue;
+                if(tmp(i, j) == 0) {
+                    flag = true;
+                    break;
+                }
+            }
+            if(flag) break;
         }
+        if(flag) result(x, y) = 255;
     }
-    //result = deleteEdge(result, 20);
+    //result.display();
 }
 
 bool segment::isEqual(position &p1, position &p2)
@@ -107,6 +110,19 @@ CImg<unsigned char> segment::generate(CImg<unsigned char> &input)
 
     // DFS
     CImg<unsigned char> afterGenerate(input.width(), input.height(), 1, 1, 0);
+    //去除干扰
+    cimg_forY(afterGenerate, y){
+        int count = 0;
+        cimg_forX(afterGenerate, x){
+            if(input(x, y) == 255)count++;
+        }
+        if(count < 20){
+            cimg_forX(afterGenerate, x){
+                input(x, y) = 0;
+            }
+        }
+
+    }
     while (!posStack.empty())
     {
         Hough_pos currentPos = posStack.top();
@@ -132,6 +148,7 @@ CImg<unsigned char> segment::generate(CImg<unsigned char> &input)
             }
         }
     }
+
     return afterGenerate;
 }
 

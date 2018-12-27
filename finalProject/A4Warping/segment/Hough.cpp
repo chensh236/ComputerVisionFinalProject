@@ -22,7 +22,17 @@ Hough::Hough(double votingThreshold, double peakDistance, CImg<unsigned char> in
         }
         blueLineImage = tmp;
         houghSpace = initialHoughFromCanny();
-        PointPeak(votingThreshold, peakDistance);
+        int max = 0, min = 10000000;
+        cimg_forXY(houghSpace, x, y){
+            if(houghSpace(x, y) > max){
+                max = houghSpace(x, y);
+            }
+            if(houghSpace(x, y) < min){
+                min = houghSpace(x, y);
+            }
+        }
+        double threshold = (max)*votingThreshold;
+        PointPeak(threshold, peakDistance);
         getLine();
         fitPointImage = blueLineImage;
         getFitPoint(fitPointDistance);
@@ -31,11 +41,6 @@ Hough::Hough(double votingThreshold, double peakDistance, CImg<unsigned char> in
     } else{
         // randon
         cannyResult = input;
-//        //cannyResult = cannyResult.get_blur(1);
-//        cimg_forXY(cannyResult, x,  y ){
-//            cannyResult(x, y) = 255 - cannyResult(x, y);
-//        }
-
         int bor = 10;
         cimg_forXY(cannyResult, x, y){
             if(x <= bor || y <= bor || x >= cannyResult.width() - bor || y >= cannyResult.height() - bor){
@@ -43,25 +48,7 @@ Hough::Hough(double votingThreshold, double peakDistance, CImg<unsigned char> in
             }
         }
 
-//        int count = 0;
-//        while(count--){
-//            CImg<unsigned char>  tmp(cannyResult.width(), cannyResult.height(), 1, 1, 0);
-//            cimg_forXY(cannyResult, x, y){
-//                bool flag = true;
-//                for(int i = y - 1; i < y + 2; i++){
-//                    if(i < 0 || i >= cannyResult.height()) continue;
-//                    if(cannyResult(x, i) == 0){
-//                        flag = false;
-//                    }
-//                }
-//               // cout<<x<<" "<<y<<endl;
-//                if(flag) tmp(x, y) = 255;
-//            }
-//            cannyResult = tmp;
-//        }
-//        cannyResult.display();
-        //cannyResult.display();
-        int count = 20;
+        int count = 90;
         while(count--){
             CImg<unsigned char>  tmp(cannyResult.width(), cannyResult.height(), 1, 1, 0);
             cimg_forXY(cannyResult, x, y){
@@ -77,8 +64,8 @@ Hough::Hough(double votingThreshold, double peakDistance, CImg<unsigned char> in
             }
             cannyResult = tmp;
         }
-        //cannyResult.display();
-        count = 4;
+       //cannyResult.display();
+        count = 10;
         while(count--){
             CImg<unsigned char>  tmp(cannyResult.width(), cannyResult.height(), 1, 1, 0);
             cimg_forXY(cannyResult, x, y){
@@ -95,7 +82,7 @@ Hough::Hough(double votingThreshold, double peakDistance, CImg<unsigned char> in
             cannyResult = tmp;
         }
 
-        //cannyResult.display();
+       //cannyResult.display();
         // 对角线长度
         int diagonal = sqrt(cannyResult.width() * cannyResult.width() + cannyResult.height() * cannyResult.height());
         CImg<int> hough(LOCAL_PI * 4, diagonal, 1, 1, 0);
@@ -127,17 +114,8 @@ Hough::Hough(double votingThreshold, double peakDistance, CImg<unsigned char> in
                 pos = x;
             }
         }
-        randonTheta = (double)pos / 2.0;
-//        cimg_forX(houghSpace, x){
-//            int counter = 0;
-//            cimg_forY(houghSpace, y){
-//                counter += houghSpace(x, y);
-//            }
-//            if(counter > max){
-//                max = counter;
-//                randonTheta = x;
-//            }
-//        }
+        if(max == 0) randonTheta = 90.0;
+        else randonTheta = (double)pos / 2.0;
     }
 
 }
@@ -171,29 +149,37 @@ CImg<int> Hough::initialHoughFromCanny()
 // peaking algorithm
 void Hough::PointPeak(double votingThreshold, double peakDistance)
 {
+    //cout<<houghSpace.width()<<endl;
     cimg_forXY(houghSpace, alpha, r)
     {
         // 判断票数知否大于阈值，筛去低于阈值的像素点
         if (houghSpace(alpha, r) > votingThreshold)
         {
-            Hough_pos tmp(alpha, r, houghSpace(alpha, r));
+            int theta = alpha;
+            Hough_pos tmp(theta, r, houghSpace(alpha, r));
+           // cout<<alpha<<endl;
             bool flag = true;
             for (int i = 0; i < peak.size(); i++)
             {
-                // 如果距离相近，则选取较大的一个作为局部极大值
-                if (sqrt((peak[i].x - alpha) * (peak[i].x - alpha) + (peak[i].y - r) * (peak[i].y - r)) < peakDistance)
-                {
+                if (abs(peak[i].y - r) < houghSpace.height() / 20 &&
+                    (abs(peak[i].x - alpha) < 20 || abs(peak[i].x - alpha) > houghSpace.width() - 20 ||
+                     abs(abs(peak[i].x - alpha) - 180) < 10)) {
                     flag = false;
                     // find max
                     if (houghSpace(alpha, r) > peak[i].val)
                     {
-                        peak[i] = tmp;
+                        peak[i].x = tmp.x;
+                        peak[i].y = tmp.y;
+                        peak[i].val = tmp.val;
                     }
+                } else{
+                    continue;
                 }
             }
             // 符合条件，加入记录局部极大值的vector容器中
             if (flag)
             {
+                //<<tmp.x<<" "<<tmp.y<<endl;
                 peak.push_back(tmp);
             }
         }
@@ -203,45 +189,11 @@ void Hough::PointPeak(double votingThreshold, double peakDistance)
 //计算出直线
 void Hough::getLine()
 {
-    unsigned char BLUE[] = {0, 0, 255};
-    for (int i = 0; i < peak.size(); i++)
-    {
-
-        double theta = (double)(peak[i].x) * cimg::PI / LOCAL_PI;
-        double k = -cos(theta) / sin(theta); // 直线斜率
-        double b = (double)(peak[i].y) / sin(theta);
-        line templine(k, b);
-        bool flag = true;
-        for(int i = 0; i < lines.size(); i++){
-            if(lines[i].k == k && lines[i].b == b){
-                flag = false;
-                break;
-            }
-        }
-        if(!flag) continue;
-        lines.push_back(templine);
-        // 将直线转换为参数方程表示
-        double alpha = atan(k);
-        // cout << "x= " << (cos(alpha)) << "t" << endl;
-        // cout << "y= " << b << " + " << (sin(alpha)) << "t" << endl;
-    }
-
-    // 画出直线
-    for (int i = 0; i < lines.size(); i++)
-    {
-        const int x0 = (double)(0 - lines[i].b) / lines[i].k;
-        const int x1 = (double)(blueLineImage.height() - 1 - lines[i].b) / lines[i].k;
-        const int y0 = 0 * lines[i].k + lines[i].b;
-        const int y1 = (blueLineImage.width() - 1) * lines[i].k + lines[i].b;
-
-        // draw blue line
-        if (abs(lines[i].k) > 1)
-        {
-            blueLineImage.draw_line(x0, 0, x1, blueLineImage.height() - 1, BLUE);
-        }
-        else
-        {
-            blueLineImage.draw_line(0, y0, blueLineImage.width() - 1, y1, BLUE);
+    for(int i = 0; i < peak.size(); i++){
+        cimg_forXY(blueLineImage, x, y){
+            double theta = ((double)peak[i].x * cimg::PI) / 180.0; //角度转弧度
+            int p = (int)(x *cos(theta) + y * sin(theta));
+            if(abs(p - peak[i].y) < 2) blueLineImage(x, y, 2) = 255;
         }
     }
 }
@@ -267,29 +219,36 @@ void Hough::getFitPoint(double distance)
 
 // 获得直线的交点作为纸张的角点
 void Hough::getInterLine(){
-    for(int i = 0; i < lines.size(); ++i){
-        for(int j = 0; j < lines.size(); ++j){
-                double k0 = lines[i].k;
-                double k1 = lines[j].k;
-                double b0 = lines[i].b;
-                double b1 = lines[j].b;
-                if((k0 - k1) == 0.0) continue;
-                int x = (int)((b1 - b0) / (k0 - k1));
-                int y = (int)((k0 * b1 - k1 * b0) / (k0 - k1));
-                if(x < 0 || x >= intersactionImage.width() || y < 0 || y >= intersactionImage.height()) continue;
-                bool flag = true;
-                for(int i = 0; i < result.size(); i++){
-                    if(result[i].x == x &&result[i].y == y){
-                        flag = false;
-                        break;
+    unsigned char yellow[3] = {255, 255, 0};
+    for(int i = 0; i < peak.size(); i ++){
+        for(int j = i + 1; j < peak.size(); j ++){
+            int a1 = peak[i].x;
+            int p1 = peak[i].y;
+            double theta1 = ((double)a1*cimg::PI) / 180;
+            int a2 = peak[j].x;
+            int p2 = peak[j].y;
+            double theta2 = ((double)a2*cimg::PI) / 180;
+            cimg_forXY(intersactionImage, x, y) {
+                if(intersactionImage(x, y, 0) == 255 && intersactionImage(x, y, 1) == 255 && intersactionImage(x, y, 2) == 0) {
+                    continue;
+                }
+                if( p1 == (int)round(y * sin(theta1)) + (int)round(x * cos(theta1)) ) {
+                    bool flag = false;
+                    for(int xb = x - 1; xb < x + 2; xb++){
+                        for(int yb = y - 1; yb < y + 2; yb++){
+                            if(xb < 0 || yb < 0 || yb >= intersactionImage.height() || xb >= intersactionImage.width()) continue;
+                            if( p2 == (int)round(yb * sin(theta2)) + (int)round(xb * cos(theta2)) ) {
+                                intersactionImage.draw_circle(x, y, 5, yellow);
+                                Hough_pos tmp(x, y);
+                                result.push_back(tmp);
+                                flag = true;
+                                break;
+                            }
+                        }
+                        if(flag) break;
                     }
                 }
-                if(!flag) continue;
-                Hough_pos pos(x, y, 0);
-                result.push_back(pos);
-                unsigned char YELLOW[] = {255, 255, 0};
-                if(x >= 0 && x < intersactionImage.width() && y >= 0 && y < intersactionImage.height())
-                    intersactionImage.draw_circle(x, y, 5, YELLOW);
+            }
         }
     }
 }

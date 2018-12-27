@@ -6,7 +6,6 @@ CMakeFiles/segment.dir/segment/Hough.cpp.obj: ../segment/Hough.cpp
 CMakeFiles/segment.dir/segment/Hough.cpp.obj: ../segment/Hough.h
 CMakeFiles/segment.dir/segment/Hough.cpp.obj: ../segment/Projection.h
 CMakeFiles/segment.dir/segment/Hough.cpp.obj: ../segment/cutPiece.h
-CMakeFiles/segment.dir/segment/Hough.cpp.obj: ../segment/equalization.h
 CMakeFiles/segment.dir/segment/Hough.cpp.obj: ../segment/prepareLearning.h
 CMakeFiles/segment.dir/segment/Hough.cpp.obj: ../segment/public.h
 CMakeFiles/segment.dir/segment/Hough.cpp.obj: ../segment/segment.h
@@ -28,22 +27,16 @@ CMakeFiles/segment.dir/segment/cutPiece.cpp.obj: ../segment/Projection.h
 CMakeFiles/segment.dir/segment/cutPiece.cpp.obj: ../segment/canny.h
 CMakeFiles/segment.dir/segment/cutPiece.cpp.obj: ../segment/cutPiece.cpp
 CMakeFiles/segment.dir/segment/cutPiece.cpp.obj: ../segment/cutPiece.h
-CMakeFiles/segment.dir/segment/cutPiece.cpp.obj: ../segment/equalization.h
 CMakeFiles/segment.dir/segment/cutPiece.cpp.obj: ../segment/prepareLearning.h
 CMakeFiles/segment.dir/segment/cutPiece.cpp.obj: ../segment/public.h
 CMakeFiles/segment.dir/segment/cutPiece.cpp.obj: ../segment/reshape.h
 CMakeFiles/segment.dir/segment/cutPiece.cpp.obj: ../segment/segment.h
 CMakeFiles/segment.dir/segment/cutPiece.cpp.obj: ../segment/warp.h
 
-CMakeFiles/segment.dir/segment/equalization.cpp.obj: ../segment/CImg.h
-CMakeFiles/segment.dir/segment/equalization.cpp.obj: ../segment/equalization.cpp
-CMakeFiles/segment.dir/segment/equalization.cpp.obj: ../segment/equalization.h
-
 CMakeFiles/segment.dir/segment/main.cpp.obj: ../segment/CImg.h
 CMakeFiles/segment.dir/segment/main.cpp.obj: ../segment/Hough.h
 CMakeFiles/segment.dir/segment/main.cpp.obj: ../segment/Projection.h
 CMakeFiles/segment.dir/segment/main.cpp.obj: ../segment/cutPiece.h
-CMakeFiles/segment.dir/segment/main.cpp.obj: ../segment/equalization.h
 CMakeFiles/segment.dir/segment/main.cpp.obj: ../segment/main.cpp
 CMakeFiles/segment.dir/segment/main.cpp.obj: ../segment/prepareLearning.h
 CMakeFiles/segment.dir/segment/main.cpp.obj: ../segment/public.h
@@ -53,7 +46,6 @@ CMakeFiles/segment.dir/segment/main.cpp.obj: ../segment/warp.h
 CMakeFiles/segment.dir/segment/prepareLearning.cpp.obj: ../segment/CImg.h
 CMakeFiles/segment.dir/segment/prepareLearning.cpp.obj: ../segment/Projection.h
 CMakeFiles/segment.dir/segment/prepareLearning.cpp.obj: ../segment/cutPiece.h
-CMakeFiles/segment.dir/segment/prepareLearning.cpp.obj: ../segment/equalization.h
 CMakeFiles/segment.dir/segment/prepareLearning.cpp.obj: ../segment/prepareLearning.cpp
 CMakeFiles/segment.dir/segment/prepareLearning.cpp.obj: ../segment/prepareLearning.h
 CMakeFiles/segment.dir/segment/prepareLearning.cpp.obj: ../segment/public.h

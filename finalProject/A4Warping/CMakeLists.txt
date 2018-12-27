@@ -22,8 +22,6 @@ if (APPLE)
             segment/Projection.h
             segment/cutPiece.cpp
             segment/cutPiece.h
-            segment/equalization.cpp
-            segment/equalization.h
             segment/reshape.cpp segment/reshape.h
             segment/canny.cpp segment/canny.h)
 endif (APPLE)
@@ -44,8 +42,6 @@ if(UNIX AND NOT APPLE)
             segment/Projection.h
             segment/cutPiece.cpp
             segment/cutPiece.h
-            segment/equalization.cpp
-            segment/equalization.h
             segment/reshape.cpp segment/reshape.h
             segment/canny.cpp segment/canny.h)
     set (CMAKE_CXX_FLAGS "-lX11 -pthread")
@@ -77,8 +73,6 @@ if (WIN32)
             segment/cutPiece.cpp
             segment/cutPiece.h
             segment/cutPiece.h segment/prepareLearning.cpp segment/prepareLearning.h
-            segment/equalization.cpp
-            segment/equalization.h
             segment/reshape.cpp segment/reshape.h
             segment/canny.cpp segment/canny.h)
 endif(WIN32)

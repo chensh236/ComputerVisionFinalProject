@@ -3,9 +3,7 @@
 //
 #include "prepareLearning.h"
 prepareLearning::prepareLearning(CImg<unsigned char> input, vector<vector<square> > square, int imgSeq, int seqNum) {
-    equalization eql(input);
-    //input = eql.getGrayResult();
-    //input.display("prepare");
+
     for(int i = 0; i < square.size(); i++){
         vector< CImg<unsigned char> > imgTmp;
         for(int j = 0; j < square[i].size(); j++){
@@ -16,15 +14,9 @@ prepareLearning::prepareLearning(CImg<unsigned char> input, vector<vector<square
                 }
             }
             CImg<unsigned char> gray = part;
-            //gray.display();
-            if(thresholdDetect(gray)){
-                //doDilationForEachBarItemImg(gray);
-                gray = resizeNum(gray);
-                  gray = gray.resize(28, 28, true);
-                imgTmp.push_back(gray);
-            }
-
-
+            gray = resizeNum(gray);
+            gray = gray.resize(28, 28, true);
+            imgTmp.push_back(gray);
         }
         imgVec.push_back(imgTmp);
     }
@@ -169,65 +161,5 @@ void prepareLearning::failAccess(string str){
 
 bool prepareLearning::thresholdDetect(CImg<unsigned char>& input){
 
-    int threshold = cutPiece::OSTU(input);
-    cimg_forXY(input, x, y){
-        if(input(x, y) > threshold) input(x, y) = 255;
-        else input(x, y) = 0;
-    }
-
-    CImg<unsigned char> tmp(input.width(), input.height(), 1, 1, 255);
-    //24邻域膨胀
-    cimg_forXY(input,x ,y){
-        bool flag = false;
-        if(input(x, y) == 0){
-            for(int i = x - 2; i < x + 3; i++){
-                for(int j = y - 2; j < y + 3; j++){
-                    if(i >= input.width() || j >= input.height() || i < 0 || j < 0) continue;
-                    if(i == x && j == y) continue;
-                    if(input(i, j) == 0){
-                        flag = true;
-                        break;
-                    }
-                }
-                if(flag) break;
-            }
-        }
-        if(flag) tmp(x, y) = 0;
-    }
-    input = tmp;
-
-
-    //8域膨胀
-    CImg<unsigned char>  tmp2(input.width(), input.height(), 1, 1, 255);
-    cimg_forXY(input, x, y){
-        bool flag = false;
-        for(int i = x - 1; i < x + 2; i++){
-            for(int j = y - 1; j < y + 2; j++){
-                if(i >= input.width() || j >= input.height() || i < 0 || j < 0) continue;
-                if(input(i, j) != 255){
-                    flag = true;
-                    break;
-                }
-            }
-        }
-        if(flag) tmp2(x, y) = 0;
-    }
-    input = tmp2;
-
-    // 侵蚀
-    CImg<unsigned char>  tmp3(input.width(), input.height(), 1, 1, 255);
-    cimg_forXY(input, x, y){
-        bool flag = true;
-        for(int i = x - 1; i < x + 2; i++){
-            for(int j = y - 1; j < y + 2; j++){
-                if(i >= input.width() || j >= input.height() || i < 0 || j < 0) continue;
-                if(input(i, j) == 255){
-                    flag = false;
-                }
-            }
-        }
-        if(flag) tmp3(x, y) = 0;
-    }
-    input = tmp3;
     return true;
 }

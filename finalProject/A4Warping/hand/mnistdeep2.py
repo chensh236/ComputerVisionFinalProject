@@ -9,7 +9,7 @@ def read_and_decode(filename):
 #创建一个reader来读取TFRecord文件中的样例
     reader = tf.TFRecordReader()
     #创建一个队列来维护输入文件列表
-    filename_queue = tf.train.string_input_producer([filename], shuffle = False, num_epochs = None)
+    filename_queue = tf.train.string_input_producer([filename], shuffle = False, num_epochs = 4000 * 100)
     #从文件中读出一个样例，也可以使用read_up_to一次读取多个样例
     _,serialized_example = reader.read(filename_queue)
 #     print _,serialized_example
@@ -28,7 +28,7 @@ def read_and_decode(filename):
 def createBatch(filename,batchsize, numberBatch):
     images,labels = read_and_decode(filename)
     # 乱序参数
-    min_after_dequeue = 1000
+    min_after_dequeue = 4200
     capacity = min_after_dequeue + numberBatch * batchsize
  
     image_batch, label_batch = tf.train.shuffle_batch([images, labels], 
@@ -108,8 +108,8 @@ saver = tf.train.Saver(variables_dict)
 #label = tf.cast(features['label'], tf.int32) #在流中抛出label张量
 train_filename = "pic_train.tfrecords"
 
-numberBatch = 1000
-batchsize = 50
+numberBatch = 4000
+batchsize = 100
 
 
 image_batch, label_batch = createBatch(filename = train_filename,batchsize = batchsize, numberBatch = numberBatch)
@@ -120,7 +120,7 @@ with tf.Session() as sess: #开始一个会话
     threads= tf.train.start_queue_runners(coord=coord)
     for index in range(numberBatch):
         example, l =  sess.run([image_batch,label_batch])
-        print("min-step:" + str(index))
+        # print("min-step:" + str(index))
         for i in range(batchsize):
             img = Image.fromarray(example[i], 'RGB')#这里Image是之前提到的
             img = img.convert('L')

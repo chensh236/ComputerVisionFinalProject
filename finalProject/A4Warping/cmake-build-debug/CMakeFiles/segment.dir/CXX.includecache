@@ -118,71 +118,17 @@ C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/CImg.h
 stdint.h
 -
 
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/Hough.cpp
-iostream
--
-cmath
--
-vector
--
-cstring
--
-Hough.h
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/Hough.h
-prepareLearning.h
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/prepareLearning.h
-
 C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/Hough.h
 public.h
 C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/public.h
-
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/Projection.cpp
-Projection.h
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/Projection.h
 
 C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/Projection.h
 public.h
 C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/public.h
 
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/canny.cpp
-canny.h
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/canny.h
-
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/canny.h
-public.h
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/public.h
-
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/cutPiece.cpp
-cutPiece.h
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/cutPiece.h
-segment.h
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/segment.h
-prepareLearning.h
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/prepareLearning.h
-Hough.h
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/Hough.h
-canny.h
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/canny.h
-reshape.h
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/reshape.h
-
 C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/cutPiece.h
 public.h
 C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/public.h
-
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/equalization.cpp
-equalization.h
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/equalization.h
-
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/equalization.h
-iostream
--
-cmath
--
-time.h
--
-CImg.h
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/CImg.h
 
 C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/main.cpp
 segment.h
@@ -199,18 +145,14 @@ math.h
 -
 thread
 -
-
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/prepareLearning.cpp
-prepareLearning.h
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/prepareLearning.h
+windows.h
+-
 
 C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/prepareLearning.h
 public.h
 C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/public.h
 segment.h
 C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/segment.h
-equalization.h
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/equalization.h
 warp.h
 C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/warp.h
 cutPiece.h
@@ -242,27 +184,9 @@ queue
 fstream
 -
 
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/reshape.cpp
-reshape.h
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/reshape.h
-
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/reshape.h
-public.h
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/public.h
-Projection.h
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/Projection.h
-
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/segment.cpp
-segment.h
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/segment.h
-
 C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/segment.h
 public.h
 C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/public.h
-
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/warp.cpp
-warp.h
-C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/warp.h
 
 C:/Users/Chen Sihang/Desktop/finalProject/finalProject/A4Warping/segment/warp.h
 public.h
